@@ -1,7 +1,7 @@
 const model = {
   //app
   app: {
-    view: "login", //login-menu-match-tournament-history-leaderboard
+    view: "login-menu", //login-menu-match-tournament-history-leaderboard
     user: "SaulGoodman",
     playingTournament: 1,
     //lightMode: true, (nice-to-have)
