@@ -7,7 +7,7 @@
 //     app.innerHTML = html
 // }
 
-logInView();
+// logInView();
 function logInView() {
   let app = document.getElementById("app");
   console.log(model);
