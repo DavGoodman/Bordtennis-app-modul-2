@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.logo {
+  width: 35vw;
+  height: auto;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+}
+
+.btn {
+  border: solid 4px black;
+  border-radius: 32px;
+  height: 64px;
+  width: 80vh;
+  max-width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.filled {
+  background-color: black;
+  color: white;
+}
+
+.helper {
+  background-color: aqua;
+  border: 2px solid red;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.listcontainer {
+  width: 90vw;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #e1e1e1; */
+  /* border: 2px solid black; */
+}
+
+.matchcontainer {
+  width: 100vw;
+  height: 32vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  align-items: center;
+  /* background-color: #e1e1e1; */
+  /* border: 2px solid black; */
+}
+
+.game {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-evenly; */
+}
+.gamescore {
+  width: 80vw;
+  min-height: 3vh;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 22vw auto auto;
+  grid-template-areas:
+    ". myMatchName otherMatchName"
+    "scoreText myScoreBox otherScoreBox";
+  align-items: center;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.scoreinput {
+  /* align-items: center; */
+  /* justify-content: center; */
+  width: 60px;
+  height: 40px;
+  font-size: xx-large;
+  text-align: center;
+}
+
+.buttoncontainer {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.textField {
+  width: 87vw;
+  height: 7.5vh;
+  border-radius: 8px;
+  background-color: #e1e1e1;
+  align-items: center;
+  padding-left: 3vw;
+  font-size: large;
+}
