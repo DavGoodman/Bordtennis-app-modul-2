@@ -24,7 +24,7 @@ const model = {
 
     newMatch: {
       invitedPlayer: [], // data.user[0].userName eller Gjestenavn.
-      score: [0, 0],
+      score: [],
       guest: "",
     },
 
@@ -53,10 +53,8 @@ const model = {
         password: "empire",
         wins: 3,
         losses: 2,
-        totalMatches: 5,
         tournamentWins: 1,
         tournamentLosses: 2,
-        totalTournaments: 3,
       },
       {
         id: 1,
