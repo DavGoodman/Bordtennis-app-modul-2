@@ -2,11 +2,14 @@
 
 //matchView();
 function matchView() {
-    let html = document.getElementById("app");
-    let player = model.inputs.newMatch.invitedPlayer.map(user => `<div style="display: flex; justify-content: space-between; padding: 1rem"><span>${user}</span><button>Hei</button></div>`)
+  let html = document.getElementById("app");
+  let player = model.inputs.newMatch.invitedPlayer.map(
+    (user) =>
+      `<div style="display: flex; justify-content: space-between; padding: 1rem"><span>${user}</span><button>Hei</button></div>`
+  );
 
-    html.innerHTML = "";
-    html.innerHTML = `
+  html.innerHTML = "";
+  html.innerHTML = `
     <div class="container " style="padding-top: 13vh; padding-bottom: 2vh;">
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     </div>
@@ -38,64 +41,40 @@ function matchView() {
   `;
 }
 
-<<<<<<< Updated upstream
 // newMatch();
-=======
 function showUser() {
-    let users = model.data.users;
-    let playerList = '';
+  let users = model.data.users;
+  let playerList = "";
 
-    for (let i = 0; i < users.length; i++) {
-        if (model.inputs.newMatch.invitedPlayer.includes(users[i].userName)) { continue }
-        playerList = `<option value="${users[i].userName}">${users[i].userName}</option>`
+  for (let i = 0; i < users.length; i++) {
+    if (model.inputs.newMatch.invitedPlayer.includes(users[i].userName)) {
+      continue;
     }
-    console.log(playerList)
-    return playerList;
+    playerList = `<option value="${users[i].userName}">${users[i].userName}</option>`;
+  }
+  console.log(playerList);
+  return playerList;
 }
 
-
 function addMatchPlayer(name) {
-    let matchPlayer = model.inputs.newMatch.invitedPlayer;
-    matchPlayer.push(name);
-    console.log(matchPlayer);
-    tournamentView();
+  let matchPlayer = model.inputs.newMatch.invitedPlayer;
+  matchPlayer.push(name);
+  console.log(matchPlayer);
+  tournamentView();
 }
 
 function deleteMatchPlayer(name) {
-    let matchPlayer = model.inputs.newMatch.invitedPlayer;
-    let deleted = matchPlayer.indexOf(name);
-    matchPlayer.splice(deleted, 1);
-    tournamentView();
+  let matchPlayer = model.inputs.newMatch.invitedPlayer;
+  let deleted = matchPlayer.indexOf(name);
+  matchPlayer.splice(deleted, 1);
+  tournamentView();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 newMatch();
->>>>>>> Stashed changes
 function newMatch() {
-    let html = document.getElementById("app");
-    html.innerHTML = "";
-    html.innerHTML = `
+  let html = document.getElementById("app");
+  html.innerHTML = "";
+  html.innerHTML = `
     <div class="container " style="padding-top: 13vh; padding-bottom: 2vh;">
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     </div>  
@@ -121,4 +100,4 @@ function newMatch() {
   `;
 }
 
-function completeMatch() { }
+function completeMatch() {}

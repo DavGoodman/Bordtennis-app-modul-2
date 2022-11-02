@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-
 function menuView() {
   let app = document.getElementById("app");
   let html = "";
