@@ -23,7 +23,7 @@ const model = {
     },
 
     newMatch: {
-      invitedPlayer: "", // data.user[0].userName eller Gjestenavn.
+      invitedPlayer: [], // data.user[0].userName eller Gjestenavn.
       score: [0, 0],
       guest: "",
     },
@@ -31,7 +31,7 @@ const model = {
     newTournament: {
       tournamentName: "",
       newParticpantName: "", // "søkefelt" for nye spillere eller gjestespillere.
-      participants: ["", "Harald"], // data.user[0]
+      participants: [], // data.user[0]
       matchScores: [],
     },
 
@@ -60,6 +60,7 @@ const model = {
       },
       {
         id: 1,
+<<<<<<< Updated upstream
         userName: "SaulGoodman",
         firstName: "James",
         lastName: "McGill",
@@ -83,6 +84,59 @@ const model = {
         tournamentWins: 1,
         tournamentLosses: 2,
         totalTournaments: 3,
+=======
+        userName: "Trinityn",
+        firstName: "Bjørnar",
+        lastName: "J",
+        password: "pizza123",
+        wins: 97,
+        losses: 3,
+        tournamentWins: 0,
+        tournamentLosses: 0,
+      },
+      {
+        id: 2,
+        userName: "Robhimself",
+        firstName: "Robert",
+        lastName: "L",
+        password: "monster",
+        wins: 8,
+        losses: 4,
+        tournamentWins: 2,
+        tournamentLosses: 1,
+      },
+      {
+        id: 3,
+        userName: "davyJones",
+        firstName: "David",
+        lastName: "Brynjarsson",
+        password: "iloveSaulGoodman",
+        wins: 43,
+        losses: 88,
+        tournamentWins: 0,
+      },
+      {
+        id: 4,
+        userName: "benji",
+        firstName: "Benjamin",
+        lastName: "Lærer",
+        password: "imdaman",
+        wins: 12,
+        losses: 4,
+        tournamentWins: 2,
+        tournamentLosses: 10,
+      },
+      {
+        id: 5,
+        userName: "dankert",
+        firstName: "Simen",
+        lastName: "Kristiansen",
+        password: "kjørda",
+        wins: 5,
+        losses: 5,
+        tournamentWins: 90,
+        tournamentLosses: 0,
+>>>>>>> Stashed changes
       },
     ],
 
