@@ -74,6 +74,7 @@ function register(){
         logInView(true, errMsg)
         return}
 
+        
     
     model.data.users.push({
         id: users.length,
