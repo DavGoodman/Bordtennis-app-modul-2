@@ -1,8 +1,8 @@
-leaderboardView()
+//leaderboardView()
 function leaderboardView() {
-    let app = document.getElementById("app");
-    let html = ""
-    html += `
+  let app = document.getElementById("app");
+  let html = "";
+  html += `
     <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     <h1>
         <span>Tournaments</span>
@@ -14,6 +14,6 @@ function leaderboardView() {
         <option value="wins">wins</option>
         <option value="win rate">win rate</option>
     </select>
-    `
-    app.innerHTML = html
+    `;
+  app.innerHTML = html;
 }

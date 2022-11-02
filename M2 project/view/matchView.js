@@ -41,7 +41,6 @@ function matchView() {
   `;
 }
 
-// newMatch();
 function showUser() {
   let users = model.data.users;
   let playerList = "";
@@ -70,7 +69,7 @@ function deleteMatchPlayer(name) {
   tournamentView();
 }
 
-newMatch();
+//newMatch();
 function newMatch() {
   let html = document.getElementById("app");
   html.innerHTML = "";
@@ -99,5 +98,3 @@ function newMatch() {
     </div>
   `;
 }
-
-function completeMatch() {}

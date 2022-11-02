@@ -1,34 +1,34 @@
-
 //David
 
 logInView();
 function logInView(err, errMsg) {
   // model.app.view = "login"
   let app = document.getElementById("app");
-  
-  view = model.app.view
-  console.log(view)
+
+  view = model.app.view;
+  console.log(view);
 
   // let menu = "login-menu" === view
   // let login = "login" === view
   // let register = "register" === view
 
-
   // console.log(menu, login, register)
- 
- 
 
   let html = "";
   html += /*HTML*/ `
   <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     
-    <div class="login--inputs">${view === "login-menu"? "" : view ==="login"? `
+    <div class="login--inputs">${
+      view === "login-menu"
+        ? ""
+        : view === "login"
+        ? `
 
     <div><input oninput="model.inputs.login.userName = this.value" placeholder="brukernavn" type="text"></div>
     <div><input oninput="model.inputs.login.password = this.value" placeholder="passord" type="password"></div>`
-    : /*HTML*/`
+        : /*HTML*/ `
     <div>
-      <input oninput="model.inputs.register.firstName = this.value" placeholder="førstenavn" type="text">
+      <input oninput="model.inputs.register.firstName = this.value" placeholder="fornavn" type="text">
       <input oninput="model.inputs.register.lastName = this.value" placeholder="etternavn" type="text">
     </div>
 
@@ -44,16 +44,22 @@ function logInView(err, errMsg) {
    
       
 
-    `}</div>
+    `
+    }</div>
 
-      <div>${err? errMsg : ""}</div>
+      <div>${err ? errMsg : ""}</div>
 
 
 
    
 
-    <button ${view === "login-menu"? `onclick="toLogin('login')"` : 
-             view === "login" ? `onclick="login()"` : `onclick="register()"`}>
+    <button ${
+      view === "login-menu"
+        ? `onclick="toLogin('login')"`
+        : view === "login"
+        ? `onclick="login()"`
+        : `onclick="register()"`
+    }>
 
         ${view === "register" ? "submit" : "log in"}
      </button>
@@ -66,14 +72,18 @@ function logInView(err, errMsg) {
   app.innerHTML = html;
 }
 
-
 let smt = `
-  <button ${view === "login-menu"? `onclick="toLogin('login')"` : 
-  view === "login" ? `onclick="login()"` : `onclick="register()"`}>
+  <button ${
+    view === "login-menu"
+      ? `onclick="toLogin('login')"`
+      : view === "login"
+      ? `onclick="login()"`
+      : `onclick="register()"`
+  }>
 
   ${view === "register" ? "submit" : "log in"}
   </button>
 
   <button ${view === "login-menu" ? `onclick="toLogin('register')"` : `onclick="toLogin('login-menu')"`}>
   ${view === "login-menu" ? "registrer" : "avbryt"}
-  </button>`
+  </button>`;
