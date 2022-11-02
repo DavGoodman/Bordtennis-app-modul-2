@@ -1,52 +1,79 @@
-// function view(){
-//     let app = document.getElementById("app")
-//     let html = ""
 
-//     html = logInView()
-
-//     app.innerHTML = html
-// }
+//David
 
 logInView();
-function logInView() {
-  model.app.view ="login-menu"
-  view = model.app.view
-
+function logInView(err, errMsg) {
+  // model.app.view = "login"
   let app = document.getElementById("app");
-  console.log(model)
+  
+  view = model.app.view
+  console.log(view)
+
+  // let menu = "login-menu" === view
+  // let login = "login" === view
+  // let register = "register" === view
+
+
+  // console.log(menu, login, register)
+ 
+ 
 
   let html = "";
-  html +=  `
+  html += /*HTML*/ `
   <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     
     <div class="login--inputs">${view === "login-menu"? "" : view ==="login"? `
 
-    <div><input placeholder="brukernavn" type="text"></div>
-    <div><input placeholder="passord" type="text"></div>`
-    : `
+    <div><input oninput="model.inputs.login.userName = this.value" placeholder="brukernavn" type="text"></div>
+    <div><input oninput="model.inputs.login.password = this.value" placeholder="passord" type="password"></div>`
+    : /*HTML*/`
     <div>
-      <input placeholder="førstenavn" type="text">
-      <input placeholder="etternavn" type="text">
+      <input oninput="model.inputs.register.firstName = this.value" placeholder="førstenavn" type="text">
+      <input oninput="model.inputs.register.lastName = this.value" placeholder="etternavn" type="text">
     </div>
 
    
-      <input placeholder="brukernavn" type="text">
+      <input oninput="model.inputs.register.userName = this.value" placeholder="brukernavn" type="text">
    
 
   
-      <input placeholder="passord" type="text">
+      <input oninput="model.inputs.register.password = this.value" placeholder="passord" type="password">
   
    
-      <input placeholder="bekreft passord" type="text">
+      <input oninput="model.inputs.register.confirmPassword = this.value" placeholder="bekreft passord" type="password">
    
-    
+      
 
     `}</div>
 
+      <div>${err? errMsg : ""}</div>
+
+
+
    
 
-    <button>${view === "register" ? "submit" : "log in"}</button>
-    <button> ${view === "login-menu" ? "registrer" : "avbryt"}</button>
+    <button ${view === "login-menu"? `onclick="toLogin('login')"` : 
+             view === "login" ? `onclick="login()"` : `onclick="register()"`}>
+
+        ${view === "register" ? "submit" : "log in"}
+     </button>
+
+    <button ${view === "login-menu" ? `onclick="toLogin('register')"` : `onclick="toLogin('login-menu')"`}>
+        ${view === "login-menu" ? "registrer" : "avbryt"}
+    </button>
     `;
+
   app.innerHTML = html;
 }
+
+
+let smt = `
+  <button ${view === "login-menu"? `onclick="toLogin('login')"` : 
+  view === "login" ? `onclick="login()"` : `onclick="register()"`}>
+
+  ${view === "register" ? "submit" : "log in"}
+  </button>
+
+  <button ${view === "login-menu" ? `onclick="toLogin('register')"` : `onclick="toLogin('login-menu')"`}>
+  ${view === "login-menu" ? "registrer" : "avbryt"}
+  </button>`

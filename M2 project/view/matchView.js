@@ -27,7 +27,7 @@ function matchView() {
   `;
 }
 
-newMatch();
+// newMatch();
 function newMatch() {
   let html = document.getElementById("app");
   html.innerHTML = "";

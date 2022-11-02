@@ -2,7 +2,7 @@ const model = {
   //app
   app: {
     view: "login-menu", //login-menu-match-tournament-history-leaderboard
-    user: "SaulGoodman",
+    user: null,
     playingTournament: 1,
     //lightMode: true, (nice-to-have)
     //language: "english" / "norsk" / "magyar"
@@ -46,17 +46,43 @@ const model = {
   data: {
     users: [
       {
+        id: 0,
+        userName: "HeisenBerg",
+        firstName: "Walter",
+        lastName: "White",
+        password: "empire",
+        wins: 3,
+        losses: 2,
+        totalMatches: 5,
+        tournamentWins: 1,
+        tournamentLosses: 2,
+        totalTournaments: 3,
+      },
+      {
         id: 1,
-        userName: "",
-        firstName: "",
-        lastName: "",
-        password: "",
-        wins: 0,
-        losses: 0,
-        totalMatches: 0,
-        tournamentWins: 0,
-        tournamentLosses: 0,
-        totalTournaments: 0,
+        userName: "SaulGoodman",
+        firstName: "James",
+        lastName: "McGill",
+        password: "Wexler",
+        wins: 3,
+        losses: 2,
+        totalMatches: 5,
+        tournamentWins: 1,
+        tournamentLosses: 2,
+        totalTournaments: 3,
+      },
+      {
+        id: 2,
+        userName: "ChickenMan",
+        firstName: "Gustavo",
+        lastName: "Fring",
+        password: "Max",
+        wins: 3,
+        losses: 2,
+        totalMatches: 5,
+        tournamentWins: 1,
+        tournamentLosses: 2,
+        totalTournaments: 3,
       },
     ],
 

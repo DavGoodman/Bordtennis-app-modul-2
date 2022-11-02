@@ -1,4 +1,4 @@
-menuView();
+
 
 function menuView() {
   let app = document.getElementById("app");
