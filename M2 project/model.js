@@ -60,31 +60,6 @@ const model = {
       },
       {
         id: 1,
-<<<<<<< Updated upstream
-        userName: "SaulGoodman",
-        firstName: "James",
-        lastName: "McGill",
-        password: "Wexler",
-        wins: 3,
-        losses: 2,
-        totalMatches: 5,
-        tournamentWins: 1,
-        tournamentLosses: 2,
-        totalTournaments: 3,
-      },
-      {
-        id: 2,
-        userName: "ChickenMan",
-        firstName: "Gustavo",
-        lastName: "Fring",
-        password: "Max",
-        wins: 3,
-        losses: 2,
-        totalMatches: 5,
-        tournamentWins: 1,
-        tournamentLosses: 2,
-        totalTournaments: 3,
-=======
         userName: "Trinityn",
         firstName: "Bjørnar",
         lastName: "J",
@@ -136,7 +111,6 @@ const model = {
         losses: 5,
         tournamentWins: 90,
         tournamentLosses: 0,
->>>>>>> Stashed changes
       },
     ],
 
