@@ -15,17 +15,6 @@ function deletePlayer(name) {
   tournamentView();
 }
 
-//   function deletePlayer2(user) {
-//     console.log("Check" + user);
-//     let participants = model.inputs.newTournament.participants;
-//     let index = participants.indexOf(user);
-//     console.log("check user " + user);
-//     console.log("check index " + index);
-//     const newList = participants.filter((index) => participants.splice(index, 1));
-//     console.log(newList);
-//     tournamentView();
-//   }
-
 function addMatchPlayer(name) {
   let matchPlayer = model.inputs.newMatch.invitedPlayer;
   if (matchPlayer.length === 0) {
@@ -42,4 +31,4 @@ function deleteMatchPlayer(name) {
   matchView();
 }
 
-function startMatch() {}
+function startMatch() { }
