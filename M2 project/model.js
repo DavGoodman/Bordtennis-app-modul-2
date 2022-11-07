@@ -117,7 +117,7 @@ const model = {
 
     matches: [
       {
-        matchId: 0,
+        matchId: 1,
         datePlayed: "13.12.22", //sjekk formatering ved Date.Now
         participants: [
           { playerId: 1, matchScore: 10 },
