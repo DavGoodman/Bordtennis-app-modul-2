@@ -17,14 +17,30 @@ function leaderboardView() {
     </div>
 
     <label for="choose">sort by</label>
-    <select onchange="" name="choose">
-        <option value="wins">wins</option>
-        <option value="win rate">win rate</option>
+    <select onchange="sortBy(this)" name="choose">
+      ${getOptions()};
     </select>
 
     ${getWins()}
     `;
   app.innerHTML = html;
+}
+
+
+function getOptions(){
+
+  let selectedOptionIndex = model.app.leaderboradSelectIndex;
+
+  let html = ``;
+  let options = ['wins', 'win rate'];
+
+  options.forEach((option, index) => {
+    let isSelected = index === selectedOptionIndex ? "selected" : "";
+    html += `<option value="${option}" ${isSelected}>${option}</option>`;
+  });
+
+
+  return html;
 }
 
 
@@ -50,25 +66,46 @@ function getWins(winType){
 
 function getStats(){
   let category = model.inputs.leaderboard.category
+  let sortBy = model.inputs.leaderboard.sortBy
   let users = model.data.users
-
-  let matchWinners = users.sort((a, b) => (a.wins < b.wins) ? 1 : -1)
-  console.log(matchWinners)
-  
-  let tournamentWinners = users.sort((a, b) => (a.tournamentWins < b.tournamentWins)? 1: -1)
 
   
   if(category === "tournaments"){
+
+    let tournamentWinners = []  
+    if(sortBy === "wins"){tournamentWinners = users.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
+        a.tournamentLosses + a.tournamentWins === 0? 1: -1)}
+    else{
+      tournamentWinners = users.sort((a, b) =>
+        a.tournamentWins / (a.tournamentWins + a.tournamentLosses) < 
+        b.tournamentWins / (b.tournamentWins + b.tournamentLosses) || 
+        a.tournamentLosses + a.tournamentWins === 0? 1: -1)
+      }
+
     return tournamentWinners.map((user, index) => `
       <tr>
         <th>${index + 1}</th>
         <th>${user.tournamentWins}/${user.tournamentLosses}</th>
-        <th>${Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100)}
-        %</th>
+        <th>${user.tournamentWins + user.tournamentLosses === 0? "N/A" :
+         Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100) + "%"}
+        </th>
         <th>${user.userName}</th>
       </tr>`)
   }
 
+
+
+
+  let matchWinners = []
+  if(sortBy === "wins"){matchWinners = users.sort((a, b) => (a.wins < b.wins) || 
+    a.losses + a.wins === 0? 1 : -1)}
+  else{
+    matchWinners = users.sort((a, b) =>
+        a.wins / (a.wins + a.losses) < 
+        b.wins / (b.wins + b.losses) ||
+        a.losses + a.wins === 0? 1: -1)
+  }
+  
   return matchWinners.map((user, index) => `
       <tr>
         <th>${index + 1}</th>

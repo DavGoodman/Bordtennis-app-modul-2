@@ -4,6 +4,7 @@ const model = {
     view: "login-menu", //login-menu-match-tournament-history-leaderboard
     user: null,
     playingTournament: 1,
+    leaderboradSelectIndex: 0,
 
     //lightMode: true, (nice-to-have)
     //language: "english" / "norsk" 
@@ -38,7 +39,7 @@ const model = {
 
     leaderboard: {
       sortBy: "wins", // wins - win rate% - (rating)?
-      category: "matches", //matches - tournaments
+      category: "tournaments", //matches - tournaments
       showLast: "month", // day - week - month - year - all time? days7, days30, days365, allTime
     },
   },
