@@ -1,9 +1,5 @@
 //David
 
-<<<<<<< Updated upstream
-// logInView();
-
-=======
 //test();
 function test() {
   let daysInMs = 7 * 60 * 60 * 24 * 1000;
@@ -17,7 +13,6 @@ function test() {
 }
 
 logInView();
->>>>>>> Stashed changes
 function logInView(err, errMsg) {
   // model.app.view = "login"
   let app = document.getElementById("app");
@@ -97,10 +92,6 @@ function logInView(err, errMsg) {
 //       ? `onclick="login()"`
 //       : `onclick="register()"`
 //   }>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
 //   ${view === "register" ? "submit" : "log in"}
 //   </button>
