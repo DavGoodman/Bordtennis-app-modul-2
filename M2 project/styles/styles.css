@@ -57,3 +57,7 @@ body {
 table, th, td {
   border: 1px solid black;
 }
+
+.date-sort-leaderboard > span{
+  margin: 0 12px;
+}

@@ -1,4 +1,4 @@
-historyView();
+//historyView();
 function historyView() {
     model.app.view = 'history';
     let app = document.getElementById('app');
