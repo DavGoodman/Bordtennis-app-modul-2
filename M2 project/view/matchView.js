@@ -1,8 +1,8 @@
-// //match
 // let view = model.app.view;
 // model.app.user = "HeisenBerg";
 // view = "match";
 // matchView();
+
 function matchView() {
   let html = document.getElementById("app");
   let player = model.inputs.newMatch.invitedPlayer.map(
@@ -67,7 +67,7 @@ function showUser() {
     if (model.inputs.newMatch.invitedPlayer.includes(users[i].userName)) {
       continue;
     }
-    playerList += `<option value="${users[i].userName}">${users[i].userName}</option>`;
+    playerList += `<option class="player-option" value="${users[i].userName}">${users[i].userName}</option>`;
   }
   return playerList;
 }
@@ -110,20 +110,15 @@ function finalizeMatchData() {
       opponentID = users[i].id;
       break;
     }
+    // passing guestname as ID. (?)
     if (i == users.length - 1) {
-      // passing guestname as ID. (?)
       opponentID = opponent[0];
       console.log("Guest-user: " + opponentID);
     }
   }
 
   let today = new Date();
-  //console.log("today = " + today); //
-  //let parseToday = Date.parse(today);
-  //console.log("Date.parse(today) = " + parseToday); //
-
-  let timeOfCompletion = today;
-
+  let timeOfCompletion = today.toISOString();
   let makeMatchID = matches.length + 1;
 
   let newMatchData = {
@@ -135,5 +130,34 @@ function finalizeMatchData() {
     ],
   };
   matches.push(newMatchData);
-  historyView();
+}
+
+function checkTime(timeWindow) {
+  let matches = model.data.matches;
+  let daysInMs = timeWindow * 60 * 60 * 24 * 1000;
+  let dateToday = new Date();
+
+  for (let i = 0; i < matches.length; i++) {
+    let previousDate = new Date(matches[i].datePlayed);
+    let timeSinceMatch = dateToday.getTime() - previousDate.getTime();
+    if (timeSinceMatch < daysInMs) {
+      console.log("its less than " + timeWindow + " days and i = " + i);
+    }
+  }
+}
+
+//test(7);
+function test(timeWindow) {
+  let daysInMs = timeWindow * 60 * 60 * 24 * 1000;
+
+  let now = new Date().getTime();
+
+  let test = model.data.matches.filter((match, matchId) => now - new Date(match.datePlayed).getTime() < daysInMs);
+  // model.data.matches[i]
+
+  // let smt = model.data.matches.map((match, index)=> `
+  //   <div onclick="deleteThis(${index})">${match.datePlayed}</div>
+  // `)
+
+  console.log(test);
 }

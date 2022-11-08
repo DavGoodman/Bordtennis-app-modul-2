@@ -7,7 +7,7 @@ const model = {
     leaderboradSelectIndex: 0,
 
     //lightMode: true, (nice-to-have)
-    //language: "english" / "norsk" 
+    //language: "english" / "norsk"
   },
 
   //inputss
@@ -118,10 +118,34 @@ const model = {
     matches: [
       {
         matchId: 1,
-        datePlayed: "13.12.22", //sjekk formatering ved Date.Now
+        datePlayed: "2022-11-08T10:14:03.123Z", //ISO 8601
         participants: [
           { playerId: 1, matchScore: 10 },
           { playerId: 2, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 2,
+        datePlayed: "2022-11-07T10:20:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 2, matchScore: 10 },
+          { playerId: 5, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 3,
+        datePlayed: "2022-10-07T10:20:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 2, matchScore: 10 },
+          { playerId: 5, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 4,
+        datePlayed: "2022-09-07T15:20:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 2, matchScore: 10 },
+          { playerId: 5, matchScore: 7 },
         ],
       },
     ],
@@ -184,24 +208,24 @@ const model = {
             tournamentMatchId: 2,
             round: 1,
             participants: [
-              { playerId: 1, matchScore: 10 },
-              { playerId: 2, matchScore: 7 },
+              { playerId: 3, matchScore: 10 },
+              { playerId: 4, matchScore: 7 },
             ],
           },
           {
             tournamentMatchId: 3,
             round: 1,
             participants: [
-              { playerId: 1, matchScore: 10 },
-              { playerId: 2, matchScore: 7 },
+              { playerId: 5, matchScore: 10 },
+              { playerId: 6, matchScore: 7 },
             ],
           },
           {
             tournamentMatchId: 4,
             round: 1,
             participants: [
-              { playerId: 1, matchScore: 10 },
-              { playerId: 2, matchScore: 7 },
+              { playerId: 7, matchScore: 10 },
+              { playerId: 8, matchScore: 7 },
             ],
           },
 
@@ -210,27 +234,27 @@ const model = {
             round: 2,
             participants: [
               { playerId: 1, matchScore: 10 },
-              { playerId: 2, matchScore: 7 },
+              { playerId: 3, matchScore: 7 },
             ],
           },
           {
             tournamentMatchId: 6,
             round: 2,
             participants: [
-              { playerId: 1, matchScore: 10 },
-              { playerId: 2, matchScore: 7 },
+              { playerId: 5, matchScore: 10 },
+              { playerId: 7, matchScore: 7 },
             ],
           },
           {
             tournamentMatchId: 7,
             round: 3,
             participants: [
-              { playerId: 3, matchScore: 10 },
-              { playerId: 2, matchScore: 7 },
+              { playerId: 1, matchScore: 10 },
+              { playerId: 5, matchScore: 7 },
             ],
           },
         ],
-        winnerId: 3,
+        winnerId: 1,
         //fightForThird: false, (nice-to-have)
       },
     ],

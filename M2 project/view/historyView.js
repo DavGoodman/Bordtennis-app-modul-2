@@ -1,13 +1,13 @@
 //historyView();
 function historyView() {
-    model.app.view = 'history';
-    let app = document.getElementById('app');
+  model.app.view = "history";
+  let app = document.getElementById("app");
 
-    let html = '';
-    let matches = model.data.matches;
-    let tournaments = model.data.tournaments;
+  let html = "";
+  let matches = model.data.matches;
+  let tournaments = model.data.tournaments;
 
-    html += /*html*/`
+  html += /*html*/ `
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
         <table>
             <thead>
@@ -25,13 +25,19 @@ function historyView() {
         </table>
     `;
 
-    app.innerHTML = html;
+  app.innerHTML = html;
 }
 
+function checkMatches() {
+  const matches = model.data.matches.filter(
+    (match) => model.user === match.participants[0].playerId || model.user === match.participants[1].playerId
+  );
+  console.log(matches);
+}
 
-function getUserName(playerId) {
-
-    const tagName = model.data.users.filter((id) => model.data.users[id].userName);
-
-    console.log(tagName)
+function checkTournaments() {
+  const tMatches = model.data.tournaments.filter(
+    (match) => model.user === match.participants[0].playerId || model.user === match.participants[1].playerId
+  );
+  console.log(tMatches);
 }
