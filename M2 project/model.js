@@ -4,8 +4,10 @@ const model = {
     view: "login-menu", //login-menu-match-tournament-history-leaderboard
     user: null,
     playingTournament: 1,
+    leaderboradSelectIndex: 0,
+
     //lightMode: true, (nice-to-have)
-    //language: "english" / "norsk" / "magyar"
+    //language: "english" / "norsk" 
   },
 
   //inputss
@@ -37,7 +39,7 @@ const model = {
 
     leaderboard: {
       sortBy: "wins", // wins - win rate% - (rating)?
-      category: "matches", //matches - tournaments
+      category: "tournaments", //matches - tournaments
       showLast: "month", // day - week - month - year - all time? days7, days30, days365, allTime
     },
   },
@@ -75,7 +77,7 @@ const model = {
         password: "monster",
         wins: 8,
         losses: 4,
-        tournamentWins: 2,
+        tournamentWins: 9,
         tournamentLosses: 1,
       },
       {
@@ -87,6 +89,7 @@ const model = {
         wins: 43,
         losses: 88,
         tournamentWins: 0,
+        tournamentLosses: 10,
       },
       {
         id: 4,
@@ -105,7 +108,7 @@ const model = {
         firstName: "Simen",
         lastName: "Kristiansen",
         password: "kjørda",
-        wins: 5,
+        wins: 12,
         losses: 5,
         tournamentWins: 90,
         tournamentLosses: 0,
@@ -114,7 +117,7 @@ const model = {
 
     matches: [
       {
-        matchId: 0,
+        matchId: 1,
         datePlayed: "13.12.22", //sjekk formatering ved Date.Now
         participants: [
           { playerId: 1, matchScore: 10 },

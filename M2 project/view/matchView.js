@@ -1,6 +1,8 @@
-//match
-let view = (model.app.view = "match");
-//matchView();
+// //match
+// let view = model.app.view;
+// model.app.user = "HeisenBerg";
+// view = "match";
+// matchView();
 function matchView() {
   let html = document.getElementById("app");
   let player = model.inputs.newMatch.invitedPlayer.map(
@@ -71,35 +73,67 @@ function showUser() {
 }
 
 function newMatch() {
-  console.log("what");
   if (model.inputs.newMatch.invitedPlayer.length === 1) {
-    view = model.app.view = "match-started";
+    view = "match-started";
   }
   matchView();
 }
 
 function completeMatch(my, other) {
-  console.log(myScore.value);
-  console.log(otherScore.value);
-  if (my <= 10 && other <= 10) {
-    //let score = model.inputs.newMatch.score;
+  if (my < 0 || other < 0 || my > 10 || other > 10 || (my == 10 && other == 10)) {
+    alert("Du må sette riktig score!");
+  } else {
     model.inputs.newMatch.score = [my, other];
-
-    //finalizeMatchData(my, other, me, opponent);
+    finalizeMatchData();
   }
 }
 
-function finalizeMatchData(myScore, otherScore, myID, opponentID) {
+function finalizeMatchData() {
+  let users = model.data.users;
+  let opponent = model.inputs.newMatch.invitedPlayer;
+  let finalScore = model.inputs.newMatch.score;
   let matches = model.data.matches;
-  let timeOfCompletion = new date.now();
+  let myID;
+  let opponentID;
+
+  // finding my own ID - for now.
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].userName == model.app.user) {
+      myID = users[i].id;
+      break;
+    }
+  }
+
+  // finding opponent's ID.
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].userName == opponent) {
+      opponentID = users[i].id;
+      break;
+    }
+    if (i == users.length - 1) {
+      // passing guestname as ID. (?)
+      opponentID = opponent[0];
+      console.log("Guest-user: " + opponentID);
+    }
+  }
+
+  let today = new Date();
+  //console.log("today = " + today); //
+  //let parseToday = Date.parse(today);
+  //console.log("Date.parse(today) = " + parseToday); //
+
+  let timeOfCompletion = today;
+
   let makeMatchID = matches.length + 1;
+
   let newMatchData = {
     matchId: makeMatchID,
     datePlayed: timeOfCompletion,
     participants: [
-      { playerId: myID, matchScore: myScore },
-      { playerId: opponentID, matchScore: otherScore },
+      { playerId: myID, matchScore: finalScore[0] },
+      { playerId: opponentID, matchScore: finalScore[1] },
     ],
   };
   matches.push(newMatchData);
+  historyView();
 }

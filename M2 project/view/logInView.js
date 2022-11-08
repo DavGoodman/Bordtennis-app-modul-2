@@ -1,6 +1,10 @@
 //David
 
+<<<<<<< HEAD
 // logInView();
+=======
+//logInView();
+>>>>>>> ab07cbafd70178a776d5cdbb55847628369b11d8
 function logInView(err, errMsg) {
   // model.app.view = "login"
   let app = document.getElementById("app");
@@ -70,6 +74,7 @@ function logInView(err, errMsg) {
   app.innerHTML = html;
 }
 
+<<<<<<< HEAD
 let smt = `
   <button ${view === "login-menu"
     ? `onclick="toLogin('login')"`
@@ -77,10 +82,20 @@ let smt = `
       ? `onclick="login()"`
       : `onclick="register()"`
   }>
+=======
+// let smt = `
+//   <button ${
+//     view === "login-menu"
+//       ? `onclick="toLogin('login')"`
+//       : view === "login"
+//       ? `onclick="login()"`
+//       : `onclick="register()"`
+//   }>
+>>>>>>> ab07cbafd70178a776d5cdbb55847628369b11d8
 
-  ${view === "register" ? "submit" : "log in"}
-  </button>
+//   ${view === "register" ? "submit" : "log in"}
+//   </button>
 
-  <button ${view === "login-menu" ? `onclick="toLogin('register')"` : `onclick="toLogin('login-menu')"`}>
-  ${view === "login-menu" ? "registrer" : "avbryt"}
-  </button>`;
+//   <button ${view === "login-menu" ? `onclick="toLogin('register')"` : `onclick="toLogin('login-menu')"`}>
+//   ${view === "login-menu" ? "registrer" : "avbryt"}
+//   </button>`;

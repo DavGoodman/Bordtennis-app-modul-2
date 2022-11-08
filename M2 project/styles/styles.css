@@ -45,3 +45,15 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+
+.selected{
+  font-weight: bold;
+}
+
+.leaderboard-categories{
+  font-size: 2rem;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
