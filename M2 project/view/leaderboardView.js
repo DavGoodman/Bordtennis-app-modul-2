@@ -70,33 +70,16 @@ function getStats() {
   let users = model.data.users
 
 
-  if (category === "tournaments") {
+  if (category === "tournaments") {return getTourneyWinners()}
+  return getMatchWinners()
 
-    let tournamentWinners = []
-    if (sortBy === "wins") {
-      tournamentWinners = users.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
-        a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
-    }
-    else {
-      tournamentWinners = users.sort((a, b) =>
-        a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
-          b.tournamentWins / (b.tournamentWins + b.tournamentLosses) ||
-          a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
-    }
-
-    return tournamentWinners.map((user, index) => `
-      <tr>
-        <th>${index + 1}</th>
-        <th>${user.tournamentWins}/${user.tournamentLosses}</th>
-        <th>${user.tournamentWins + user.tournamentLosses === 0 ? "N/A" :
-        Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100) + "%"}
-        </th>
-        <th>${user.userName}</th>
-      </tr>`)
-  }
+}
 
 
 
+function getMatchWinners(){
+  let sortBy = model.inputs.leaderboard.sortBy
+  let users = model.data.users
 
   let matchWinners = []
   if (sortBy === "wins") {
@@ -118,6 +101,34 @@ function getStats() {
         %</th>
         <th>${user.userName}</th>
       </tr>`)
+}
+
+function getTourneyWinners(){
+  let sortBy = model.inputs.leaderboard.sortBy
+  let users = model.data.users
+
+  let tournamentWinners = []
+  if (sortBy === "wins") {
+    tournamentWinners = users.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
+      a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
+  }
+  else {
+    tournamentWinners = users.sort((a, b) =>
+      a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
+        b.tournamentWins / (b.tournamentWins + b.tournamentLosses) ||
+        a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
+
+
+  return tournamentWinners.map((user, index) => `
+    <tr>
+      <th>${index + 1}</th>
+      <th>${user.tournamentWins}/${user.tournamentLosses}</th>
+      <th>${user.tournamentWins + user.tournamentLosses === 0 ? "N/A" :
+      Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100) + "%"}
+      </th>
+      <th>${user.userName}</th>
+    </tr>`)
+}
 }
 
 
