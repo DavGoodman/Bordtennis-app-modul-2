@@ -1,4 +1,5 @@
-//tournamentView();
+// tournamentView();
+
 function tournamentView() {
   let app = document.getElementById("app");
   let html = "";
@@ -35,8 +36,4 @@ function listUsers() {
     playerList += `<option value="${users[i].userName}">${users[i].userName}</option>`;
   }
   return playerList;
-}
-
-function commmitPlayers() {
-  model.data.ongoingTournament.participants = model.inputs.newTournament.participants;
 }
