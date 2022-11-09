@@ -19,18 +19,20 @@ function historyView() {
             </thead>
             <tbody>
                 <tr>
-                    <td>Deg VS ${getUserName(2)}</td>
+                    <td>Deg VS </td>
                 </tr>
             </tbody>
         </table>
     `;
 
   app.innerHTML = html;
+  checkMatches(5);
 }
 
-function checkMatches() {
+function checkMatches(loggedInUser) {
+  // const loggedInUser = model.data.users.filter((item) => model.app.user === item.userName);
   const matches = model.data.matches.filter(
-    (match) => loggedInUser === match.participants[0].playerId || model.user === match.participants[1].playerId
+    (match) => loggedInUser === match.participants[0].playerId || loggedInUser === match.participants[1].playerId
   );
   console.log(matches);
 }
@@ -41,3 +43,5 @@ function checkTournaments() {
   );
   console.log(tMatches);
 }
+
+function getLoggedInUserId() {}

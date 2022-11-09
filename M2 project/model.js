@@ -27,7 +27,7 @@ const model = {
     newMatch: {
       invitedPlayer: [], // data.user[0].userName eller Gjestenavn.
       score: [],
-      guest: "",
+      timeStarted: "",
     },
 
     newTournament: {
@@ -191,7 +191,7 @@ const model = {
     tournaments: [
       {
         tournamentId: 0,
-        datePlayed: "13.12.22",
+        datePlayed: "2022-12-13T15:11:03.245Z",
         tournamentName: "Fredags Turnering",
         players: [1, null, 3, null], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere

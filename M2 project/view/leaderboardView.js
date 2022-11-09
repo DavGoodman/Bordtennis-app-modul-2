@@ -1,8 +1,10 @@
 //leaderboardView()
 function leaderboardView() {
   let app = document.getElementById("app");
+  model.app.view = "leaderboard";
   let html = "";
   let inputs = model.inputs.leaderboard;
+
   html += /*HTML*/ `
     <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     <div class="leaderboard-categories">
@@ -47,7 +49,7 @@ function getOptions() {
 }
 
 function getWins(winType) {
-  let wins = getStats()
+  let wins = getStats();
 
   html = `
     <table style="width:100%">
@@ -64,39 +66,45 @@ function getWins(winType) {
 }
 
 function getStats() {
-  let category = model.inputs.leaderboard.category
-  let sortBy = model.inputs.leaderboard.sortBy
-  let users = model.data.users
-  
+  let category = model.inputs.leaderboard.category;
+  let sortBy = model.inputs.leaderboard.sortBy;
+  let users = model.data.users;
+
   // Getting tournaments
-  if (category === "tournaments") {  
-    let tournamentWinners = []
+  if (category === "tournaments") {
+    let tournamentWinners = [];
     if (sortBy === "wins") {
-      tournamentWinners = users.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
-        a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
-    }
-  else {
-    tournamentWinners = users.sort((a, b) =>
-      a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
-        b.tournamentWins / (b.tournamentWins + b.tournamentLosses) ||
-        a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
+      tournamentWinners = users.sort((a, b) =>
+        a.tournamentWins < b.tournamentWins || a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1
+      );
+    } else {
+      tournamentWinners = users.sort((a, b) =>
+        a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
+          b.tournamentWins / (b.tournamentWins + b.tournamentLosses) || a.tournamentLosses + a.tournamentWins === 0
+          ? 1
+          : -1
+      );
 
-
-  return tournamentWinners.map((user, index) => `
+      return tournamentWinners.map(
+        (user, index) => `
     <tr>
       <th>${index + 1}</th>
       <th>${user.tournamentWins}/${user.tournamentLosses}</th>
-      <th>${user.tournamentWins + user.tournamentLosses === 0 ? "N/A" :
-      Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100) + "%"}
+      <th>${
+        user.tournamentWins + user.tournamentLosses === 0
+          ? "N/A"
+          : Math.round((user.tournamentWins / (user.tournamentWins + user.tournamentLosses)) * 100) + "%"
+      }
       </th>
       <th>${user.userName}</th>
-    </tr>`)}}
-
-
-
+    </tr>`
+      );
+    }
+  }
 
   // Getting matches
-  let matchWinners = []
+  let matchWinners = [];
+
   if (sortBy === "wins") {
     matchWinners = users.sort((a, b) => (a.wins < b.wins || a.losses + a.wins === 0 ? 1 : -1));
   } else {
@@ -113,56 +121,9 @@ function getStats() {
         <th>${Math.round((user.wins / (user.wins + user.losses)) * 100)}
         %</th>
         <th>${user.userName}</th>
-      </tr>`)
-
+      </tr>`
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // function getMatchWinners(){
 //   let sortBy = model.inputs.leaderboard.sortBy
@@ -190,8 +151,6 @@ function getStats() {
 //       </tr>`)
 // }
 
-
-
 // function getTourneyWinners(){
 //   let sortBy = model.inputs.leaderboard.sortBy
 //   let users = model.data.users
@@ -207,7 +166,6 @@ function getStats() {
 //         b.tournamentWins / (b.tournamentWins + b.tournamentLosses) ||
 //         a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
 
-
 //   return tournamentWinners.map((user, index) => `
 //     <tr>
 //       <th>${index + 1}</th>
@@ -219,7 +177,6 @@ function getStats() {
 //     </tr>`)
 // }
 // }
-
 
 // function getTourneyWins(){
 //   let users = model.data.users
