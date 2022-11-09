@@ -1,7 +1,18 @@
 //David
 
-// logInView();
+//test();
+function test() {
+  let daysInMs = 7 * 60 * 60 * 24 * 1000;
+  console.log(daysInMs);
 
+  let now = new Date().getTime();
+
+  let test = model.data.matches.filter((match) => now - new Date(match.datePlayed).getTime() < daysInMs);
+
+  console.log(test);
+}
+
+logInView();
 function logInView(err, errMsg) {
   // model.app.view = "login"
   let app = document.getElementById("app");
@@ -19,9 +30,10 @@ function logInView(err, errMsg) {
   html += /*HTML*/ `
   <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     
-    <div class="login--inputs">${view === "login-menu"
-      ? ""
-      : view === "login"
+    <div class="login--inputs">${
+      view === "login-menu"
+        ? ""
+        : view === "login"
         ? `
 
     <div><input oninput="model.inputs.login.userName = this.value" placeholder="brukernavn" type="text"></div>
@@ -53,9 +65,10 @@ function logInView(err, errMsg) {
 
    
 
-    <button ${view === "login-menu"
-      ? `onclick="toLogin('login')"`
-      : view === "login"
+    <button ${
+      view === "login-menu"
+        ? `onclick="toLogin('login')"`
+        : view === "login"
         ? `onclick="login()"`
         : `onclick="register()"`
     }>
@@ -79,7 +92,6 @@ function logInView(err, errMsg) {
 //       ? `onclick="login()"`
 //       : `onclick="register()"`
 //   }>
-
 
 //   ${view === "register" ? "submit" : "log in"}
 //   </button>

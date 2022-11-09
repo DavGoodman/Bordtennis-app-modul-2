@@ -1,9 +1,9 @@
-leaderboardView()
+//leaderboardView()
 function leaderboardView() {
   let app = document.getElementById("app");
   let html = "";
-  let inputs = model.inputs.leaderboard
-  html += /*HTML*/`
+  let inputs = model.inputs.leaderboard;
+  html += /*HTML*/ `
     <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     <div class="leaderboard-categories">
         <span 
@@ -32,13 +32,11 @@ function leaderboardView() {
   app.innerHTML = html;
 }
 
-
 function getOptions() {
-
   let selectedOptionIndex = model.app.leaderboradSelectIndex;
 
   let html = ``;
-  let options = ['wins', 'win rate'];
+  let options = ["wins", "win rate"];
 
   options.forEach((option, index) => {
     let isSelected = index === selectedOptionIndex ? "selected" : "";
@@ -47,7 +45,6 @@ function getOptions() {
 
   return html;
 }
-
 
 function getWins(winType) {
   let wins = getStats()
@@ -62,11 +59,9 @@ function getWins(winType) {
       </tr>
       ${wins.join("")}
     </table>
-    `
-  return html
+    `;
+  return html;
 }
-
-
 
 function getStats() {
   let category = model.inputs.leaderboard.category
@@ -103,21 +98,19 @@ function getStats() {
   // Getting matches
   let matchWinners = []
   if (sortBy === "wins") {
-    matchWinners = users.sort((a, b) => (a.wins < b.wins) ||
-      a.losses + a.wins === 0 ? 1 : -1)
-  }
-  else {
+    matchWinners = users.sort((a, b) => (a.wins < b.wins || a.losses + a.wins === 0 ? 1 : -1));
+  } else {
     matchWinners = users.sort((a, b) =>
-      a.wins / (a.wins + a.losses) <
-        b.wins / (b.wins + b.losses) ||
-        a.losses + a.wins === 0 ? 1 : -1)
+      a.wins / (a.wins + a.losses) < b.wins / (b.wins + b.losses) || a.losses + a.wins === 0 ? 1 : -1
+    );
   }
 
-  return matchWinners.map((user, index) => `
+  return matchWinners.map(
+    (user, index) => `
       <tr>
         <th>${index + 1}</th>
         <th>${user.wins}/${user.losses}</th>
-        <th>${Math.round(user.wins / (user.wins + user.losses) * 100)}
+        <th>${Math.round((user.wins / (user.wins + user.losses)) * 100)}
         %</th>
         <th>${user.userName}</th>
       </tr>`)
