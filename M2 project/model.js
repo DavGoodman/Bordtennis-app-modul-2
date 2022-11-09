@@ -57,6 +57,7 @@ const model = {
         losses: 2,
         tournamentWins: 1,
         tournamentLosses: 2,
+        lastWins: 0
       },
       {
         id: 1,
@@ -68,6 +69,7 @@ const model = {
         losses: 3,
         tournamentWins: 0,
         tournamentLosses: 0,
+        lastWins: 0
       },
       {
         id: 2,
@@ -79,6 +81,7 @@ const model = {
         losses: 4,
         tournamentWins: 9,
         tournamentLosses: 1,
+        lastWins: 0
       },
       {
         id: 3,
@@ -90,6 +93,7 @@ const model = {
         losses: 88,
         tournamentWins: 0,
         tournamentLosses: 10,
+        lastWins: 0
       },
       {
         id: 4,
@@ -101,6 +105,7 @@ const model = {
         losses: 4,
         tournamentWins: 2,
         tournamentLosses: 10,
+        lastWins: 0
       },
       {
         id: 5,
@@ -112,6 +117,7 @@ const model = {
         losses: 5,
         tournamentWins: 90,
         tournamentLosses: 0,
+        lastWins: 0
       },
     ],
 
@@ -120,7 +126,7 @@ const model = {
         matchId: 1,
         datePlayed: "2022-11-08T10:14:03.123Z", //ISO 8601
         participants: [
-          { playerId: 1, matchScore: 10 },
+          { playerId: 4, matchScore: 10 },
           { playerId: 2, matchScore: 7 },
         ],
       },
@@ -128,7 +134,7 @@ const model = {
         matchId: 2,
         datePlayed: "2022-11-07T10:20:03.390Z", //ISO 8601
         participants: [
-          { playerId: 2, matchScore: 10 },
+          { playerId: 4, matchScore: 10 },
           { playerId: 5, matchScore: 7 },
         ],
       },
@@ -144,8 +150,8 @@ const model = {
         matchId: 4,
         datePlayed: "2022-09-07T15:20:03.390Z", //ISO 8601
         participants: [
-          { playerId: 2, matchScore: 10 },
-          { playerId: 5, matchScore: 7 },
+          { playerId: 2, matchScore: 7 },
+          { playerId: 1, matchScore: 10 },
         ],
       },
     ],
