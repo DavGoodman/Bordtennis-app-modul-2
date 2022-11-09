@@ -39,7 +39,7 @@ const model = {
 
     leaderboard: {
       sortBy: "wins", // wins - win rate% - (rating)?
-      category: "tournaments", //matches - tournaments
+      category: "matches", //matches - tournaments
       showLast: 7, // in days
     },
   },
@@ -57,6 +57,10 @@ const model = {
         losses: 2,
         tournamentWins: 1,
         tournamentLosses: 2,
+        lastWins: 0,
+        lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 1,
@@ -68,6 +72,10 @@ const model = {
         losses: 3,
         tournamentWins: 0,
         tournamentLosses: 0,
+        lastWins: 0,
+        lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 2,
@@ -79,6 +87,10 @@ const model = {
         losses: 4,
         tournamentWins: 9,
         tournamentLosses: 1,
+        lastWins: 0,
+        lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 3,
@@ -90,6 +102,10 @@ const model = {
         losses: 88,
         tournamentWins: 0,
         tournamentLosses: 10,
+        lastWins: 0,
+        lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 4,
@@ -101,6 +117,10 @@ const model = {
         losses: 4,
         tournamentWins: 2,
         tournamentLosses: 10,
+        lastWins: 0,
+        lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 5,
@@ -112,6 +132,10 @@ const model = {
         losses: 5,
         tournamentWins: 90,
         tournamentLosses: 0,
+        lastWins: 0,
+        lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 1337,
@@ -123,6 +147,10 @@ const model = {
         losses: 69,
         tournamentWins: 420,
         tournamentLosses: 0,
+        lastWins: 0,
+        lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
     ],
 
@@ -131,7 +159,7 @@ const model = {
         matchId: 1,
         datePlayed: "2022-11-08T10:14:03.123Z", //ISO 8601
         participants: [
-          { playerId: 1, matchScore: 10 },
+          { playerId: 4, matchScore: 10 },
           { playerId: 2, matchScore: 7 },
         ],
       },
@@ -139,7 +167,7 @@ const model = {
         matchId: 2,
         datePlayed: "2022-11-07T10:20:03.390Z", //ISO 8601
         participants: [
-          { playerId: 2, matchScore: 10 },
+          { playerId: 4, matchScore: 10 },
           { playerId: 5, matchScore: 7 },
         ],
       },
@@ -155,8 +183,8 @@ const model = {
         matchId: 4,
         datePlayed: "2022-09-07T15:20:03.390Z", //ISO 8601
         participants: [
-          { playerId: 2, matchScore: 10 },
-          { playerId: 5, matchScore: 7 },
+          { playerId: 2, matchScore: 7 },
+          { playerId: 1, matchScore: 10 },
         ],
       },
       {
@@ -210,7 +238,7 @@ const model = {
     tournaments: [
       {
         tournamentId: 0,
-        datePlayed: "2022-12-13T15:11:03.245Z",
+        datePlayed: "2022-11-05T10:14:03.123Z",
         tournamentName: "Fredags Turnering",
         players: [1, null, 3, null], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere
@@ -278,7 +306,18 @@ const model = {
       },
       {
         tournamentId: 1,
-        datePlayed: "2022-12-13T15:11:03.245Z",
+        datePlayed: "2022-10-22T15:11:03.245Z",
+        tournamentName: "Fredags Turnering",
+        players: [1, 2, 3, 5], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
+        numOfMatches: 7, // basert på turneringsbraketten og antall spillere
+        matches: [
+        ],
+        winnerId: 2,
+        //fightForThird: false, (nice-to-have)
+      },
+      {
+        tournamentId: 2,
+        datePlayed: "2022-09-15T15:11:03.245Z",
         tournamentName: "Test 2",
         players: [1, null, 3, null, 5], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere

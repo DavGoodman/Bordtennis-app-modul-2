@@ -1,4 +1,4 @@
-historyView();
+//historyView();
 function historyView() {
   model.app.user = 'dankert';
   model.app.view = "history";

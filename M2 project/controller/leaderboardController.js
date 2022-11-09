@@ -8,3 +8,8 @@ function sortBy(sort){
     model.app.leaderboradSelectIndex = sort.selectedIndex
     leaderboardView()
 }
+
+function sortDate(days){
+    model.inputs.leaderboard.showLast = days
+    leaderboardView()
+}
