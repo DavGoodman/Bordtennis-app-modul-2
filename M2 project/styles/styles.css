@@ -51,6 +51,7 @@ body {
 
 .selected {
   font-weight: bold;
+  text-shadow: 1px 1px 4px black;
 }
 
 .leaderboard-categories {
@@ -65,4 +66,5 @@ td {
 
 .date-sort-leaderboard > span{
   margin: 0 12px;
+  cursor: pointer;
 }

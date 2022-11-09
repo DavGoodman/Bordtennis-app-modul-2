@@ -9,6 +9,9 @@ function sortBy(sort){
     leaderboardView()
 }
 
-function sortDate(){
-    
+function sortDate(days){
+    model.inputs.leaderboard.showLast = days
+    resetLastMatches()
+    timedMatches()
+    leaderboardView()
 }

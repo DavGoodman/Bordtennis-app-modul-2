@@ -39,7 +39,7 @@ const model = {
 
     leaderboard: {
       sortBy: "wins", // wins - win rate% - (rating)?
-      category: "tournaments", //matches - tournaments
+      category: "matches", //matches - tournaments
       showLast: 7, // in days
     },
   },
@@ -59,6 +59,8 @@ const model = {
         tournamentLosses: 2,
         lastWins: 0,
         lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 1,
@@ -72,6 +74,8 @@ const model = {
         tournamentLosses: 0,
         lastWins: 0,
         lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 2,
@@ -85,6 +89,8 @@ const model = {
         tournamentLosses: 1,
         lastWins: 0,
         lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 3,
@@ -98,6 +104,8 @@ const model = {
         tournamentLosses: 10,
         lastWins: 0,
         lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 4,
@@ -111,6 +119,8 @@ const model = {
         tournamentLosses: 10,
         lastWins: 0,
         lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 5,
@@ -124,6 +134,8 @@ const model = {
         tournamentLosses: 0,
         lastWins: 0,
         lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
       {
         id: 1337,
@@ -137,6 +149,8 @@ const model = {
         tournamentLosses: 0,
         lastWins: 0,
         lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
       },
     ],
 
@@ -224,7 +238,7 @@ const model = {
     tournaments: [
       {
         tournamentId: 0,
-        datePlayed: "2022-12-13T15:11:03.245Z",
+        datePlayed: "2022-11-05T10:14:03.123Z",
         tournamentName: "Fredags Turnering",
         players: [1, null, 3, null], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere
@@ -292,7 +306,18 @@ const model = {
       },
       {
         tournamentId: 1,
-        datePlayed: "2022-12-13T15:11:03.245Z",
+        datePlayed: "2022-10-22T15:11:03.245Z",
+        tournamentName: "Fredags Turnering",
+        players: [1, 2, 3, 5], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
+        numOfMatches: 7, // basert på turneringsbraketten og antall spillere
+        matches: [
+        ],
+        winnerId: 2,
+        //fightForThird: false, (nice-to-have)
+      },
+      {
+        tournamentId: 2,
+        datePlayed: "2022-09-15T15:11:03.245Z",
         tournamentName: "Test 2",
         players: [1, null, 3, null, 5], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere
