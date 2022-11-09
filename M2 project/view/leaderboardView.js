@@ -45,14 +45,12 @@ function getOptions() {
     html += `<option value="${option}" ${isSelected}>${option}</option>`;
   });
 
-
   return html;
 }
 
 
 function getWins(winType) {
   let wins = getStats()
-
 
   html = `
     <table style="width:100%">
