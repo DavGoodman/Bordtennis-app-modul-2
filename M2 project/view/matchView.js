@@ -1,8 +1,9 @@
 function matchView() {
+  const invited = model.inputs.newMatch.invitedPlayer;
   let view = model.app.view;
 
   let html = document.getElementById("app");
-  let player = model.inputs.newMatch.invitedPlayer.map(
+  let player = invited.map(
     (user) =>
       `<div class="opponentText"><span>${user}</span><button class="betterButton" onclick="deleteMatchPlayer()"><img class="removeIcon" src="assets/trash-can-solid.svg"></button></div>`
   );
@@ -19,18 +20,18 @@ function matchView() {
             <div class="matchcontainer">
               <div class="gamescore">
                   <div style="grid-area: myMatchName;">Du</div>
-                  <div style="grid-area: otherMatchName;">${model.inputs.newMatch.invitedPlayer}</div>
+                  <div style="grid-area: otherMatchName;">${invited}</div>
               </div>
 
               <div class="gamescore">
                   <div style="grid-area: scoreText">Score:</div>
-                  <input class="scoreinput" style="grid-area: myScoreBox;" id="myScore">
-                  <input class="scoreinput" style="grid-area: otherScoreBox;" id="otherScore">
+                  <input type="number" min="0" max="10" class="scoreinput" style="grid-area: myScoreBox;" onchange="model.inputs.newMatch.score[0] = parseInt(this.value)">
+                  <input type="number" min="0" max="10" class="scoreinput" style="grid-area: otherScoreBox;" onchange="model.inputs.newMatch.score[1] = parseInt(this.value)">
               </div>
             </div>
 
             <div class="buttoncontainer">
-                <div class="btn filled" onclick="completeMatch(parseInt(myScore.value), parseInt(otherScore.value))">fullfør</div>
+                <div class="btn filled" onclick="completeMatch()">fullfør</div>
                 <div class="btn" onclick="matchView();">tilbake</div>
             </div>`
             : `

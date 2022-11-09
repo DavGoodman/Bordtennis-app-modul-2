@@ -14,11 +14,13 @@ function deleteMatchPlayer(name) {
   matchView();
 }
 
-function completeMatch(my, other) {
+function completeMatch() {
+  let score = model.inputs.newMatch.score;
+  let my = score[0];
+  let other = score[1];
   if (my < 0 || other < 0 || my > 10 || other > 10 || (my == 10 && other == 10) || (my != 10 && other != 10)) {
     alert("Du må sette riktig score!");
   } else {
-    model.inputs.newMatch.score = [my, other];
     finalizeMatchData();
   }
 }
