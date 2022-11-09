@@ -11,7 +11,5 @@ function sortBy(sort){
 
 function sortDate(days){
     model.inputs.leaderboard.showLast = days
-    resetLastMatches()
-    timedMatches()
     leaderboardView()
 }
