@@ -5,9 +5,24 @@ function historyView() {
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
 
+  const recentMatches = listAllEvents(currentUser).splice(0, 5).map(
+    item => Object.hasOwn(item, 'matchId') ? `
+    <tr>
+      <td>${item.matchId}</td>
+      <td>Frank</td>
+      <td>${item.datePlayed}</td>
+    </tr>
+    `
+      :
+      `
+      <tr>
+        <td>${item.tournamentName}</td>
+        <td>${item.winnerId}</td>
+        <td>${item.datePlayed}</td>
+      </tr>
+    `)
+
   let html = "";
-  let matches = model.data.matches;
-  let tournaments = model.data.tournaments;
 
   html += /*html*/ `
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
@@ -20,30 +35,18 @@ function historyView() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Deg VS </td>
-                </tr>
+                ${recentMatches.join('')}
             </tbody>
         </table>
     `;
 
   app.innerHTML = html;
-  checkMatches(currentUser);
-  checkTournaments(currentUser)
-}
 
-function checkMatches(loggedInUser) { //makes new array of all matches current logged in user has played in (all time)
-  const matches = model.data.matches.filter(
-    (match) => loggedInUser === match.participants[0].playerId || loggedInUser === match.participants[1].playerId
-  );
-  console.log(matches);
-}
+  let test = listAllEvents(currentUser);
 
-function checkTournaments(loggedInUser) { //makes array of all tournaments current logged in user has played in (all time)
-  const tMatches = model.data.tournaments.filter(
-    (tournament) => tournament.players.includes(loggedInUser)
-  );
-  console.log(tMatches);
+
+
+  console.log(test)
 }
 
 function getLoggedInUserId() { // Gets the ID of current logged in user
@@ -57,4 +60,34 @@ function getLoggedInUserId() { // Gets the ID of current logged in user
   }
   console.log(userId)
   return userId
+}
+
+function listAllEvents(loggedInUser) {
+  //List all matches of current user
+  const matches = model.data.matches.filter(
+    (match) => loggedInUser === match.participants[0].playerId || loggedInUser === match.participants[1].playerId
+  );
+  console.log(matches);
+  //List all tournaments of current user
+  const tMatches = model.data.tournaments.filter(
+    (tournament) => tournament.players.includes(loggedInUser)
+  );
+  console.log(tMatches);
+  //Join the two lists two a new list (non-intrusive)
+
+  const allMatches = matches.concat(tMatches)
+  console.log('before', allMatches)
+
+  //Sort all events by date
+  allMatches.sort((a, b) => {
+    if (a.datePlayed > b.datePlayed) {
+      return -1;
+    } else if (a.datePlayed < b.datePlayed) {
+      return 1;
+    } else { return 0 };
+  }
+  )
+  console.log('after', allMatches)
+
+  return allMatches;
 }
