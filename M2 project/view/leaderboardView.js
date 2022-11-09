@@ -1,4 +1,4 @@
-leaderboardView()
+// leaderboardView()
 function leaderboardView() {
   let app = document.getElementById("app");
   model.app.view = "leaderboard";
@@ -77,10 +77,10 @@ function getStats() {
   let users = model.data.users
   let matches = model.data.matches
   let tourneys = model.data.tournaments
-  
+
 
   // Getting tournaments
-  if (category === "tournaments") {  
+  if (category === "tournaments") {
 
     let tournamentWinners = users
 
@@ -88,22 +88,21 @@ function getStats() {
       tournamentWinners = tournamentWinners.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
         a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
     }
-  else {
-    tournamentWinners = users.sort((a, b) =>
-      a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
-        b.tournamentWins / (b.tournamentWins + b.tournamentLosses) ||
-        a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
+    else {
+      tournamentWinners = users.sort((a, b) =>
+        a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
+          b.tournamentWins / (b.tournamentWins + b.tournamentLosses) ||
+          a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
 
       return tournamentWinners.map(
         (user, index) => `
     <tr>
       <th>${index + 1}</th>
       <th>${user.tournamentWins}/${user.tournamentLosses}</th>
-      <th>${
-        user.tournamentWins + user.tournamentLosses === 0
-          ? "N/A"
-          : Math.round((user.tournamentWins / (user.tournamentWins + user.tournamentLosses)) * 100) + "%"
-      }
+      <th>${user.tournamentWins + user.tournamentLosses === 0
+            ? "N/A"
+            : Math.round((user.tournamentWins / (user.tournamentWins + user.tournamentLosses)) * 100) + "%"
+          }
       </th>
       <th>${user.userName}</th>
     </tr>`
@@ -138,7 +137,7 @@ timedMatches()
 
 
 
-function timedMatches(){
+function timedMatches() {
   let matches = getDays()
   console.log(matches)
 }
