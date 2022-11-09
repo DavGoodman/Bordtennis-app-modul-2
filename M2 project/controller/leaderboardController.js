@@ -8,3 +8,7 @@ function sortBy(sort){
     model.app.leaderboradSelectIndex = sort.selectedIndex
     leaderboardView()
 }
+
+function sortDate(){
+    
+}

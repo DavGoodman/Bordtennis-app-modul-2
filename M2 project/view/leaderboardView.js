@@ -1,4 +1,4 @@
-// leaderboardView()
+leaderboardView()
 function leaderboardView() {
   let app = document.getElementById("app");
   let html = "";
@@ -75,57 +75,76 @@ function getStats() {
   let users = model.data.users
   let matches = model.data.matches
   let tourneys = model.data.tournaments
+  let time = model.inputs.leaderboard.showLast
+  let result = "" 
 
 
+  let winners = users
   // Getting tournaments
-  if (category === "tournaments") {
+  
 
-    let tournamentWinners = users
+  if (sortBy === "wins") {
+    winners = winners.sort((a, b) => category =="tournaments"
+      ? (a.tournamentWins < b.tournamentWins) ||a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1
+      : a.wins < b.wins || a.losses + a.wins === 0 ? 1 : -1)
+  }
 
-    if (sortBy === "wins") {
-      tournamentWinners = tournamentWinners.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
-        a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
-    }
-    else {
-      tournamentWinners = users.sort((a, b) =>
-        a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
+  else {
+    winners = users.sort((a, b) => category =="tournaments"
+        ? a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
           b.tournamentWins / (b.tournamentWins + b.tournamentLosses) ||
-          a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
+          a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1 
+        : a.wins / (a.wins + a.losses) < b.wins / (b.wins + b.losses) || a.losses + a.wins === 0 ? 1 : -1)}
 
 
-  return tournamentWinners.map((user, index) => `
-    <tr>
-      <th>${index + 1}</th>
-      <th>${user.tournamentWins}/${user.tournamentLosses}</th>
-      <th>${user.tournamentWins + user.tournamentLosses === 0 ? "N/A" :
-      Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100) + "%"}
-      </th>
-      <th>${user.userName}</th>
-    </tr>`)}}
+result = winners.map((user, index) => category =="tournaments"
+  ? `
+      <tr>
+        <th>${index + 1}</th>
+        <th>${user.tournamentWins}/${user.tournamentLosses}</th>
+        <th>${user.tournamentWins + user.tournamentLosses === 0 ? "N/A" :
+        Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100) + "%"}
+        </th>
+        <th>${user.userName}</th>
+      </tr>`
+  :`
+        <tr>
+          <th>${index + 1}</th>
+          <th>${user.wins}/${user.losses}</th>
+          <th>${Math.round((user.wins / (user.wins + user.losses)) * 100)}
+          %</th>
+          <th>${user.userName}</th>
+        </tr>`)
+  
+return result
+  }
 
 
 
 
   // Getting matches
-  let matchWinners = []
-  if (sortBy === "wins") {
-    matchWinners = users.sort((a, b) => (a.wins < b.wins || a.losses + a.wins === 0 ? 1 : -1));
-  } else {
-    matchWinners = users.sort((a, b) =>
-      a.wins / (a.wins + a.losses) < b.wins / (b.wins + b.losses) || a.losses + a.wins === 0 ? 1 : -1
-    );
-  }
+  // let matchWinners = []
+  // if (sortBy === "wins") {
+  //   matchWinners = users.sort((a, b) => (a.wins < b.wins || a.losses + a.wins === 0 ? 1 : -1));
+  // } else {
+  //   matchWinners = users.sort((a, b) =>
+  //     a.wins / (a.wins + a.losses) < b.wins / (b.wins + b.losses) || a.losses + a.wins === 0 ? 1 : -1
+  //   );
+  // }
 
-  return matchWinners.map(
-    (user, index) => `
-      <tr>
-        <th>${index + 1}</th>
-        <th>${user.wins}/${user.losses}</th>
-        <th>${Math.round((user.wins / (user.wins + user.losses)) * 100)}
-        %</th>
-        <th>${user.userName}</th>
-      </tr>`)
-}
+  // return matchWinners.map(
+  //   (user, index) => `
+  //     <tr>
+  //       <th>${index + 1}</th>
+  //       <th>${user.wins}/${user.losses}</th>
+  //       <th>${Math.round((user.wins / (user.wins + user.losses)) * 100)}
+  //       %</th>
+  //       <th>${user.userName}</th>
+  //     </tr>`)
+
+
+
+
 
 
 timedMatches()
@@ -142,6 +161,9 @@ function timedMatches(){
       if ((match.participants[0].matchScore === 10 && match.participants[0].playerId === user.id)
         || (match.participants[1].matchScore === 10 && match.participants[1].playerId === user.id)){
           user.lastWins += 1}
+      else if((match.participants[0].matchScore !== 10 && match.participants[0].playerId === user.id)
+      ||      (match.participants[1].matchScore !== 10 && match.participants[1].playerId === user.id)){
+              user.lastLosses += 1}
     }
   }
   console.log(users)
@@ -150,6 +172,11 @@ function timedMatches(){
 
 
 function getDays() {
+  let time = model.inputs.leaderboard.showLast
+
+
+  if(model.inputs.leaderboard.showLast == 0){return }
+
   let selectedDays = model.inputs.leaderboard.showLast
   let daysInMs = selectedDays * 60 * 60 * 24 * 1000;
 

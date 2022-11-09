@@ -57,7 +57,8 @@ const model = {
         losses: 2,
         tournamentWins: 1,
         tournamentLosses: 2,
-        lastWins: 0
+        lastWins: 0,
+        lastLosses: 0,
       },
       {
         id: 1,
@@ -69,7 +70,8 @@ const model = {
         losses: 3,
         tournamentWins: 0,
         tournamentLosses: 0,
-        lastWins: 0
+        lastWins: 0,
+        lastLosses: 0,
       },
       {
         id: 2,
@@ -81,7 +83,8 @@ const model = {
         losses: 4,
         tournamentWins: 9,
         tournamentLosses: 1,
-        lastWins: 0
+        lastWins: 0,
+        lastLosses: 0,
       },
       {
         id: 3,
@@ -93,7 +96,8 @@ const model = {
         losses: 88,
         tournamentWins: 0,
         tournamentLosses: 10,
-        lastWins: 0
+        lastWins: 0,
+        lastLosses: 0,
       },
       {
         id: 4,
@@ -105,7 +109,8 @@ const model = {
         losses: 4,
         tournamentWins: 2,
         tournamentLosses: 10,
-        lastWins: 0
+        lastWins: 0,
+        lastLosses: 0,
       },
       {
         id: 5,
@@ -117,7 +122,8 @@ const model = {
         losses: 5,
         tournamentWins: 90,
         tournamentLosses: 0,
-        lastWins: 0
+        lastWins: 0,
+        lastLosses: 0,
       },
       {
         id: 1337,
@@ -129,6 +135,8 @@ const model = {
         losses: 69,
         tournamentWins: 420,
         tournamentLosses: 0,
+        lastWins: 0,
+        lastLosses: 0,
       },
     ],
 
