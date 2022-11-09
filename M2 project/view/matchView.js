@@ -50,7 +50,7 @@ function matchView() {
             </div>
             <div class="buttoncontainer">
               <div class="btn filled" onclick="newMatch()">start</div>
-              <div class="btn" onclick"menuView()">tilbake</div>
+              <div class="btn" onclick="menuView()">tilbake</div>
             </div>`
         }</div>
         `;
@@ -75,7 +75,9 @@ function showUser() {
     if (model.inputs.newMatch.invitedPlayer.includes(users[i].userName)) {
       continue;
     }
-    playerList += `<option class="player-option" value="${users[i].userName}">${users[i].userName}</option>`;
+    if (model.app.user != users[i].userName) {
+      playerList += `<option class="player-option" value="${users[i].userName}">${users[i].userName}</option>`;
+    }
   }
   return playerList;
 }

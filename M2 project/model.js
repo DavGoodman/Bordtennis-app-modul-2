@@ -2,7 +2,7 @@ const model = {
   //app
   app: {
     view: "login-menu", //login-menu-match-tournament-history-leaderboard
-    user: null,
+    user: "developer",
     playingTournament: 1,
     leaderboradSelectIndex: 0,
 
@@ -111,6 +111,17 @@ const model = {
         wins: 12,
         losses: 5,
         tournamentWins: 90,
+        tournamentLosses: 0,
+      },
+      {
+        id: 1337,
+        userName: "developer",
+        firstName: "Bruce",
+        lastName: "L33t",
+        password: "get",
+        wins: 69,
+        losses: 69,
+        tournamentWins: 420,
         tournamentLosses: 0,
       },
     ],
