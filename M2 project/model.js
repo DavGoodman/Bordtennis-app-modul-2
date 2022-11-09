@@ -113,6 +113,17 @@ const model = {
         tournamentWins: 90,
         tournamentLosses: 0,
       },
+      {
+        id: 1337,
+        userName: "developer",
+        firstName: "Bruce",
+        lastName: "L33t",
+        password: "get",
+        wins: 69,
+        losses: 69,
+        tournamentWins: 420,
+        tournamentLosses: 0,
+      },
     ],
 
     matches: [

@@ -50,7 +50,7 @@ function matchView() {
             </div>
             <div class="buttoncontainer">
               <div class="btn filled" onclick="newMatch()">start</div>
-              <div class="btn" onclick"menuView()">tilbake</div>
+              <div class="btn" onclick="menuView()">tilbake</div>
             </div>`
         }</div>
         `;
