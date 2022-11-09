@@ -15,7 +15,7 @@ function deleteMatchPlayer(name) {
 }
 
 function completeMatch(my, other) {
-  if (my < 0 || other < 0 || my > 10 || other > 10 || (my == 10 && other == 10)) {
+  if (my < 0 || other < 0 || my > 10 || other > 10 || (my == 10 && other == 10) || (my != 10 && other != 10)) {
     alert("Du må sette riktig score!");
   } else {
     model.inputs.newMatch.score = [my, other];
