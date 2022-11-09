@@ -30,7 +30,7 @@ function historyView() {
 
 function checkMatches() {
   const matches = model.data.matches.filter(
-    (match) => model.user === match.participants[0].playerId || model.user === match.participants[1].playerId
+    (match) => loggedInUser === match.participants[0].playerId || model.user === match.participants[1].playerId
   );
   console.log(matches);
 }
