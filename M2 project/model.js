@@ -2,7 +2,7 @@ const model = {
   //app
   app: {
     view: "login-menu", //login-menu-match-tournament-history-leaderboard
-    user: null,
+    user: "developer",
     playingTournament: 1,
     leaderboradSelectIndex: 0,
 
@@ -119,6 +119,17 @@ const model = {
         tournamentLosses: 0,
         lastWins: 0
       },
+      {
+        id: 1337,
+        userName: "developer",
+        firstName: "Bruce",
+        lastName: "L33t",
+        password: "get",
+        wins: 69,
+        losses: 69,
+        tournamentWins: 420,
+        tournamentLosses: 0,
+      },
     ],
 
     matches: [
@@ -152,6 +163,14 @@ const model = {
         participants: [
           { playerId: 2, matchScore: 7 },
           { playerId: 1, matchScore: 10 },
+        ],
+      },
+      {
+        matchId: 5,
+        datePlayed: "2022-04-07T15:20:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 5, matchScore: 10 },
+          { playerId: 2, matchScore: 7 },
         ],
       },
     ],
@@ -200,6 +219,74 @@ const model = {
         datePlayed: "2022-12-13T15:11:03.245Z",
         tournamentName: "Fredags Turnering",
         players: [1, null, 3, null], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
+        numOfMatches: 7, // basert på turneringsbraketten og antall spillere
+        matches: [
+          {
+            tournamentMatchId: 1,
+            round: 1,
+            participants: [
+              { playerId: 1, matchScore: 10 },
+              { playerId: 2, matchScore: 7 },
+            ],
+          },
+          {
+            tournamentMatchId: 2,
+            round: 1,
+            participants: [
+              { playerId: 3, matchScore: 10 },
+              { playerId: 4, matchScore: 7 },
+            ],
+          },
+          {
+            tournamentMatchId: 3,
+            round: 1,
+            participants: [
+              { playerId: 5, matchScore: 10 },
+              { playerId: 6, matchScore: 7 },
+            ],
+          },
+          {
+            tournamentMatchId: 4,
+            round: 1,
+            participants: [
+              { playerId: 7, matchScore: 10 },
+              { playerId: 8, matchScore: 7 },
+            ],
+          },
+
+          {
+            tournamentMatchId: 5,
+            round: 2,
+            participants: [
+              { playerId: 1, matchScore: 10 },
+              { playerId: 3, matchScore: 7 },
+            ],
+          },
+          {
+            tournamentMatchId: 6,
+            round: 2,
+            participants: [
+              { playerId: 5, matchScore: 10 },
+              { playerId: 7, matchScore: 7 },
+            ],
+          },
+          {
+            tournamentMatchId: 7,
+            round: 3,
+            participants: [
+              { playerId: 1, matchScore: 10 },
+              { playerId: 5, matchScore: 7 },
+            ],
+          },
+        ],
+        winnerId: 1,
+        //fightForThird: false, (nice-to-have)
+      },
+      {
+        tournamentId: 1,
+        datePlayed: "2022-12-13T15:11:03.245Z",
+        tournamentName: "Test 2",
+        players: [1, null, 3, null, 5], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere
         matches: [
           {

@@ -1,4 +1,4 @@
-menuView();
+// menuView();
 function menuView() {
   model.app.view = "menu";
   let app = document.getElementById("app");
