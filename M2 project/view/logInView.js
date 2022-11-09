@@ -1,18 +1,8 @@
 //David
 
 //test();
-function test() {
-  let daysInMs = 7 * 60 * 60 * 24 * 1000;
-  console.log(daysInMs);
 
-  let now = new Date().getTime();
-
-  let test = model.data.matches.filter((match) => now - new Date(match.datePlayed).getTime() < daysInMs);
-
-  console.log(test);
-}
-
-logInView();
+//logInView();
 function logInView(err, errMsg) {
   // model.app.view = "login"
   let app = document.getElementById("app");

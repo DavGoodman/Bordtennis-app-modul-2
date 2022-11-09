@@ -40,7 +40,7 @@ const model = {
     leaderboard: {
       sortBy: "wins", // wins - win rate% - (rating)?
       category: "tournaments", //matches - tournaments
-      showLast: "month", // day - week - month - year - all time? days7, days30, days365, allTime
+      showLast: 7, // in days
     },
   },
 

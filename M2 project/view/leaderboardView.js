@@ -1,4 +1,4 @@
-//leaderboardView()
+leaderboardView()
 function leaderboardView() {
   let app = document.getElementById("app");
   let html = "";
@@ -32,6 +32,8 @@ function leaderboardView() {
   app.innerHTML = html;
 }
 
+
+
 function getOptions() {
   let selectedOptionIndex = model.app.leaderboradSelectIndex;
 
@@ -45,6 +47,8 @@ function getOptions() {
 
   return html;
 }
+
+
 
 function getWins(winType) {
   let wins = getStats()
@@ -63,16 +67,23 @@ function getWins(winType) {
   return html;
 }
 
+
+
 function getStats() {
   let category = model.inputs.leaderboard.category
   let sortBy = model.inputs.leaderboard.sortBy
   let users = model.data.users
+  let matches = model.data.matches
+  let tourneys = model.data.tournaments
   
+
   // Getting tournaments
   if (category === "tournaments") {  
-    let tournamentWinners = []
+
+    let tournamentWinners = users
+
     if (sortBy === "wins") {
-      tournamentWinners = users.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
+      tournamentWinners = tournamentWinners.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
         a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
     }
   else {
@@ -114,15 +125,30 @@ function getStats() {
         %</th>
         <th>${user.userName}</th>
       </tr>`)
+}
 
+
+timedMatches()
+
+
+
+function timedMatches(){
+  let matches = getDays()
+  console.log(matches)
 }
 
 
 
+function getDays() {
+  let selectedDays = model.inputs.leaderboard.showLast
+  let daysInMs = selectedDays * 60 * 60 * 24 * 1000;
 
+  let now = new Date().getTime();
 
+  let matches = model.data.matches.filter((match) => now - new Date(match.datePlayed).getTime() < daysInMs);
 
-
+  return matches
+}
 
 
 
