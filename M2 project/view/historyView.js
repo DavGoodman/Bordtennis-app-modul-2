@@ -1,11 +1,11 @@
-let showAll = false; //spør om lov senere
-
 historyView();
+
 function historyView() {
   model.app.user = 'dankert';
   model.app.view = "history";
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
+  let showAll = model.inputs.history.showAll;
 
   const recentMatches = listAllEvents(currentUser).splice(0, 5).map(
     item => Object.hasOwn(item, 'matchId') ? `
@@ -46,7 +46,7 @@ function historyView() {
   html += /*html*/ `
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
         <table>
-            <thead>
+            <thead style="background-color: black">
                 <tr>
                     <th>Tittel</th>
                     <th>Vinner</th>
@@ -57,17 +57,11 @@ function historyView() {
                 ${showAll === false ? recentMatches.join('') : allMatches.join('')}
             </tbody>
         </table>
-        <button class="btn filled" onclick="showAll = !showAll; historyView()">Vis ${showAll === false ? ' fler' : ' mindre'}</button>
+        <button class="btn filled" onclick="showAll = !showAll; historyView()">vis ${showAll === false ? ' fler' : ' mindre'}</button>
+        <button class="btn" onclick="menuView()">tilbake</button>
     `;
 
   app.innerHTML = html;
-
-  let test = listAllEvents(currentUser);
-
-
-
-  console.log(test);
-  console.log(showAll, !showAll)
 }
 
 function getLoggedInUserId() { // Gets the ID of current logged in user
@@ -79,7 +73,6 @@ function getLoggedInUserId() { // Gets the ID of current logged in user
       userId = users[i].id
     }
   }
-  console.log(userId)
   return userId
 }
 
@@ -88,16 +81,13 @@ function listAllEvents(loggedInUser) {
   const matches = model.data.matches.filter(
     (match) => loggedInUser === match.participants[0].playerId || loggedInUser === match.participants[1].playerId
   );
-  console.log(matches);
   //List all tournaments of current user
   const tMatches = model.data.tournaments.filter(
     (tournament) => tournament.players.includes(loggedInUser)
   );
-  console.log(tMatches);
   //Join the two lists two a new list (non-intrusive)
 
   const allMatches = matches.concat(tMatches)
-  console.log('before', allMatches)
 
   //Sort all events by date
   allMatches.sort((a, b) => {
@@ -108,7 +98,5 @@ function listAllEvents(loggedInUser) {
     } else { return 0 };
   }
   )
-  console.log('after', allMatches)
-
   return allMatches;
 }

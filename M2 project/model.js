@@ -42,6 +42,10 @@ const model = {
       category: "matches", //matches - tournaments
       showLast: 7, // in days
     },
+
+    history: {
+      showAll: false,
+    },
   },
 
   //data

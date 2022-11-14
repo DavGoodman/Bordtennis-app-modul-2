@@ -32,6 +32,7 @@ body {
   height: 64px;
   width: 80%;
   max-width: 360px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .filled {
