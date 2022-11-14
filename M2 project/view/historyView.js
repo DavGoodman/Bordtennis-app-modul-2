@@ -1,11 +1,12 @@
 historyView();
+//TODO: Format table content. Styling
+
 
 function historyView() {
-  model.app.user = 'dankert';
+  // model.app.user = 'dankert';
   model.app.view = "history";
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
-  let showAll = model.inputs.history.showAll;
 
   const recentMatches = listAllEvents(currentUser).splice(0, 5).map(
     item => Object.hasOwn(item, 'matchId') ? `
@@ -45,20 +46,22 @@ function historyView() {
 
   html += /*html*/ `
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
-        <table>
-            <thead style="background-color: black">
-                <tr>
-                    <th>Tittel</th>
-                    <th>Vinner</th>
-                    <th>Dato</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${showAll === false ? recentMatches.join('') : allMatches.join('')}
-            </tbody>
-        </table>
-        <button class="btn filled" onclick="showAll = !showAll; historyView()">vis ${showAll === false ? ' fler' : ' mindre'}</button>
-        <button class="btn" onclick="menuView()">tilbake</button>
+        <div class='history-container'>
+          <table>
+              <thead style="background-color: black">
+                  <tr>
+                      <th>Tittel</th>
+                      <th>Vinner</th>
+                      <th>Dato</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  ${model.inputs.history.showAll === false ? recentMatches.join('') : allMatches.join('')}
+              </tbody>
+          </table>
+          <button class="btn filled" onclick="model.inputs.history.showAll = !model.inputs.history.showAll; historyView()">vis ${model.inputs.history.showAll === false ? ' fler' : ' mindre'}</button>
+          <button class="btn" onclick="menuView()">tilbake</button>
+        </div>
     `;
 
   app.innerHTML = html;
