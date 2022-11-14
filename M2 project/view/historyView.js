@@ -5,14 +5,13 @@ function historyView() {
   model.app.view = "history";
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
-  let showAll = model.inputs.history.showAll;
 
   const recentMatches = listAllEvents(currentUser).splice(0, 5).map(
     item => Object.hasOwn(item, 'matchId') ? `
     <tr>
       <td>${item.matchId}</td>
       <td>Frank</td>
-      <td>${item.datePlayed}</td>
+      <td>${convertTime(item.datePlayed)}</td>
     </tr>
     `
       :
@@ -20,7 +19,7 @@ function historyView() {
       <tr>
         <td>${item.tournamentName}</td>
         <td>${item.winnerId}</td>
-        <td>${item.datePlayed}</td>
+        <td>${convertTime(item.datePlayed)}</td>
       </tr>
     `);
 
@@ -29,7 +28,7 @@ function historyView() {
       <tr>
         <td>${item.matchId}</td>
         <td>Frank</td>
-        <td>${item.datePlayed}</td>
+        <td>${convertTime(item.datePlayed)}</td>
       </tr>
       `
       :
@@ -37,7 +36,7 @@ function historyView() {
         <tr>
           <td>${item.tournamentName}</td>
           <td>${item.winnerId}</td>
-          <td>${item.datePlayed}</td>
+          <td>${convertTime(item.datePlayed)}</td>
         </tr>
       `);
 
@@ -54,10 +53,10 @@ function historyView() {
                 </tr>
             </thead>
             <tbody>
-                ${showAll === false ? recentMatches.join('') : allMatches.join('')}
+                ${model.inputs.history.showAll === false ? recentMatches.join('') : allMatches.join('')}
             </tbody>
         </table>
-        <button class="btn filled" onclick="showAll = !showAll; historyView()">vis ${showAll === false ? ' fler' : ' mindre'}</button>
+        <button class="btn filled" onclick="model.inputs.history.showAll = !model.inputs.history.showAll; historyView()">vis ${model.inputs.history.showAll === false ? ' fler' : ' mindre'}</button>
         <button class="btn" onclick="menuView()">tilbake</button>
     `;
 
@@ -99,4 +98,16 @@ function listAllEvents(loggedInUser) {
   }
   )
   return allMatches;
+}
+
+function convertTime(t) {
+  d = new Date(t);
+
+  let date = d.toLocaleDateString('nb-no');
+  let time = d.toLocaleTimeString('nb-no');
+
+  date = date.slice(0, -4) + date.slice(-2, date.length);
+  time = time.slice(0, -3);
+
+  return date + ' ' + time;
 }
