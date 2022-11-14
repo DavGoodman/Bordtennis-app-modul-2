@@ -12,7 +12,7 @@
 }
 
 .logo {
-  width: 30vw;
+  width: 10rem;
   height: auto;
 }
 
@@ -33,6 +33,7 @@ body {
   height: 64px;
   width: 80%;
   max-width: 360px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .filled {
@@ -65,7 +66,7 @@ td {
   border: 1px solid black;
 }
 
-.date-sort-leaderboard > span{
+.date-sort-leaderboard > span {
   margin: 0 12px;
   cursor: pointer;
 }

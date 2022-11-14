@@ -1,6 +1,9 @@
-//historyView();
+historyView();
+//TODO: Format table content. Styling
+
+
 function historyView() {
-  model.app.user = 'dankert';
+  // model.app.user = 'dankert';
   model.app.view = "history";
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
@@ -10,7 +13,7 @@ function historyView() {
     <tr>
       <td>${item.matchId}</td>
       <td>Frank</td>
-      <td>${item.datePlayed}</td>
+      <td>${convertTime(item.datePlayed)}</td>
     </tr>
     `
       :
@@ -18,16 +21,33 @@ function historyView() {
       <tr>
         <td>${item.tournamentName}</td>
         <td>${item.winnerId}</td>
-        <td>${item.datePlayed}</td>
+        <td>${convertTime(item.datePlayed)}</td>
       </tr>
-    `)
+    `);
+
+  const allMatches = listAllEvents(currentUser).map(
+    item => Object.hasOwn(item, 'matchId') ? `
+      <tr>
+        <td>${item.matchId}</td>
+        <td>Frank</td>
+        <td>${convertTime(item.datePlayed)}</td>
+      </tr>
+      `
+      :
+      `
+        <tr>
+          <td>${item.tournamentName}</td>
+          <td>${item.winnerId}</td>
+          <td>${convertTime(item.datePlayed)}</td>
+        </tr>
+      `);
 
   let html = "";
 
   html += /*html*/ `
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
         <table>
-            <thead>
+            <thead style="background-color: black">
                 <tr>
                     <th>Tittel</th>
                     <th>Vinner</th>
@@ -35,18 +55,14 @@ function historyView() {
                 </tr>
             </thead>
             <tbody>
-                ${recentMatches.join('')}
+                ${model.inputs.history.showAll === false ? recentMatches.join('') : allMatches.join('')}
             </tbody>
         </table>
+        <button class="btn filled" onclick="model.inputs.history.showAll = !model.inputs.history.showAll; historyView()">vis ${model.inputs.history.showAll === false ? ' fler' : ' mindre'}</button>
+        <button class="btn" onclick="menuView()">tilbake</button>
     `;
 
   app.innerHTML = html;
-
-  let test = listAllEvents(currentUser);
-
-
-
-  console.log(test)
 }
 
 function getLoggedInUserId() { // Gets the ID of current logged in user
@@ -58,7 +74,6 @@ function getLoggedInUserId() { // Gets the ID of current logged in user
       userId = users[i].id
     }
   }
-  console.log(userId)
   return userId
 }
 
@@ -67,16 +82,13 @@ function listAllEvents(loggedInUser) {
   const matches = model.data.matches.filter(
     (match) => loggedInUser === match.participants[0].playerId || loggedInUser === match.participants[1].playerId
   );
-  console.log(matches);
   //List all tournaments of current user
   const tMatches = model.data.tournaments.filter(
     (tournament) => tournament.players.includes(loggedInUser)
   );
-  console.log(tMatches);
   //Join the two lists two a new list (non-intrusive)
 
   const allMatches = matches.concat(tMatches)
-  console.log('before', allMatches)
 
   //Sort all events by date
   allMatches.sort((a, b) => {
@@ -87,7 +99,17 @@ function listAllEvents(loggedInUser) {
     } else { return 0 };
   }
   )
-  console.log('after', allMatches)
-
   return allMatches;
+}
+
+function convertTime(t) {
+  d = new Date(t);
+
+  let date = d.toLocaleDateString('nb-no');
+  let time = d.toLocaleTimeString('nb-no');
+
+  date = date.slice(0, -4) + date.slice(-2, date.length);
+  time = time.slice(0, -3);
+
+  return date + ' ' + time;
 }

@@ -20,7 +20,7 @@ function tournamentView() {
                 ${listUsers()}
             </datalist>
             <button onclick="commitPlayers()" class="btn filled">lag turnering</button>
-            <button class="btn">avbryt</button>
+            <button class="btn" onclick="menuView()">avbryt</button>
         </div>
          `;
   app.innerHTML = html;

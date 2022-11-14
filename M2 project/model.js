@@ -42,6 +42,10 @@ const model = {
       category: "matches", //matches - tournaments
       showLast: 7, // in days
     },
+
+    history: {
+      showAll: false,
+    },
   },
 
   //data
@@ -195,6 +199,86 @@ const model = {
           { playerId: 2, matchScore: 7 },
         ],
       },
+      {
+        matchId: 6,
+        datePlayed: "2022-04-07T15:16:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 1337, matchScore: 10 },
+          { playerId: 4, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 7,
+        datePlayed: "2022-04-07T15:15:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 5, matchScore: 10 },
+          { playerId: 2, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 8,
+        datePlayed: "2022-04-06T15:20:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 2, matchScore: 10 },
+          { playerId: 1337, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 9,
+        datePlayed: "2022-04-04T15:20:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 1337, matchScore: 10 },
+          { playerId: 1, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 10,
+        datePlayed: "2022-04-03T15:20:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 1337, matchScore: 10 },
+          { playerId: 5, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 11,
+        datePlayed: "2022-04-03T15:21:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 1337, matchScore: 10 },
+          { playerId: 4, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 12,
+        datePlayed: "2022-04-03T15:12:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 1337, matchScore: 10 },
+          { playerId: 1, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 13,
+        datePlayed: "2022-03-02T15:20:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 3, matchScore: 10 },
+          { playerId: 1337, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 14,
+        datePlayed: "2022-03-02T15:22:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 1, matchScore: 10 },
+          { playerId: 2, matchScore: 7 },
+        ],
+      },
+      {
+        matchId: 15,
+        datePlayed: "2022-03-01T15:11:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 2, matchScore: 10 },
+          { playerId: 1337, matchScore: 7 },
+        ],
+      },
     ],
 
     // Ongoing Tournament?
@@ -240,7 +324,7 @@ const model = {
         tournamentId: 0,
         datePlayed: "2022-11-05T10:14:03.123Z",
         tournamentName: "Fredags Turnering",
-        players: [1, null, 3, null], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
+        players: [1, 2, 5, 3, 4, 1337,], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere
         matches: [
           {
@@ -255,16 +339,16 @@ const model = {
             tournamentMatchId: 2,
             round: 1,
             participants: [
-              { playerId: 3, matchScore: 10 },
-              { playerId: 4, matchScore: 7 },
+              { playerId: 1337, matchScore: 10 },
+              { playerId: 5, matchScore: 7 },
             ],
           },
           {
             tournamentMatchId: 3,
             round: 1,
             participants: [
-              { playerId: 5, matchScore: 10 },
-              { playerId: 6, matchScore: 7 },
+              { playerId: 3, matchScore: 10 },
+              { playerId: 4, matchScore: 7 },
             ],
           },
           {
@@ -280,16 +364,16 @@ const model = {
             tournamentMatchId: 5,
             round: 2,
             participants: [
-              { playerId: 1, matchScore: 10 },
-              { playerId: 3, matchScore: 7 },
+              { playerId: 1337, matchScore: 10 },
+              { playerId: 1, matchScore: 7 },
             ],
           },
           {
             tournamentMatchId: 6,
             round: 2,
             participants: [
-              { playerId: 5, matchScore: 10 },
-              { playerId: 7, matchScore: 7 },
+              { playerId: 7, matchScore: 10 },
+              { playerId: 3, matchScore: 7 },
             ],
           },
           {
@@ -301,7 +385,7 @@ const model = {
             ],
           },
         ],
-        winnerId: 1,
+        winnerId: 1337,
         //fightForThird: false, (nice-to-have)
       },
       {
