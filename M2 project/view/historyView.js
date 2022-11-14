@@ -1,4 +1,6 @@
-//historyView();
+let showAll = false; //spør om lov senere
+
+historyView();
 function historyView() {
   model.app.user = 'dankert';
   model.app.view = "history";
@@ -20,7 +22,24 @@ function historyView() {
         <td>${item.winnerId}</td>
         <td>${item.datePlayed}</td>
       </tr>
-    `)
+    `);
+
+  const allMatches = listAllEvents(currentUser).map(
+    item => Object.hasOwn(item, 'matchId') ? `
+      <tr>
+        <td>${item.matchId}</td>
+        <td>Frank</td>
+        <td>${item.datePlayed}</td>
+      </tr>
+      `
+      :
+      `
+        <tr>
+          <td>${item.tournamentName}</td>
+          <td>${item.winnerId}</td>
+          <td>${item.datePlayed}</td>
+        </tr>
+      `);
 
   let html = "";
 
@@ -35,9 +54,10 @@ function historyView() {
                 </tr>
             </thead>
             <tbody>
-                ${recentMatches.join('')}
+                ${showAll === false ? recentMatches.join('') : allMatches.join('')}
             </tbody>
         </table>
+        <button class="btn filled" onclick="showAll = !showAll; historyView()">Vis ${showAll === false ? ' fler' : ' mindre'}</button>
     `;
 
   app.innerHTML = html;
@@ -46,7 +66,8 @@ function historyView() {
 
 
 
-  console.log(test)
+  console.log(test);
+  console.log(showAll, !showAll)
 }
 
 function getLoggedInUserId() { // Gets the ID of current logged in user

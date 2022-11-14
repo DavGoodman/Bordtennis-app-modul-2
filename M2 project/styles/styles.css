@@ -11,7 +11,7 @@
 }
 
 .logo {
-  width: 30vw;
+  width: 10rem;
   height: auto;
 }
 
@@ -64,7 +64,7 @@ td {
   border: 1px solid black;
 }
 
-.date-sort-leaderboard > span{
+.date-sort-leaderboard > span {
   margin: 0 12px;
   cursor: pointer;
 }
