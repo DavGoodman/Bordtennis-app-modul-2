@@ -11,8 +11,8 @@ function historyView() {
   const recentMatches = listAllEvents(currentUser).splice(0, 5).map(
     item => Object.hasOwn(item, 'matchId') ? `
     <tr>
-      <td>${item.matchId}</td>
-      <td>Frank</td>
+      <td>vs ${getOpponent(item)}</td>
+      <td>${getMatchWinner(item.participants)}</td> 
       <td>${convertTime(item.datePlayed)}</td>
     </tr>
     `
@@ -20,7 +20,7 @@ function historyView() {
       `
       <tr>
         <td>${item.tournamentName}</td>
-        <td>${item.winnerId}</td>
+        <td>${getUserName(item.winnerId)}</td>
         <td>${convertTime(item.datePlayed)}</td>
       </tr>
     `);
@@ -28,8 +28,8 @@ function historyView() {
   const allMatches = listAllEvents(currentUser).map(
     item => Object.hasOwn(item, 'matchId') ? `
       <tr>
-        <td>${item.matchId}</td>
-        <td>Frank</td>
+        <td>vs ${getOpponent(item)}</td>
+        <td>${getMatchWinner(item.participants)}</td>
         <td>${convertTime(item.datePlayed)}</td>
       </tr>
       `
@@ -37,7 +37,7 @@ function historyView() {
       `
         <tr>
           <td>${item.tournamentName}</td>
-          <td>${item.winnerId}</td>
+          <td>${getUserName(item.winnerId)}</td>
           <td>${convertTime(item.datePlayed)}</td>
         </tr>
       `);
@@ -104,12 +104,25 @@ function listAllEvents(loggedInUser) {
 
 function convertTime(t) {
   d = new Date(t);
-
   let date = d.toLocaleDateString('nb-no');
   let time = d.toLocaleTimeString('nb-no');
-
   date = date.slice(0, -4) + date.slice(-2, date.length);
   time = time.slice(0, -3);
 
   return date + ' ' + time;
+}
+
+function getUserName(id) {
+  const user = model.data.users.filter(item => item.id === id)
+  return user[0].userName
+}
+
+function getMatchWinner(matchup) {
+  const winner = matchup.filter(player => player.matchScore === 10)
+  return getUserName(winner[0].playerId);
+}
+
+function getOpponent(matchup) {
+  const opponent = matchup.participants.filter(item => item.playerId != getLoggedInUserId())
+  return getUserName(opponent[0].playerId);
 }

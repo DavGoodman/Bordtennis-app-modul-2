@@ -27,7 +27,6 @@ const model = {
     newMatch: {
       invitedPlayer: [], // data.user[0].userName eller Gjestenavn.
       score: [],
-      timeStarted: "",
     },
 
     newTournament: {
@@ -259,8 +258,8 @@ const model = {
         matchId: 13,
         datePlayed: "2022-03-02T15:20:03.390Z", //ISO 8601
         participants: [
-          { playerId: 3, matchScore: 10 },
-          { playerId: 1337, matchScore: 7 },
+          { playerId: 3, matchScore: 8 },
+          { playerId: 1337, matchScore: 10 },
         ],
       },
       {
