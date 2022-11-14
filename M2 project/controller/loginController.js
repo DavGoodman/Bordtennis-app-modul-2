@@ -73,6 +73,12 @@ function register(){
         errMsg = "Passordene ikke det samme"
         logInView(true, errMsg)
         return}
+    
+    if(password.length < 4 || !containsNumber(password) || !containsUppercase(password) || !containsLowercase(password)){
+        errMsg = "Passord må ha minst et tall, et stor bokstav, et liten bokstav og bli minst 3 karakter lang"
+        logInView(true, errMsg)
+        return
+    }
 
         
     
@@ -98,3 +104,15 @@ function register(){
 
 //HeisenBerg
 //empire
+
+function containsNumber(str) {
+  return /\d/.test(str);
+}
+
+function containsUppercase(str) {
+    return /[A-Z]/.test(str);
+  }
+
+function containsLowercase(str) {
+    return /[a-z]/.test(str);
+  }

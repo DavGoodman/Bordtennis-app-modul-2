@@ -1,4 +1,4 @@
-leaderboardView()
+//leaderboardView()
 function leaderboardView() {
   let app = document.getElementById("app");
   let html = "";
@@ -75,11 +75,8 @@ function getStats() {
   let category = model.inputs.leaderboard.category
   let sortBy = model.inputs.leaderboard.sortBy
   let users = model.data.users
-  let matches = model.data.matches
-  let tourneys = model.data.tournaments
-  let time = model.inputs.leaderboard.showLast
-  let result = "" 
 
+  let result = "" 
 
   let winners = users
   // Getting tournaments
@@ -120,34 +117,7 @@ result = winners.map((user, index) => category =="tournaments"
         </tr>`)
   
 return result
-  }
-
-
-
-
-  // Getting matches
-  // let matchWinners = []
-  // if (sortBy === "wins") {
-  //   matchWinners = users.sort((a, b) => (a.wins < b.wins || a.losses + a.wins === 0 ? 1 : -1));
-  // } else {
-  //   matchWinners = users.sort((a, b) =>
-  //     a.wins / (a.wins + a.losses) < b.wins / (b.wins + b.losses) || a.losses + a.wins === 0 ? 1 : -1
-  //   );
-  // }
-
-  // return matchWinners.map(
-  //   (user, index) => `
-  //     <tr>
-  //       <th>${index + 1}</th>
-  //       <th>${user.wins}/${user.losses}</th>
-  //       <th>${Math.round((user.wins / (user.wins + user.losses)) * 100)}
-  //       %</th>
-  //       <th>${user.userName}</th>
-  //     </tr>`)
-
-
-
-
+}
 
 
 
@@ -211,15 +181,6 @@ function getDays(type) {
 }
 
 
-// function getTourneyDays(){
-//   let tourneys = model.data.tourneys
-//   if(model.inputs.leaderboard.showLast == 0){return tourneys}
-
-//   let selectedDays = model.inputs.leaderboard.showLast
-//   let daysInMs = selectedDays * 60 * 60 * 24 * 1000;
-//   let now = new Date().getTime()
-
-// }
 
 
 
@@ -238,95 +199,3 @@ function getDays(type) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function getMatchWinners(){
-//   let sortBy = model.inputs.leaderboard.sortBy
-//   let users = model.data.users
-
-//   let matchWinners = []
-//   if (sortBy === "wins") {
-//     matchWinners = users.sort((a, b) => (a.wins < b.wins) ||
-//       a.losses + a.wins === 0 ? 1 : -1)
-//   }
-//   else {
-//     matchWinners = users.sort((a, b) =>
-//       a.wins / (a.wins + a.losses) <
-//         b.wins / (b.wins + b.losses) ||
-//         a.losses + a.wins === 0 ? 1 : -1)
-//   }
-
-//   return matchWinners.map((user, index) => `
-//       <tr>
-//         <th>${index + 1}</th>
-//         <th>${user.wins}/${user.losses}</th>
-//         <th>${Math.round(user.wins / (user.wins + user.losses) * 100)}
-//         %</th>
-//         <th>${user.userName}</th>
-//       </tr>`)
-// }
-
-
-
-// function getTourneyWinners(){
-//   let sortBy = model.inputs.leaderboard.sortBy
-//   let users = model.data.users
-
-//   let tournamentWinners = []
-//   if (sortBy === "wins") {
-//     tournamentWinners = users.sort((a, b) => (a.tournamentWins < b.tournamentWins) ||
-//       a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
-//   }
-//   else {
-//     tournamentWinners = users.sort((a, b) =>
-//       a.tournamentWins / (a.tournamentWins + a.tournamentLosses) <
-//         b.tournamentWins / (b.tournamentWins + b.tournamentLosses) ||
-//         a.tournamentLosses + a.tournamentWins === 0 ? 1 : -1)
-
-
-//   return tournamentWinners.map((user, index) => `
-//     <tr>
-//       <th>${index + 1}</th>
-//       <th>${user.tournamentWins}/${user.tournamentLosses}</th>
-//       <th>${user.tournamentWins + user.tournamentLosses === 0 ? "N/A" :
-//       Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100) + "%"}
-//       </th>
-//       <th>${user.userName}</th>
-//     </tr>`)
-// }
-// }
-
-
-// function getTourneyWins(){
-//   let users = model.data.users
-
-//   let tournamentWinners = users.sort((a, b) => (a.tournamentWins < b.tournamentWins)? 1: -1)
-
-//   return tournamentWinners.map((user, index) => `
-//       <tr>
-//         <th>${index + 1}</th>
-//         <th>${user.tournamentWins}/${user.tournamentLosses}</th>
-//         <th>${Math.round(user.tournamentWins / (user.tournamentWins + user.tournamentLosses) * 100)}
-//         %</th>
-//         <th>${user.userName}</th>
-//       </tr>`)
-
-// }

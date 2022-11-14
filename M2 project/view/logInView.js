@@ -1,48 +1,40 @@
 //David
 
-//test();
-
-//logInView();
+logInView();
 function logInView(err, errMsg) {
-  // model.app.view = "login"
+
   let app = document.getElementById("app");
 
   view = model.app.view;
   console.log(view);
 
-  // let menu = "login-menu" === view
-  // let login = "login" === view
-  // let register = "register" === view
-
-  // console.log(menu, login, register)
-
-  let html = "";
+  let html = `<video src="../M2 project/assets/loginBackround.mp4" autoplay muted loop class="login-vid"></video>`;
   html += /*HTML*/ `
   <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
     
     <div class="login--inputs">${
       view === "login-menu"
-        ? ""
+        ? ''
         : view === "login"
         ? `
-
-    <div><input oninput="model.inputs.login.userName = this.value" placeholder="brukernavn" type="text"></div>
-    <div><input oninput="model.inputs.login.password = this.value" placeholder="passord" type="password"></div>`
+    
+    <div><input class="login-input" oninput="model.inputs.login.userName = this.value" placeholder="brukernavn" type="text"></div>
+    <div><input class="login-input" oninput="model.inputs.login.password = this.value" placeholder="passord" type="password"></div>`
         : /*HTML*/ `
     <div>
-      <input oninput="model.inputs.register.firstName = this.value" placeholder="fornavn" type="text">
-      <input oninput="model.inputs.register.lastName = this.value" placeholder="etternavn" type="text">
+      <input class="login-input" oninput="model.inputs.register.firstName = this.value" placeholder="fornavn" type="text">
+      <input class="login-input" oninput="model.inputs.register.lastName = this.value" placeholder="etternavn" type="text">
     </div>
 
    
-      <input oninput="model.inputs.register.userName = this.value" placeholder="brukernavn" type="text">
+      <input class="login-input" oninput="model.inputs.register.userName = this.value" placeholder="brukernavn" type="text">
    
 
   
-      <input oninput="model.inputs.register.password = this.value" placeholder="passord" type="password">
+      <input class="login-input" oninput="model.inputs.register.password = this.value" placeholder="passord" type="password">
   
    
-      <input oninput="model.inputs.register.confirmPassword = this.value" placeholder="bekreft passord" type="password">
+      <input class="login-input" oninput="model.inputs.register.confirmPassword = this.value" placeholder="bekreft passord" type="password">
    
       
 
@@ -55,7 +47,7 @@ function logInView(err, errMsg) {
 
    
 
-    <button ${
+    <button style="margin-top: 30px;" class="btn filled" ${
       view === "login-menu"
         ? `onclick="toLogin('login')"`
         : view === "login"
@@ -66,26 +58,14 @@ function logInView(err, errMsg) {
         ${view === "register" ? "submit" : "log in"}
      </button>
 
-    <button ${view === "login-menu" ? `onclick="toLogin('register')"` : `onclick="toLogin('login-menu')"`}>
-        ${view === "login-menu" ? "registrer" : "avbryt"}
+    <button style="margin-top: 30px;" class="btn" ${view === "login-menu" 
+    ? `onclick="toLogin('register')"` 
+    : `onclick="toLogin('login-menu')"`}>
+        ${view === "login-menu" 
+    ? "registrer" : "avbryt"}
     </button>
     `;
 
   app.innerHTML = html;
 }
 
-// let smt = `
-//   <button ${
-//     view === "login-menu"
-//       ? `onclick="toLogin('login')"`
-//       : view === "login"
-//       ? `onclick="login()"`
-//       : `onclick="register()"`
-//   }>
-
-//   ${view === "register" ? "submit" : "log in"}
-//   </button>
-
-//   <button ${view === "login-menu" ? `onclick="toLogin('register')"` : `onclick="toLogin('login-menu')"`}>
-//   ${view === "login-menu" ? "registrer" : "avbryt"}
-//   </button>`;
