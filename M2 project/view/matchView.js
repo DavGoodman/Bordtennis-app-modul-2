@@ -92,22 +92,12 @@ function checkTime(timeWindow) {
     let previousDate = new Date(matches[i].datePlayed);
     let timeSinceMatch = dateToday.getTime() - previousDate.getTime();
     if (timeSinceMatch < daysInMs) {
-      console.log("its less than " + timeWindow + " days and i = " + i);
     }
   }
 }
 
 function test(timeWindow) {
   let daysInMs = timeWindow * 60 * 60 * 24 * 1000;
-
   let now = new Date().getTime();
-
   let test = model.data.matches.filter((match) => now - new Date(match.datePlayed).getTime() < daysInMs);
-  // model.data.matches[i]
-
-  // let smt = model.data.matches.map((match, index)=> `
-  //   <div onclick="deleteThis(${index})">${match.datePlayed}</div>
-  // `)
-
-  console.log(test);
 }
