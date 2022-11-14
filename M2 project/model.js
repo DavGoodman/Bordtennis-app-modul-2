@@ -155,6 +155,21 @@ const model = {
         lastTourneyWins: 0,
         lastTourneyLosses: 0,
       },
+      {
+        id: 6969,
+        userName: "Newbie",
+        firstName: "Anders",
+        lastName: "Olsen",
+        password: "get",
+        wins: 0,
+        losses: 0,
+        tournamentWins: 0,
+        tournamentLosses: 0,
+        lastWins: 0,
+        lastLosses: 0,
+        lastTourneyWins: 0,
+        lastTourneyLosses: 0,
+      },
     ],
 
     matches: [
