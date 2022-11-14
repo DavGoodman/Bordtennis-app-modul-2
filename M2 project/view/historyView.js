@@ -47,18 +47,18 @@ function historyView() {
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
       ${recentMatches.length == 0 ? 'Du har ikke spilt noen kamper' : `
       
-        <table>
-          <thead style="background-color: black">
-            <tr>
-                <th>Tittel</th>
-                <th>Vinner</th>
-                <th>Dato</th>
-            </tr>
-            </thead>
-            <tbody>
-                ${model.inputs.history.showAll === false ? recentMatches.join('') : allMatches.join('')}
-            </tbody>
-        </table> `}
+          <table>
+            <thead style="background-color: black">
+              <tr>
+                  <th>Tittel</th>
+                  <th>Vinner</th>
+                  <th>Dato</th>
+              </tr>
+              </thead>
+              <tbody>
+                  ${model.inputs.history.showAll === false ? recentMatches.join('') : allMatches.join('')}
+              </tbody>
+          </table> `}
         <button class="btn filled" onclick="model.inputs.history.showAll = !model.inputs.history.showAll; historyView()">vis ${model.inputs.history.showAll === false ? ' fler' : ' mindre'}</button>
         <button class="btn" onclick="menuView()">tilbake</button>
     `;
@@ -120,21 +120,10 @@ function getUserName(id) {
 
 function getMatchWinner(matchup) {
   const winner = matchup.filter(player => player.matchScore === 10)
-  typeof winner[0].playerId == String ? winner[0].playerId : getUserName(winner[0].playerId)
+  return typeof winner[0].playerId === 'string' ? winner[0].playerId : getUserName(winner[0].playerId)
 }
-
-// if (typeof (winner[0].playerId === String)) {
-//   return winner[0].playerId
-// } else {
-//   return getUserName(winner[0].playerId)
-// }
-
-// function getOpponent(matchup) {
-//   const opponent = matchup.participants.filter(item => item.playerId != getLoggedInUserId())
-//   return getUserName(opponent[0].playerId);
-// }
 
 function getOpponent(matchup) {
   const opponent = matchup.participants.filter(item => item.playerId != getLoggedInUserId())
-  typeof (opponent[0].playerId === String) ? opponent[0].playerId : getUserName(opponent[0].playerId)
+  return typeof opponent[0].playerId === 'string' ? opponent[0].playerId : getUserName(opponent[0].playerId)
 }
