@@ -1,6 +1,6 @@
 //David
 
-logInView();
+//logInView();
 function logInView(err, errMsg) {
 
   let app = document.getElementById("app");
@@ -59,10 +59,10 @@ function logInView(err, errMsg) {
      </button>
 
     <button style="margin-top: 30px;" class="btn" ${view === "login-menu" 
-    ? `onclick="toLogin('register')"` 
-    : `onclick="toLogin('login-menu')"`}>
-        ${view === "login-menu" 
-    ? "registrer" : "avbryt"}
+      ? `onclick="toLogin('register')"` 
+      : `onclick="toLogin('login-menu')"`}>
+          ${view === "login-menu" 
+      ? "registrer" : "avbryt"}
     </button>
     `;
 
