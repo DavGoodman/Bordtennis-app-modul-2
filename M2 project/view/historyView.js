@@ -1,4 +1,4 @@
-historyView();
+//historyView();
 
 
 function historyView() {
