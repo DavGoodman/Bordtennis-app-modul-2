@@ -36,6 +36,10 @@ const model = {
       matchScores: [],
     },
 
+    ongoingTournament: {
+      matchScore: [],
+    },
+
     leaderboard: {
       sortBy: "wins", // wins - win rate% - (rating)?
       category: "matches", //matches - tournaments
@@ -338,7 +342,7 @@ const model = {
         tournamentId: 0,
         datePlayed: "2022-11-05T10:14:03.123Z",
         tournamentName: "Fredags Turnering",
-        players: [1, 2, 5, 3, 4, 1337,], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
+        players: [1, 2, 5, 3, 4, 1337], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere
         matches: [
           {
@@ -408,8 +412,7 @@ const model = {
         tournamentName: "Fredags Turnering",
         players: [1, 2, 3, 5], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
         numOfMatches: 7, // basert på turneringsbraketten og antall spillere
-        matches: [
-        ],
+        matches: [],
         winnerId: 2,
         //fightForThird: false, (nice-to-have)
       },
