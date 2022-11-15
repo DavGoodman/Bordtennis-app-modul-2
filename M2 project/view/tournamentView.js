@@ -1,11 +1,11 @@
-// tournamentView();
+tournamentView();
 
 function tournamentView() {
   let app = document.getElementById("app");
   let html = "";
   let players = model.inputs.newTournament.participants.map(
     (user) =>
-      `<div style="display: flex; justify-content: space-between; padding: 1rem"><span>${user}</span><button onclick="deletePlayer('${user}');">hei</button></div>`
+      `<div style="color: black; display: flex; justify-content: space-between; padding: 1rem"><span>${user}</span><button onclick="deletePlayer('${user}');">X</button></div>`
   );
   html += `
   

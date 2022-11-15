@@ -1,4 +1,4 @@
-leaderboardView()
+// leaderboardView()
 function leaderboardView() {
   let app = document.getElementById("app");
   let html = "";
@@ -74,16 +74,18 @@ function getStats() {
   let result = "";
 
   let winners = users;
-  
-  // Get tournaments/matches 
-  winners = winners.sort((a, b) => a.userName > b.userName ? 1: -1) 
+
+  // Get tournaments/matches
+  winners = winners.sort((a, b) => (a.userName > b.userName ? 1 : -1));
   if (sortBy === "wins") {
     winners = winners.sort((a, b) =>
       category == "tournaments"
         ? a.lastTourneyWins < b.lastTourneyWins || a.lastTourneyLosses + a.lastTourneyWins === 0
-          ? 1: -1
+          ? 1
+          : -1
         : a.lastWins < b.lastWins || a.lastLosses + a.lastWins === 0
-        ? 1: -1
+        ? 1
+        : -1
     );
   } else {
     winners = users.sort((a, b) =>
@@ -91,10 +93,12 @@ function getStats() {
         ? a.lastTourneyWins / (a.lastTourneyWins + a.lastTourneyLosses) <
             b.lastTourneyWins / (b.lastTourneyWins + b.lastTourneyLosses) ||
           a.lastTourneyLosses + a.lastTourneyWins === 0
-          ? 1: -1
+          ? 1
+          : -1
         : a.lastWins / (a.lastWins + a.lastLosses) < b.lastWins / (b.lastWins + b.lastLosses) ||
           a.lastLosses + a.lastWins === 0
-        ? 1: -1
+        ? 1
+        : -1
     );
   }
 

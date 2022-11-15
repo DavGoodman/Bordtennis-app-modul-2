@@ -25,7 +25,7 @@ const model = {
     },
 
     newMatch: {
-      invitedPlayer: [], // data.user[0].userName eller Gjestenavn.
+      invitedPlayer: [],
       score: [],
     },
 
@@ -302,13 +302,14 @@ const model = {
     // Ongoing Tournament?
 
     ongoingTournament: {
+      tournamentName: "",
       participants: ["AS", "Harald"],
 
       rounds: [
         [
           {
             players: ["david", "Simen"],
-            score: [10, 8], // score.unshift(10)  // [0,0]
+            score: [10, 8],
           },
           {
             players: ["Benjamin", "Terje"],
@@ -332,6 +333,12 @@ const model = {
             players: ["Linn", "Bjørnar"],
             score: [10, 8],
           },
+          {
+            playerssmt: [
+              { playerId: "Linn", matchScore: 10 },
+              { playerId: "Bjørn", matchScore: 7 },
+            ],
+          },
         ],
       ],
     },
@@ -342,12 +349,12 @@ const model = {
         tournamentId: 0,
         datePlayed: "2022-11-05T10:14:03.123Z",
         tournamentName: "Fredags Turnering",
-        players: [1, 2, 5, 3, 4, 1337], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
-        numOfMatches: 7, // basert på turneringsbraketten og antall spillere
+        players: [1, 2, 5, 3, 4, 1337],
+        numOfMatches: 7,
         matches: [
           {
             tournamentMatchId: 1,
-            round: 1,
+            round: 1, // model.data.ongoingTournament.rounds[i]
             participants: [
               { playerId: 1, matchScore: 10 },
               { playerId: 2, matchScore: 7 },
@@ -420,8 +427,8 @@ const model = {
         tournamentId: 2,
         datePlayed: "2022-09-15T15:11:03.245Z",
         tournamentName: "Test 2",
-        players: [1, null, 3, null, 5], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
-        numOfMatches: 7, // basert på turneringsbraketten og antall spillere
+        players: [1, null, 3, null, 5],
+        numOfMatches: 7,
         matches: [
           {
             tournamentMatchId: 1,
