@@ -37,7 +37,7 @@ const model = {
     },
 
     ongoingTournament: {
-      matchScore: [],
+      score: [],
     },
 
     leaderboard: {
@@ -299,56 +299,28 @@ const model = {
       },
     ],
 
-    // Ongoing Tournament?
-
     ongoingTournament: {
       tournamentName: "",
-      participants: ["AS", "Harald"],
-
+      participants: [],
       rounds: [
         [
-          {
-            players: ["david", "Simen"],
-            score: [10, 8],
-          },
-          {
-            players: ["Benjamin", "Terje"],
-            score: [4, 10],
-          },
-          {
-            players: ["Robert", "Bjørnar"],
-            score: [10, 4],
-          },
-          {
-            players: ["Linn", "Marie"],
-            score: [10, 5],
-          },
-        ],
-        [
-          {
-            players: ["David", "Terje"],
-            score: [10, 8],
-          },
-          {
-            players: ["Linn", "Bjørnar"],
-            score: [10, 8],
-          },
-          {
-            playerssmt: [
-              { playerId: "Linn", matchScore: 10 },
-              { playerId: "Bjørn", matchScore: 7 },
-            ],
-          },
+          [
+            { playerId: "simen", matchScore: 10 }, // model.data.ongoingTournament.rounds[i]
+            { playerId: "robhimself", matchScore: 7 },
+          ],
+          [
+            { playerId: "david", matchScore: 10 },
+            { playerId: "bjørnar", matchScore: 7 },
+          ],
         ],
       ],
     },
 
-    // Previous tournaments?
     tournaments: [
       {
         tournamentId: 0,
         datePlayed: "2022-11-05T10:14:03.123Z",
-        tournamentName: "Fredags Turnering",
+        tournamentName: "Fredagsturnering",
         players: [1, 2, 5, 3, 4, 1337],
         numOfMatches: 7,
         matches: [
