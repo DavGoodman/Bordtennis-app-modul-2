@@ -31,9 +31,7 @@ const model = {
 
     newTournament: {
       tournamentName: "",
-      newParticpantName: "", // "søkefelt" for nye spillere eller gjestespillere.
-      participants: [], // data.user[0]
-      matchScores: [],
+      participants: [],
     },
 
     ongoingTournament: {
@@ -300,6 +298,7 @@ const model = {
     ],
 
     ongoingTournament: {
+      //creatorId: 3,
       tournamentName: "",
       participants: [],
       rounds: [
@@ -307,10 +306,6 @@ const model = {
           [
             { playerId: "simen", matchScore: 10 }, // model.data.ongoingTournament.rounds[i]
             { playerId: "robhimself", matchScore: 7 },
-          ],
-          [
-            { playerId: "david", matchScore: 10 },
-            { playerId: "bjørnar", matchScore: 7 },
           ],
         ],
       ],
