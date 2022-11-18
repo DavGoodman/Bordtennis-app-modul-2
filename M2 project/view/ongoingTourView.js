@@ -5,7 +5,7 @@ model.app.view = "round-1";
 
 //  alt over burde være satt når man lager turnering i tournamentView()
 
-ongoingTournamentView();
+// ongoingTournamentView();
 function ongoingTournamentView() {
   let app = document.getElementById("app");
   let html = "";
@@ -93,10 +93,10 @@ function getWeirdTournamentNumbers() {
   makeByersBracket(diff, goldenN);
 }
 
-function makeByersBracket(byers, closestToBase) {}
+function makeByersBracket(byers, closestToBase) { }
 
 // deltakere allerede stokket
-function listMatchups() {}
+function listMatchups() { }
 
 function checkByes() {
   let byer = model.inputs.ongoingTournament.byer;

@@ -1,8 +1,8 @@
-//historyView();
+// historyView();
 
 
 function historyView() {
-  model.app.user = 'Newbie';
+  model.app.user = 'dankert';
   model.app.view = "history";
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
