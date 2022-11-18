@@ -2,7 +2,6 @@
 
 
 function historyView() {
-  model.app.user = 'dankert';
   model.app.view = "history";
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
