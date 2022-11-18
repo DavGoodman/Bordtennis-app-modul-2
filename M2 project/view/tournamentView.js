@@ -1,5 +1,3 @@
-// tournamentView();
-
 function tournamentView() {
   let app = document.getElementById("app");
   let html = "";

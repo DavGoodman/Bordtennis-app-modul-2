@@ -32,7 +32,6 @@ function deletePlayer(name) {
       participants.splice(i, 1);
     }
   }
-  console.log(participants);
   tournamentView();
 }
 
