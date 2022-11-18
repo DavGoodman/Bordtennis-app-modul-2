@@ -49,7 +49,7 @@ function finalizeMatchData() {
     }
     // passing guestname as ID.
     if (i == users.length - 1) {
-      opponentID = opponent[0];
+      opponentID = opponent[0] + "(gjest)";
       console.log("Guest-user: " + opponentID);
     }
   }

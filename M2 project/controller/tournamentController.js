@@ -21,7 +21,6 @@ function addPlayer(name) {
     }
   }
   participants.push(name + "(gjest)");
-
   tournamentView();
 }
 
@@ -48,12 +47,14 @@ function commitPlayers() {
     return;
   }
 
+  model.data.ongoingTournament.currentRound = 1;
   model.data.ongoingTournament.tournamentName = name;
   model.data.ongoingTournament.participants = shuffle(participants);
+  model.data.ongoingTournament.currentRoundParticipants = model.data.ongoingTournament.participants;
+  model.app.view = "round-1";
 
   model.inputs.newTournament.tournamentName = "";
   model.inputs.newTournament.participants = [];
-
   ongoingTournamentView();
 }
 

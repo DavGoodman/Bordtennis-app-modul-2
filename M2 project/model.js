@@ -301,14 +301,9 @@ const model = {
       //creatorId: 3,
       tournamentName: "",
       participants: [],
-      rounds: [
-        [
-          [
-            { playerId: "simen", matchScore: 10 }, // model.data.ongoingTournament.rounds[i]
-            { playerId: "robhimself", matchScore: 7 },
-          ],
-        ],
-      ],
+      currentRound: null,
+      currentRoundParticipants: [],
+      rounds: [],
     },
 
     tournaments: [
