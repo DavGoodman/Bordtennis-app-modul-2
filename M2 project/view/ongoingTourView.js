@@ -1,11 +1,10 @@
 let participantsFive = ["Robhimself", "dankert", "Newbie", "Gjesten", "developer"]; // testarray for "ikke-gode" antall deltakere
-let participantsFour = ["Robhimself", "dankert", "Newbie", "developer"]; // testarray for "gode" antall deltakere
-model.data.ongoingTournament.tournamentName = "TorsdagsTourny m/ Terje!"; //  sample for view
+// let participantsFour = ["Robhimself", "dankert", "Newbie", "developer"]; // testarray for "gode" antall deltakere
+// model.data.ongoingTournament.tournamentName = "TorsdagsTourny m/ Terje!"; //  sample for view
 model.app.view = "round-1";
 
 //  alt over burde være satt når man lager turnering i tournamentView()
 
-// ongoingTournamentView();
 function ongoingTournamentView() {
   let app = document.getElementById("app");
   let html = "";
@@ -31,8 +30,8 @@ function ongoingTournamentView() {
 
 function checkBaseBracket() {
   let base = [4, 8, 16, 32, 64, 128];
-  let n = participantsFour.length;
-
+  let n = model.data.ongoingTournament.participants.length;
+  console.log(n);
   return base.includes(n);
 }
 
@@ -42,7 +41,7 @@ function tRound() {
 }
 
 function newBasicTournament() {
-  let list = participantsFour;
+  let list = model.data.ongoingTournament.participants;
   let matchNum = list.length / 2;
   let roundArray = [];
   let matchHtml = "";
@@ -78,7 +77,7 @@ function newBasicTournament() {
 
 function getWeirdTournamentNumbers() {
   let baseN = [128, 64, 32, 16, 8, 4];
-  let p = participantsFive.length;
+  let n = model.data.ongoingTournament.participants.length;
   let diff;
   let goldenN;
 
@@ -93,10 +92,10 @@ function getWeirdTournamentNumbers() {
   makeByersBracket(diff, goldenN);
 }
 
-function makeByersBracket(byers, closestToBase) { }
+function makeByersBracket(byers, closestToBase) {}
 
 // deltakere allerede stokket
-function listMatchups() { }
+function listMatchups() {}
 
 function checkByes() {
   let byer = model.inputs.ongoingTournament.byer;
