@@ -55,14 +55,11 @@ function commitPlayers() {
   model.inputs.newTournament.tournamentName = "";
   model.inputs.newTournament.participants = [];
 
-  console.log(model.data.ongoingTournament);
-
-  // makeBracket();
+  ongoingTournamentView();
 }
 
 function shuffle(array) {
   const shuffledArray = array;
-  console.log("Before shuffle: ", shuffledArray);
 
   for (let i = shuffledArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i);
