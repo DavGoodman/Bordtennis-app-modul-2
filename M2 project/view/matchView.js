@@ -43,7 +43,7 @@ function matchView() {
                 </datalist>
               </div>
             </div>
-            <div class="container " style="padding-bottom: 14vh;">
+            <div class="container " style="padding-bottom: 8vh;">
               <div class="listcontainer container">
                 <div class="versusText">${player.length === 0 ? "" : "vs"}</div>
                 ${player.join("")}
