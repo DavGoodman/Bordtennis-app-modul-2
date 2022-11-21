@@ -4,25 +4,6 @@ function nextRound() {
   let rounds = ongoing.rounds;
   let newRoundWinners = [];
 
-  /* 
-model.inputs.ongoingTournament: {
-      score: [[
-              { playerId: 1, matchScore: 10 },
-              { playerId: 2, matchScore: 7 },
-            ],[
-              { playerId: 3, matchScore: 10 },
-              { playerId: 4, matchScore: 7 },
-            ],[
-              { playerId: 5, matchScore: 10 },
-              { playerId: 6, matchScore: 7 },
-            ],[
-              { playerId: 7, matchScore: 10 },
-              { playerId: 8, matchScore: 7 },
-            ],
-          ],
-    }
-  
-  */
 
   // finding winners from the previous round
   for (let i = 0; i < score.length; i++) {
@@ -49,14 +30,10 @@ model.inputs.ongoingTournament: {
 
   actualWinners = actualWinners.flat()
 
-
-
-
   // adding played round to data.ongoing.
   let newRoundObject = {
+    participants: score,
     round: ongoing.currentRound,
-    roundMatches: score,
-    roundWinners: actualWinners,
   };
   score = [];
   rounds.push(newRoundObject);
@@ -79,17 +56,12 @@ model.inputs.ongoingTournament: {
 }
 
 function finishTournament() {
-  /* 
-  
-  
-  2. nullstille ongoingdata og inputsdata.
-  */
+
   let allUsers = model.data.users
   let participants = model.data.ongoingTournament.participants; // brukernavn
   let winner = model.data.ongoingTournament.currentRoundParticipants; // brukernavn
   const playerIds = participants.map(username => getUserId(username));
   const winnerId = getUserId(winner[0]);
-
 
   let tObject = {
     tournamentId: model.data.tournaments.length,
@@ -102,6 +74,9 @@ function finishTournament() {
 
   model.data.tournaments.push(tObject)
   console.table(model.data.tournaments)
+  console.log(model.data.tournaments[model.data.tournaments.length - 1].matches)
+
+  resetTournament();
 }
 
 function getUserId(username) {
@@ -110,3 +85,11 @@ function getUserId(username) {
 }
 
 
+function resetTournament() {
+  model.data.ongoingTournament.currentRoundParticipants = []
+  model.data.ongoingTournament.participants = [];
+  model.data.ongoingTournament.rounds = [];
+  model.data.ongoingTournament.tournamentName = "";
+  model.data.ongoingTournament.currentRound = null
+  model.inputs.ongoingTournament.score = [];
+}

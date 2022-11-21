@@ -312,18 +312,15 @@ const model = {
         datePlayed: "2022-11-05T10:14:03.123Z",
         tournamentName: "Fredagsturnering",
         players: [1, 2, 5, 3, 4, 1337],
-        numOfMatches: 7,
         matches: [
           {
-            tournamentMatchId: 1,
-            round: 1, // model.data.ongoingTournament.rounds[i]
+            round: 1,
             participants: [
               { playerId: 1, matchScore: 10 },
               { playerId: 2, matchScore: 7 },
             ],
           },
           {
-            tournamentMatchId: 2,
             round: 1,
             participants: [
               { playerId: 1337, matchScore: 10 },
@@ -331,7 +328,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 3,
             round: 1,
             participants: [
               { playerId: 3, matchScore: 10 },
@@ -339,7 +335,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 4,
             round: 1,
             participants: [
               { playerId: 7, matchScore: 10 },
@@ -348,7 +343,6 @@ const model = {
           },
 
           {
-            tournamentMatchId: 5,
             round: 2,
             participants: [
               { playerId: 1337, matchScore: 10 },
@@ -356,7 +350,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 6,
             round: 2,
             participants: [
               { playerId: 7, matchScore: 10 },
@@ -364,7 +357,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 7,
             round: 3,
             participants: [
               { playerId: 1, matchScore: 10 },
@@ -373,27 +365,22 @@ const model = {
           },
         ],
         winnerId: 1337,
-        //fightForThird: false, (nice-to-have)
       },
       {
         tournamentId: 1,
         datePlayed: "2022-10-22T15:11:03.245Z",
-        tournamentName: "Fredags Turnering",
-        players: [1, 2, 3, 5], // participants: [data.user[0].userName, data.user[3].userName, "Harald"],
-        numOfMatches: 7, // basert på turneringsbraketten og antall spillere
+        tournamentName: "LørdagsTurnering",
+        players: [1, 2, 3, 5],
         matches: [],
         winnerId: 2,
-        //fightForThird: false, (nice-to-have)
       },
       {
         tournamentId: 2,
         datePlayed: "2022-09-15T15:11:03.245Z",
         tournamentName: "Test 2",
         players: [1, 'ivar', 3, 'steinar', 5],
-        numOfMatches: 7,
         matches: [
           {
-            tournamentMatchId: 1,
             round: 1,
             participants: [
               { playerId: 1, matchScore: 10 },
@@ -401,7 +388,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 2,
             round: 1,
             participants: [
               { playerId: 3, matchScore: 10 },
@@ -409,7 +395,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 3,
             round: 1,
             participants: [
               { playerId: 5, matchScore: 10 },
@@ -417,7 +402,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 4,
             round: 1,
             participants: [
               { playerId: 7, matchScore: 10 },
@@ -426,7 +410,6 @@ const model = {
           },
 
           {
-            tournamentMatchId: 5,
             round: 2,
             participants: [
               { playerId: 1, matchScore: 10 },
@@ -434,7 +417,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 6,
             round: 2,
             participants: [
               { playerId: 5, matchScore: 10 },
@@ -442,7 +424,6 @@ const model = {
             ],
           },
           {
-            tournamentMatchId: 7,
             round: 3,
             participants: [
               { playerId: 1, matchScore: 10 },
@@ -451,7 +432,6 @@ const model = {
           },
         ],
         winnerId: 1,
-        //fightForThird: false, (nice-to-have)
       },
     ],
   },
