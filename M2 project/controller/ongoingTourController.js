@@ -54,7 +54,7 @@ model.inputs.ongoingTournament: {
 
   // adding played round to data.ongoing.
   let newRoundObject = {
-    roundNumber: ongoing.currentRound,
+    round: ongoing.currentRound,
     roundMatches: score,
     roundWinners: actualWinners,
   };
@@ -70,7 +70,8 @@ model.inputs.ongoingTournament: {
     console.log(model.data.ongoingTournament);
     console.log(actualWinners[0], " is the winner!");
     winnerView(actualWinners); // template view bare
-    // finalizeTournament(); for å ferdigstille og pushe hele tur
+    finishTournament();
+    console.log(model.data.tournaments);
     return;
   }
   tRound(); // updates model.app.view to "round-n + 1"
@@ -87,7 +88,7 @@ function finishTournament() {
   let participants = model.data.ongoingTournament.participants; // brukernavn
   let winner = model.data.ongoingTournament.currentRoundParticipants; // brukernavn
   const playerIds = participants.map(username => getUserId(username));
-  const winnerId = getUserId(winner);
+  const winnerId = getUserId(winner[0]);
 
 
   let tObject = {
@@ -100,7 +101,7 @@ function finishTournament() {
   }
 
   model.data.tournaments.push(tObject)
-
+  console.table(model.data.tournaments)
 }
 
 function getUserId(username) {

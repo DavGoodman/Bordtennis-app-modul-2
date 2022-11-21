@@ -389,7 +389,7 @@ const model = {
         tournamentId: 2,
         datePlayed: "2022-09-15T15:11:03.245Z",
         tournamentName: "Test 2",
-        players: [1, null, 3, null, 5],
+        players: [1, 'ivar', 3, 'steinar', 5],
         numOfMatches: 7,
         matches: [
           {
