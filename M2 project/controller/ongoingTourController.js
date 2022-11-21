@@ -86,9 +86,8 @@ function finishTournament() {
   let allUsers = model.data.users
   let participants = model.data.ongoingTournament.participants; // brukernavn
   let winner = model.data.ongoingTournament.currentRoundParticipants; // brukernavn
-  // let winner = getUserId(participants)
   const playerIds = participants.map(username => getUserId(username));
-
+  const winnerId = getUserId(winner);
 
 
   let tObject = {
@@ -97,7 +96,7 @@ function finishTournament() {
     tournamentName: model.data.ongoingTournament.tournamentName,
     players: playerIds,
     matches: model.data.ongoingTournament.rounds,
-    winnerId: [],
+    winnerId: winnerId,
   }
 
   model.data.tournaments.push(tObject)
