@@ -30,7 +30,7 @@ function nextRound() {
   if (newRoundWinners.length < 2) {
     console.log(model.data.ongoingTournament);
     console.log(newRoundWinners, " is the winner!");
-    winnerView(newRoundWinners);
+    winnerView(newRoundWinners); // template view bare
     // finalizeTournament();
     return;
   }

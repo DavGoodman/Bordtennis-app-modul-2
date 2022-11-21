@@ -300,9 +300,9 @@ const model = {
     ongoingTournament: {
       //creatorId: 3,
       tournamentName: "",
-      participants: [],
-      currentRound: null,
-      currentRoundParticipants: [],
+      participants: [], // alle deltakerne fra start. 
+      currentRound: null, // henter info til rounds-obj, og displayer rundeNr i viewet.
+      currentRoundParticipants: [], // for å plassere forrige rundes vinnere, og generere nye kamper.
       rounds: [],
     },
 

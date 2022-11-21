@@ -1,8 +1,3 @@
-let participantsFive = ["Robhimself", "dankert", "Newbie", "Gjesten", "developer"]; // testarray for "ikke-gode" antall deltakere
-// let participantsFour = ["Robhimself", "dankert", "Newbie", "developer"]; // testarray for "gode" antall deltakere
-// model.data.ongoingTournament.tournamentName = "TorsdagsTourny m/ Terje!"; //  sample for view
-
-//  alt over burde være satt når man lager turnering i tournamentView()
 
 function ongoingTournamentView() {
   model.inputs.ongoingTournament.score = [];
@@ -64,14 +59,14 @@ function newBasicTournament() {
   for (let i = 0; i < roundArray.length; i++) {
     matchHtml += `<div class="bracket-list">`; // start på en ramme rundt hver kamp.
     for (let j = 0; j < roundArray[i].length; j++) {
-      matchHtml += `
+      matchHtml += /*HTML*/`
       <div class="rnd-mtch">
-      <div class="tm-name">
-      ${roundArray[i][j]}
-      </div>
-      <div class="tm-score">
-      <input class="score-input" type="number" maxlength="2" onchange="model.inputs.ongoingTournament.score[${i}][${j}].matchScore = parseInt(this.value)"><button onclick="alert('Er dette virkelig ${roundArray[i][j]}?'); console.log(model.inputs.ongoingTournament.score[${i}][${j}]);">Save</button>
-      </div>
+        <div class="tm-name">
+          ${roundArray[i][j]}
+        </div>
+        <div class="tm-score">
+          <input required="true" max=10 min=0 class="score-input" type="number" maxlength="2" onchange="model.inputs.ongoingTournament.score[${i}][${j}].matchScore = parseInt(this.value)"><button onclick="alert('Er dette virkelig ${roundArray[i][j]}?'); console.log(model.inputs.ongoingTournament.score[${i}][${j}]);">Save</button>
+        </div>
       </div>  
       `;
     }
@@ -80,6 +75,11 @@ function newBasicTournament() {
   tempList = roundArray;
   return matchHtml;
 }
+
+
+//____________________________________________________________________________________________________
+
+
 
 function getWeirdTournamentNumbers() {
   let baseN = [128, 64, 32, 16, 8, 4];
@@ -98,38 +98,26 @@ function getWeirdTournamentNumbers() {
   makeByersBracket(diff, goldenN);
 }
 
-function checkByes() {
-  let byer = model.inputs.ongoingTournament.byer;
-  let editableArray = participants;
-  if (editableArray.length % 2 != 0) {
-    byer = editableArray.pop();
-  }
+// function checkByes() {
+//   let byer = model.inputs.ongoingTournament.byer;
+//   let editableArray = participants;
+//   if (editableArray.length % 2 != 0) {
+//     byer = editableArray.pop();
+//   }
 
-  console.log(byer);
-  console.log(editableArray);
-  matchDivide(editableArray);
-}
+//   console.log(byer);
+//   console.log(editableArray);
+//   matchDivide(editableArray);
+// }
 
-function matchDivide(array) {
-  // let divideInto = array.length / 2;
-  let currentRoundMatches = [];
-  for (let i = 0; i < array.length; i++) {
-    if (i % 2 == 0) {
-    }
-  }
-}
-/*
-
-    newTournament: {
-      tournamentName: "",
-      participants: [],
-    },
-
-    ongoingTournament: {
-      score: [],
-    },
-
-*/
+// function matchDivide(array) {
+//   // let divideInto = array.length / 2;
+//   let currentRoundMatches = [];
+//   for (let i = 0; i < array.length; i++) {
+//     if (i % 2 == 0) {
+//     }
+//   }
+// }
 
 function generateRound(array) {
   if (array.length % 2 != 0) {
@@ -144,30 +132,6 @@ function generateRound(array) {
   }
 }
 
-//  model.data.ongoingTournament.rounds[0].
-
-// let fakeParticipents = ["Robhimself", "dankert", "Newbie", "Gjesten", "Robhimself", "dankert", "Newbie", "Gjesten"];
-
-// findRounds(4); // 2 (4, 2, vinner)
-// findRounds(6); // 3 (6, 3+1, 2, vinner)
-// findRounds(8); // 3 (8, 4, 2, vinner)
-// findRounds(9); // x (8+1, 4+1, 2+1, 1+1, vinner)
-// findRounds(14); // 4 (14, 7+1, 4, 2, vinner)
-// findRounds(33); // x (33, 16+1, 8+1, 4+1, 2+1 , 1+1, vinner?)
-// function findRounds(n) {
-//   let count;
-//   if (n / 2 < 1) {
-//     return [];
-//   } else {
-//     if (n % 2 != 0) {
-//       n++;
-//     }
-//     count = findRounds(n / 2);
-//     count.unshift(n);
-//     console.log("antall kamper ", count.length);
-//     return count;
-//   }
-// }
 function winnerView(name) {
   document.getElementById(
     "app"

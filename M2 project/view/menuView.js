@@ -10,7 +10,7 @@ function menuView() {
         <button onclick="matchView();" class="btn filled">Nytt spill</button>
         <button onclick="tournamentView()" class="btn filled">Ny turnering</button>
         <button onclick="leaderboardView()" class="btn filled">Ledertavle</button>
-        <button onclick="historyView()" class="btn filled">Historie</button>
+        <button onclick="historyView()" class="btn filled">Historikk</button>
         <button onclick="toLogin()" class="btn">Logg ut</button>
       </div>
         `;
