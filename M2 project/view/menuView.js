@@ -6,7 +6,7 @@ function menuView() {
   html += `
 
       <div class='menu-container'>
-        <img class='logo' src="assets/table-tennis-paddle-ball-solid.svg" alt="tennis icon"/>
+        <i class="fa-solid fa-table-tennis-paddle-ball"></i>
         <button onclick="matchView();" class="btn filled">Nytt spill</button>
         <button onclick="tournamentView()" class="btn filled">Ny turnering</button>
         <button onclick="leaderboardView()" class="btn filled">Ledertavle</button>

@@ -13,25 +13,6 @@ body {
   /* align-items: center; */
 }
 
-.btn {
-  border: solid 4px black;
-  border-radius: 32px;
-  height: 64px;
-  width: 80vh;
-  max-width: 360px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: x-large;
-  font-weight: 100;
-  cursor: pointer;
-}
-
-.filled {
-  background-color: black;
-  color: white;
-}
-
 .helper {
   background-color: aqua;
   border: 2px solid red;
