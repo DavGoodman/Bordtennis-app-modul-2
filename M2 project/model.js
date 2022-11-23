@@ -300,9 +300,10 @@ const model = {
     ongoingTournament: {
       //creatorId: 3,
       tournamentName: "",
-      participants: [], // alle deltakerne fra start. 
-      currentRound: null, // henter info til rounds-obj, og displayer rundeNr i viewet.
+      participants: [], // alle deltakerne fra start.
       currentRoundParticipants: [], // for å plassere forrige rundes vinnere, og generere nye kamper.
+      waitingParticipants: [], // ved odd-turnering plasseres bye-spillere her til runde 1 er ferdigspilt.
+      currentRound: null, // henter info til rounds-obj, og displayer rundeNr i viewet.
       rounds: [],
     },
 
@@ -378,7 +379,7 @@ const model = {
         tournamentId: 2,
         datePlayed: "2022-09-15T15:11:03.245Z",
         tournamentName: "Test 2",
-        players: [1, 'ivar', 3, 'steinar', 5],
+        players: [1, "ivar", 3, "steinar", 5],
         matches: [
           {
             round: 1,

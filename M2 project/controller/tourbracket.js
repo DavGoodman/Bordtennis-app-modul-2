@@ -22,6 +22,10 @@ function view() {
   <option value="9">9</option>
   <option value="10">10</option>
   <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
   </select>
     <input type="submit" value="Velg">
     </form>
@@ -52,7 +56,8 @@ function pList() {
 function newBracket() {
   let num = participants.length;
   let base = [128, 64, 32, 16, 8, 4, 2];
-  let byes, numbersUp, closestDown;
+  //let byes, numbersUp, closestDown;
+  let filterRound = [];
 
   for (let i = 0; i < base.length; i++) {
     if (num < base[i] && num > base[i + 1]) {
@@ -61,6 +66,7 @@ function newBracket() {
       numbersUp = base[i] - num;
     }
   }
+
   console.log("Byes: ", byes, ". closestDown: ", closestDown, ". numbersUp: ", numbersUp);
 
   arr = participants;
@@ -74,134 +80,134 @@ function newBracket() {
     secondRound.push(byelist[i]);
   }
 
-  let firstBox;
-  let secondBox = "<br>";
+  let firstBox = "";
+  let secondBox = "";
 
-  // 3
-  if (byes == 1 && numbersUp == 1) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  // // 3
+  // if (byes == 1 && numbersUp == 1) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  // }
 
-  // 5
-  if (byes == 1 && numbersUp == 3) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  // // 5
+  // if (byes == 1 && numbersUp == 3) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[1]} vs ${secondRound[2]}</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[1]} vs ${secondRound[2]}</div>`;
+  // }
 
-  // 6
-  if (byes == 2 && numbersUp == 2) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
-    firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
+  // // 6
+  // if (byes == 2 && numbersUp == 2) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[1]} vs "TBD"</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[1]} vs "TBD"</div>`;
+  // }
 
-  // 7
-  if (byes == 3 && numbersUp == 1) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
-    firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
-    firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
+  // // 7
+  // if (byes == 3 && numbersUp == 1) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  // }
 
-  // 9
-  if (byes == 1 && numbersUp == 7) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  // // 9
+  // if (byes == 1 && numbersUp == 7) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[1]} vs ${secondRound[2]}</div>`;
-    secondBox += `<div class="box">${secondRound[3]} vs ${secondRound[4]}</div>`;
-    secondBox += `<div class="box">${secondRound[5]} vs ${secondRound[6]}</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[1]} vs ${secondRound[2]}</div>`;
+  //   secondBox += `<div class="box">${secondRound[3]} vs ${secondRound[4]}</div>`;
+  //   secondBox += `<div class="box">${secondRound[5]} vs ${secondRound[6]}</div>`;
+  // }
 
-  // 10
-  if (byes == 2 && numbersUp == 6) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
-    firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
+  // // 10
+  // if (byes == 2 && numbersUp == 6) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[1]} vs ${secondRound[2]}</div>`;
-    secondBox += `<div class="box">${secondRound[3]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[4]} vs ${secondRound[5]}</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[1]} vs ${secondRound[2]}</div>`;
+  //   secondBox += `<div class="box">${secondRound[3]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[4]} vs ${secondRound[5]}</div>`;
+  // }
 
-  // 11
-  if (byes == 3 && numbersUp == 5) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
-    firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
-    firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
+  // // 11
+  // if (byes == 3 && numbersUp == 5) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[1]} vs ${secondRound[2]}</div>`;
-    secondBox += `<div class="box">${secondRound[3]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[4]} vs "TBD"</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[1]} vs ${secondRound[2]}</div>`;
+  //   secondBox += `<div class="box">${secondRound[3]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[4]} vs "TBD"</div>`;
+  // }
 
-  // 12
-  if (byes == 4 && numbersUp == 4) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
-    firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
-    firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
-    firstBox += `<div class="box">${firstRound[6]} vs ${firstRound[7]}</div>`;
+  // // 12
+  // if (byes == 4 && numbersUp == 4) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[6]} vs ${firstRound[7]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[1]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[2]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[3]} vs "TBD"</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[1]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[2]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[3]} vs "TBD"</div>`;
+  // }
 
-  // 13
-  if (byes == 5 && numbersUp == 3) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
-    firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
-    firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
-    firstBox += `<div class="box">${firstRound[6]} vs ${firstRound[7]}</div>`;
-    firstBox += `<div class="box">${firstRound[8]} vs ${firstRound[9]}</div>`;
+  // // 13
+  // if (byes == 5 && numbersUp == 3) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[6]} vs ${firstRound[7]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[8]} vs ${firstRound[9]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-    secondBox += `<div class="box">"TBD" vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[1]} vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[2]} vs "TBD"</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">"TBD" vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[1]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[2]} vs "TBD"</div>`;
+  // }
 
-  // 14
-  if (byes == 6 && numbersUp == 2) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
-    firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
-    firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
-    firstBox += `<div class="box">${firstRound[6]} vs ${firstRound[7]}</div>`;
-    firstBox += `<div class="box">${firstRound[8]} vs ${firstRound[9]}</div>`;
-    firstBox += `<div class="box">${firstRound[10]} vs ${firstRound[11]}</div>`;
+  // // 14
+  // if (byes == 6 && numbersUp == 2) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[6]} vs ${firstRound[7]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[8]} vs ${firstRound[9]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[10]} vs ${firstRound[11]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-    secondBox += `<div class="box">"TBD" vs "TBD"</div>`;
-    secondBox += `<div class="box">${secondRound[1]} vs "TBD"</div>`;
-    secondBox += `<div class="box">"TBD" vs "TBD"</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">"TBD" vs "TBD"</div>`;
+  //   secondBox += `<div class="box">${secondRound[1]} vs "TBD"</div>`;
+  //   secondBox += `<div class="box">"TBD" vs "TBD"</div>`;
+  // }
 
-  // 15
-  if (byes == 7 && numbersUp == 1) {
-    firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
-    firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
-    firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
-    firstBox += `<div class="box">${firstRound[6]} vs ${firstRound[7]}</div>`;
-    firstBox += `<div class="box">${firstRound[8]} vs ${firstRound[9]}</div>`;
-    firstBox += `<div class="box">${firstRound[10]} vs ${firstRound[11]}</div>`;
-    firstBox += `<div class="box">${firstRound[12]} vs ${firstRound[13]}</div>`;
+  // // 15
+  // if (byes == 7 && numbersUp == 1) {
+  //   firstBox += `<div class="box">${firstRound[0]} vs ${firstRound[1]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[2]} vs ${firstRound[3]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[4]} vs ${firstRound[5]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[6]} vs ${firstRound[7]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[8]} vs ${firstRound[9]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[10]} vs ${firstRound[11]}</div>`;
+  //   firstBox += `<div class="box">${firstRound[12]} vs ${firstRound[13]}</div>`;
 
-    secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
-  }
+  //   secondBox += `<div class="box">${secondRound[0]} vs "TBD"</div>`;
+  // }
 
   // console.log("Arr: ", arr);
   // console.log("FirstRound: ", firstRound);
   // console.log("SecondRound: ", secondRound);
-  view();
+  // view();
   return `<div class="first">${firstBox}</div>` + `<div class="second">${secondBox}</div>`;
 }
 
