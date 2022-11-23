@@ -39,8 +39,8 @@ function commitPlayers() {
   let participants = model.inputs.newTournament.participants;
   let name = model.inputs.newTournament.tournamentName;
 
-  if (participants.length < 4) {
-    alert("må ha minst 4 spillere for turnering");
+  if (participants.length < 3) {
+    alert("må ha minst 3 spillere for turnering");
     return;
   } else if (name.length < 2) {
     alert("turneringsnavn må bli minst 2 karakter lang");
