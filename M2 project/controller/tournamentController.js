@@ -35,7 +35,6 @@ function deletePlayer(name) {
 }
 
 function commitPlayers() {
-  // Deltagere må være > 3 for å lage turnering
   let participants = model.inputs.newTournament.participants;
   let name = model.inputs.newTournament.tournamentName;
 
