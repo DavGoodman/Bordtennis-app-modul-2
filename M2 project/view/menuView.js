@@ -11,7 +11,7 @@ function menuView() {
         <button onclick="tournamentView()" class="btn filled">Ny turnering</button>
         <button onclick="leaderboardView()" class="btn filled">Ledertavle</button>
         <button onclick="historyView()" class="btn filled">Historikk</button>
-        <button onclick="toLogin()" class="btn">Logg ut</button>
+        <button onclick="toLogin('login')" class="btn">Logg ut</button>
       </div>
         `;
   app.innerHTML = html;

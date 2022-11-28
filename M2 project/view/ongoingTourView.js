@@ -45,6 +45,8 @@ function newBasicTournament() {
     currentParticipants = model.data.ongoingTournament.currentRoundParticipants;
   }
 
+
+
   if (roundArray.length < matchNum) {
     for (let i = 0; i < currentParticipants.length; i = i + 2) {
       let matchArray = [];
@@ -58,6 +60,7 @@ function newBasicTournament() {
       roundArray.push(matchArray);
     }
   }
+
   for (let i = 0; i < roundArray.length; i++) {
     matchHtml += `<div class="bracket-list">`; // start på en ramme rundt hver kamp.
     for (let j = 0; j < roundArray[i].length; j++) {
@@ -72,7 +75,20 @@ function newBasicTournament() {
       </div>  
       `;
     }
-    matchHtml += `</div><br>`; //  stopp på ramme.
+    matchHtml += /*HTML*/`</div>
+    <br>`; //  stopp på ramme.
   }
+
+  waiting = model.data.ongoingTournament.waitingParticipants;
+  let waitList = waiting.map( person =>
+    `<div style="padding: 5px;">${person}</div>`
+  )
+  console.log(waiting)
+
+  matchHtml += `
+  ${waiting[0] ? `<div style="margin-top: 20px;" >Venteliste:</div>
+  <div style="background: gray; border: 2px solid black;">
+    ${waitList.join("")}
+  </div>` : ""}`
   return matchHtml;
 }
