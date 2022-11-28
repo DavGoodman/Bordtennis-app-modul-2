@@ -46,6 +46,7 @@ const model = {
 
     history: {
       showAll: false,
+      showEvent: {},
     },
   },
 

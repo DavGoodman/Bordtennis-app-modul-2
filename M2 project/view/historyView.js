@@ -5,10 +5,11 @@ function historyView() {
   model.app.view = "history";
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
+  let currentEvent = model.inputs.history.showEvent;
 
   const recentMatches = listAllEvents(currentUser).splice(0, 5).map(
-    item => Object.hasOwn(item, 'matchId') ? `
-    <tr onclick="clickRow()">
+    (item, index) => Object.hasOwn(item, 'matchId') ? `
+    <tr onclick="getEvent(${index})">
       <td>vs ${getOpponent(item)}</td>
       <td>${getMatchWinner(item.participants)}</td> 
       <td>${convertTime(item.datePlayed)}</td>
@@ -16,7 +17,7 @@ function historyView() {
     `
       :
       `
-      <tr onclick="clickRow()">
+      <tr onclick="getEvent(${index})">
         <td>${item.tournamentName}</td>
         <td>${getUserName(item.winnerId)}</td>
         <td>${convertTime(item.datePlayed)}</td>
@@ -24,8 +25,8 @@ function historyView() {
     `);
 
   const allMatches = listAllEvents(currentUser).map(
-    item => Object.hasOwn(item, 'matchId') ? `
-      <tr onclick="clickRow()">
+    (item, index) => Object.hasOwn(item, 'matchId') ? `
+      <tr onclick="getEvent(${index})">
         <td>vs ${getOpponent(item)}</td>
         <td>${getMatchWinner(item.participants)}</td>
         <td>${convertTime(item.datePlayed)}</td>
@@ -33,35 +34,46 @@ function historyView() {
       `
       :
       `
-        <tr onclick="clickRow()">
+        <tr onclick="getEvent(${index})">
           <td>${item.tournamentName}</td>
           <td>${getUserName(item.winnerId)}</td>
           <td>${convertTime(item.datePlayed)}</td>
         </tr>
       `);
 
+
   let html = "";
 
-  html += /*html*/ `
-  <div class="history-container">
+  isEmpty(currentEvent) === true ?
+
+    html += /*html*/ `
+      <div class="history-container">
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
-      ${recentMatches.length == 0 ? 'Du har ikke spilt noen kamper' : `
-      
-          <table>
-            <thead style="background-color: black; color: white;">
-              <tr>
-                  <th>Tittel</th>
-                  <th>Vinner</th>
-                  <th>Dato</th>
-              </tr>
-              </thead>
-              <tbody>
-                  ${model.inputs.history.showAll === false ? recentMatches.join('') : allMatches.join('')}
-              </tbody>
-          </table> `}
-        <button class="btn filled" onclick="model.inputs.history.showAll = !model.inputs.history.showAll; historyView()">vis ${model.inputs.history.showAll === false ? ' fler' : ' mindre'}</button>
+          ${recentMatches.length == 0 ? 'Du har ikke spilt noen kamper' : `
+              <table>
+                <thead style="background-color: black; color: white;">
+                  <tr>
+                      <th>Tittel</th>
+                      <th>Vinner</th>
+                      <th>Dato</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                      ${model.inputs.history.showAll === false ? recentMatches.join('') : allMatches.join('')}
+                  </tbody>
+              </table> `}
+        <button class="btn filled" onclick="model.inputs.history.showAll = !model.inputs.history.showAll; historyView()">vis ${model.inputs.history.showAll === false ? ' fler' : ' færre'}</button>
         <button class="btn" onclick="menuView()">tilbake</button>
-        </div>
+      </div>
+    `
+
+    :
+
+    html += /*html*/ `
+      <div>${convertTime(currentEvent.datePlayed)}</div>
+      <div>Navn: ${getUserName(currentEvent.participants[0].playerId)}  Score: ${currentEvent.participants[0].matchScore}</div>
+      <div>Navn: ${getUserName(currentEvent.participants[1].playerId)}  Score: ${currentEvent.participants[1].matchScore}</div>
+      <button class="btn filled" onclick="model.inputs.history.showEvent = {}; historyView()">tilbake</button>
     `;
 
   app.innerHTML = html;
@@ -127,6 +139,15 @@ function getOpponent(matchup) {
   return typeof opponent[0].playerId === 'string' ? opponent[0].playerId : getUserName(opponent[0].playerId)
 }
 
-function clickRow() {
-  console.log('hei')
+function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
+
+
+//controller
+
+function getEvent(index) {
+  const event = listAllEvents(getLoggedInUserId())[index]
+  model.inputs.history.showEvent = event
+  historyView();
 }
