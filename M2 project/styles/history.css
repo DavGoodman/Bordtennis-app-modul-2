@@ -1,3 +1,7 @@
+#app {
+  height: 90vh;
+}
+
 .history-container {
   height: auto;
   width: 90vw;
@@ -5,4 +9,22 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 0.5rem;
+}
+
+td {
+  padding: 0.5rem;
+}
+
+button {
+  margin-top: auto;
 }

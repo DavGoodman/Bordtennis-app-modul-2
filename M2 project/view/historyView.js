@@ -8,7 +8,7 @@ function historyView() {
 
   const recentMatches = listAllEvents(currentUser).splice(0, 5).map(
     item => Object.hasOwn(item, 'matchId') ? `
-    <tr>
+    <tr onclick="clickRow()">
       <td>vs ${getOpponent(item)}</td>
       <td>${getMatchWinner(item.participants)}</td> 
       <td>${convertTime(item.datePlayed)}</td>
@@ -16,7 +16,7 @@ function historyView() {
     `
       :
       `
-      <tr>
+      <tr onclick="clickRow()">
         <td>${item.tournamentName}</td>
         <td>${getUserName(item.winnerId)}</td>
         <td>${convertTime(item.datePlayed)}</td>
@@ -25,7 +25,7 @@ function historyView() {
 
   const allMatches = listAllEvents(currentUser).map(
     item => Object.hasOwn(item, 'matchId') ? `
-      <tr>
+      <tr onclick="clickRow()">
         <td>vs ${getOpponent(item)}</td>
         <td>${getMatchWinner(item.participants)}</td>
         <td>${convertTime(item.datePlayed)}</td>
@@ -33,7 +33,7 @@ function historyView() {
       `
       :
       `
-        <tr>
+        <tr onclick="clickRow()">
           <td>${item.tournamentName}</td>
           <td>${getUserName(item.winnerId)}</td>
           <td>${convertTime(item.datePlayed)}</td>
@@ -43,11 +43,12 @@ function historyView() {
   let html = "";
 
   html += /*html*/ `
+  <div class="history-container">
         <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
       ${recentMatches.length == 0 ? 'Du har ikke spilt noen kamper' : `
       
           <table>
-            <thead style="background-color: black">
+            <thead style="background-color: black; color: white;">
               <tr>
                   <th>Tittel</th>
                   <th>Vinner</th>
@@ -60,6 +61,7 @@ function historyView() {
           </table> `}
         <button class="btn filled" onclick="model.inputs.history.showAll = !model.inputs.history.showAll; historyView()">vis ${model.inputs.history.showAll === false ? ' fler' : ' mindre'}</button>
         <button class="btn" onclick="menuView()">tilbake</button>
+        </div>
     `;
 
   app.innerHTML = html;
@@ -87,9 +89,7 @@ function listAllEvents(loggedInUser) {
     (tournament) => tournament.players.includes(loggedInUser)
   );
   //Join the two lists two a new list (non-intrusive)
-
   const allMatches = matches.concat(tMatches)
-
   //Sort all events by date
   allMatches.sort((a, b) => {
     if (a.datePlayed > b.datePlayed) {
@@ -125,4 +125,8 @@ function getMatchWinner(matchup) {
 function getOpponent(matchup) {
   const opponent = matchup.participants.filter(item => item.playerId != getLoggedInUserId())
   return typeof opponent[0].playerId === 'string' ? opponent[0].playerId : getUserName(opponent[0].playerId)
+}
+
+function clickRow() {
+  console.log('hei')
 }
