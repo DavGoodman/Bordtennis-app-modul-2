@@ -55,7 +55,7 @@ function logInView(err, errMsg) {
         : `onclick="register()"`
     }>
 
-        ${view === "register" ? "submit" : "log in"}
+        ${view === "register" ? "registrer" : "log in"}
      </button>
 
     <button style="margin-top: 30px;" class="btn" ${view === "login-menu" 
