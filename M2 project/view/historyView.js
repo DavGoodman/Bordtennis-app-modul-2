@@ -78,9 +78,14 @@ function historyView() {
       <button class="btn filled" onclick="model.inputs.history.showEvent = {}; historyView()">tilbake</button>
     `
       :
-      console.log(getTournamentPlayers())
-  html += /*html*/ `
-      <div>hei</div>
+
+      html += /*html*/ `
+      <div>${currentEvent.tournamentName}</div>
+      <div>${convertTime(currentEvent.datePlayed)}</div>
+      <div>
+      ${getTournamentPlayers().map(player => `<div>${player}</div>`).join('')}
+      </div>
+      <div>${getUserName(currentEvent.winnerId)}</div>
       <button class="btn filled" onclick="model.inputs.history.showEvent = {}; historyView()">tilbake</button>
       `;
 
@@ -153,7 +158,7 @@ function isEmpty(obj) {
 
 function getTournamentPlayers() {
   const players = model.inputs.history.showEvent.players.map(player => getUserName(player))
-  console.log(players)
+  return players
 }
 
 //controller
