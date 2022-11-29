@@ -14,7 +14,6 @@
   flex-direction: column;
   justify-content: end;
   margin-bottom: 50px;
-  /* margin: 25px 0 0 0; */
 }
 
 i {
@@ -23,7 +22,6 @@ i {
 }
 
 .logo {
-  /* background-color: #072d35; */
   width: 100%;
   height: auto;
   display: flex;
@@ -33,7 +31,7 @@ i {
 
 .logo-container {
   position: absolute;
-  top: 30px;
+  top: 50px;
 }
 
 body {
@@ -42,7 +40,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url("https://media.tenor.com/f-m-ej1KZA8AAAAd/buff-gus.gif"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #fafaeb;
@@ -84,7 +81,7 @@ body {
 .menu-container {
   position: relative;
   height: 90vh;
-  width: 80vw;
+  /* width: 80vw; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -92,18 +89,31 @@ body {
 }
 
 .selected {
+  color: #ee7100;
   font-weight: bold;
-  text-shadow: 1px 1px 4px black;
+  text-shadow: 1px 1px 5px #ee6f007d;
 }
 
 .leaderboard-categories {
   font-size: 2rem;
 }
 
+table {
+  border-radius: 10px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.505);
+}
+
+td {
+  padding: 5px;
+}
+
 table,
 th,
 td {
   border: 1px solid black;
+  border-collapse: collapse;
+  background-color: #072d35;
+  color: white;
 }
 
 .date-sort-leaderboard > span {
@@ -113,7 +123,6 @@ td {
 
 .login--inputs {
   width: 90%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,14 +138,57 @@ input {
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.479);
 }
 
+.scoreinput {
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: white;
+  color: black;
+  border: 1.5px solid white;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(135, 135, 135, 0.52);
+  opacity: 1; /* Firefox */
+}
+
 .match-player {
-  width: 70%;
-  display: flex;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.459);
+  background-color: #072d35;
+  display: grid;
+  grid-template-columns: 150px 30px 65px 30px;
   align-items: center;
-  justify-content: space-between;
+  font-size: 1.5rem;
 }
 
 .match-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 25px;
   width: 25px;
+  font-size: large;
+  border-radius: 30%;
+  background-color: #ee7100;
+  border: 2px solid white;
+  color: black;
+}
+
+.history-container {
+  height: auto;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.history {
+  display: block;
+  max-height: 100%;
+  overflow-y: auto;
 }

@@ -1,30 +1,31 @@
-// leaderboardView()
+// leaderboardView();
 function leaderboardView() {
   let app = document.getElementById("app");
   let html = "";
   let inputs = model.inputs.leaderboard;
   html += /*HTML*/ `
-  <div style="display: flex; flex-direction: row; align-content: bottom; ">
+  <div class="logo-container" ">
     <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
   </div> 
+
     <div class="leaderboard-categories">
         <span 
         ${inputs.category === "tournaments" ? `class="selected"` : ""}
         onclick="ChangeCategory('tournaments')"
-        >Tournaments</span>
+        >Turneringer</span>
         <span 
         ${inputs.category === "matches" ? `class="selected"` : ""}
         onclick="ChangeCategory('matches')"
-        >matches</span>
+        >Kamper</span>
     </div>
     <div class="date-sort-leaderboard">
-      <span ${inputs.showLast == 7 ? `class="selected"` : ""} onclick="sortDate(7)">last week</span>
-      <span ${inputs.showLast == 30 ? `class="selected"` : ""} onclick="sortDate(30)">last month</span>
-      <span ${inputs.showLast == 365 ? `class="selected"` : ""} onclick="sortDate(365)">last year</span>
-      <span ${inputs.showLast == 0 ? `class="selected"` : ""} onclick="sortDate(0)">all time</span>
+      <span ${inputs.showLast == 7 ? `class="selected"` : ""} onclick="sortDate(7)">siste uke</span>
+      <span ${inputs.showLast == 30 ? `class="selected"` : ""} onclick="sortDate(30)">siste måned</span>
+      <span ${inputs.showLast == 365 ? `class="selected"` : ""} onclick="sortDate(365)">siste året</span>
+      <span ${inputs.showLast == 0 ? `class="selected"` : ""} onclick="sortDate(0)">totalt</span>
     </div>
 
-    <label for="choose">sort by</label>
+    <label style="margin-top: 5px;" for="choose">sorter etter:</label>
     <select onchange="sortBy(this)" name="choose">
       ${getOptions()};
     </select>
@@ -39,7 +40,7 @@ function getOptions() {
   let selectedOptionIndex = model.app.leaderboradSelectIndex;
 
   let html = ``;
-  let options = ["wins", "win rate"];
+  let options = ["Vunnet", "Prosent"];
 
   options.forEach((option, index) => {
     let isSelected = index === selectedOptionIndex ? "selected" : "";
@@ -53,12 +54,12 @@ function getWins(winType) {
   let wins = getStats();
 
   html = `
-    <table style="width:100%">
+    <table style="width:90%; margin-top: 10px;">
       <tr>
-        <th>Rank</th>
-        <th>W/L</th>
-        <th>Win rate</th>
-        <th>Name</th>
+        <th>Plass</th>
+        <th>Navn</th>
+        <th>V/T</th>
+        <th>%</th>
       </tr>
       ${wins.join("")}
     </table>
@@ -79,7 +80,7 @@ function getStats() {
 
   // Get tournaments/matches
   winners = winners.sort((a, b) => (a.userName > b.userName ? 1 : -1));
-  if (sortBy === "wins") {
+  if (sortBy === "Vunnet") {
     winners = winners.sort((a, b) =>
       category == "tournaments"
         ? a.lastTourneyWins < b.lastTourneyWins || a.lastTourneyLosses + a.lastTourneyWins === 0
@@ -109,6 +110,7 @@ function getStats() {
       ? `
       <tr>
         <th>${index + 1}</th>
+        <th>${user.userName}</th>
         <th>${user.lastTourneyWins}/${user.lastTourneyLosses}</th>
         <th>${
           user.lastTourneyWins + user.lastTourneyLosses === 0
@@ -116,11 +118,12 @@ function getStats() {
             : Math.round((user.lastTourneyWins / (user.lastTourneyWins + user.lastTourneyLosses)) * 100) + "%"
         }
         </th>
-        <th>${user.userName}</th>
+        
       </tr>`
       : `
         <tr>
           <th>${index + 1}</th>
+          <th>${user.userName}</th>
           <th>${user.lastWins}/${user.lastLosses}</th>
           <th>${
             user.lastWins + user.lastLosses === 0
@@ -128,7 +131,6 @@ function getStats() {
               : Math.round((user.lastWins / (user.lastWins + user.lastLosses)) * 100) + "%"
           }
           </th>
-          <th>${user.userName}</th>
         </tr>`
   );
 

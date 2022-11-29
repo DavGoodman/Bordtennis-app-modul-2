@@ -1,10 +1,11 @@
-// historyView();
+historyView();
 
 function historyView() {
   model.app.view = "history";
   let currentUser = getLoggedInUserId();
   let app = document.getElementById("app");
   let currentEvent = model.inputs.history.showEvent;
+  let showAll = model.inputs.history.showAll;
 
   const recentMatches = listAllEvents(currentUser)
     .splice(0, 5)
@@ -49,14 +50,21 @@ function historyView() {
   isEmpty(currentEvent) === true
     ? (html += /*html*/ `
       <div class="history-container">
-      <div style="display: flex; flex-direction: row; align-content: bottom; ">
+      ${
+        !showAll
+          ? `
+      <div class="logo-container" ">
         <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
       </div> 
+      `
+          : ""
+      }
+      
           ${
             recentMatches.length == 0
               ? "Du har ikke spilt noen kamper"
               : `
-              <table>
+              <table class="history">
                 <thead style="background-color: black; color: white;">
                   <tr>
                       <th>Tittel</th>
@@ -138,10 +146,13 @@ function listAllEvents(loggedInUser) {
 
 function convertTime(t) {
   d = new Date(t);
-  let date = d.toLocaleDateString("nb-no");
-  let time = d.toLocaleTimeString("nb-no");
-  date = date.slice(0, -4) + date.slice(-2, date.length);
-  time = time.slice(0, -3);
+  let date = d.toLocaleDateString("nb-no", { year: "2-digit", month: "2-digit", day: "2-digit" });
+  let time = d.toLocaleTimeString("nb-no", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  // date = date.slice(0, -4) + date.slice(-2, date.length);
+  // time = time.slice(0, -3);
 
   return date + " " + time;
 }

@@ -26,7 +26,7 @@ const model = {
 
     newMatch: {
       invitedPlayer: [],
-      score: [],
+      score: [0, 0],
     },
 
     newTournament: {

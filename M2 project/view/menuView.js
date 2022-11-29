@@ -8,9 +8,9 @@ function menuView() {
     <i class="fa-solid fa-right-from-bracket log-out-btn"></i>
   </div>    
       <div class='menu-container'>
-      <div style="display: flex; flex-direction: row; align-content: bottom; ">
-        <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
-      </div>  
+        <div style="display: flex; flex-direction: row; align-content: bottom; ">
+          <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
+        </div>  
         <button onclick="matchView();" class="btn filled">SPILL</button>
         <button onclick="tournamentView()" class="btn ">TURNERING</button>
         <button onclick="leaderboardView()" class="btn ">LEDERTAVLE</button>

@@ -68,6 +68,7 @@ function finalizeMatchData() {
 
   matches.push(newMatchData);
   model.inputs.newMatch.invitedPlayer = [];
+  model.inputs.newMatch.score = [0, 0];
   finalScore = [];
   historyView();
 }
