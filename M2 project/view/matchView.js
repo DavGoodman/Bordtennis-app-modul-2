@@ -10,51 +10,63 @@ function matchView() {
 
   html.innerHTML = "";
   html.innerHTML = /*HTML*/ `
-        <div class="container " style="padding-top: 13vh; padding-bottom: 2vh;">
+      <div class="full-container">
+        <div class="container" style="margin-top: 25px">
             <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
         </div>
-        <div>${
+        ${
           view === "match-started"
             ? `
-            <div style="padding-bottom: 15vh;"></div>
             <div class="matchcontainer">
               <div class="gamescore">
-                  <div style="grid-area: myMatchName;">Du</div>
-                  <div style="grid-area: otherMatchName;">${invited}</div>
-              </div>
-
-              <div class="gamescore">
-                  <div style="grid-area: scoreText">Score:</div>
-                  <input type="number" min="0" max="10" class="scoreinput" style="grid-area: myScoreBox;" onchange="model.inputs.newMatch.score[0] = parseInt(this.value)">
-                  <input type="number" min="0" max="10" class="scoreinput" style="grid-area: otherScoreBox;" onchange="model.inputs.newMatch.score[1] = parseInt(this.value)">
+                <div class="score-line">
+                  <div>
+                    ${model.app.user}
+                  </div>
+                  <div class="btn-container">
+                    <button class="scoreinput-btn">-</button>
+                    <input type="number" min="0" max="10" placeholder="0" class="scoreinput" onchange="model.inputs.newMatch.score[0] = parseInt(this.value)">
+                    <button class="scoreinput-btn">+</button>
+                  </div>
+                </div>
+                <div class="score-line">
+                  <div>
+                    ${invited}
+                  </div>
+                  <div class="btn-container">
+                    <button class="scoreinput-btn">-</button>
+                    <input type="number" min="0" max="10" placeholder="0" class="scoreinput" onchange="model.inputs.newMatch.score[1] = parseInt(this.value)">
+                    <button class="scoreinput-btn">+</button>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div class="buttoncontainer">
-                <div class="btn filled" onclick="completeMatch()">fullfør</div>
-                <div class="btn" onclick="matchView();">tilbake</div>
+                <button class="btn filled" onclick="completeMatch()">fullfør</button>
+                <button class="btn" onclick="model.app.view = 'match-create'; matchView();">tilbake</button>
             </div>`
             : `
-            <div class="container ">
+            <div class="container">
               <div class="inputField">
                 <input class="textField" list="players" name="player" type="text" placeholder="legg til spiller" onchange="addMatchPlayer(this.value)">     
-                <datalist id="players">
+                <datalist class="datalist" id="players">
                     ${showUser()}
                 </datalist>
               </div>
             </div>
-            <div class="container " style="padding-bottom: 8vh;">
+            <div class="container">
               <div class="listcontainer container">
                 <div class="versusText">${player.length === 0 ? "" : "vs"}</div>
                 ${player.join("")}
               </div>
             </div>
             <div class="buttoncontainer">
-              <div class="btn filled" onclick="newMatch()">start</div>
-              <div class="btn" onclick="menuView()">tilbake</div>
+                <button class="btn filled" onclick="newMatch()">start</button>
+                <button class="btn" onclick="model.inputs.newMatch.invitedPlayer = []; menuView();">tilbake</button>
             </div>`
         }</div>
-        `;
+      `;
 }
 
 function newMatch() {

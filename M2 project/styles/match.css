@@ -36,12 +36,25 @@ body {
   background-color: aqua;
   border: 2px solid red;
 }
-
+.full-container {
+  /* background-color: deepskyblue; */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.player-option {
+  width: 80vw;
 }
 
 .listcontainer {
@@ -57,10 +70,10 @@ body {
 
 .matchcontainer {
   width: 100vw;
-  height: 32vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
+  justify-content: center;
   align-items: center;
   /* background-color: #e1e1e1; */
   /* border: 2px solid black; */
@@ -70,29 +83,63 @@ body {
   width: 80vw;
   display: flex;
   flex-direction: row;
-  /* justify-content: space-evenly; */
 }
 .gamescore {
-  width: 80vw;
-  min-height: 3vh;
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 22vw auto auto;
-  grid-template-areas:
-    ". myMatchName otherMatchName"
-    "scoreText myScoreBox otherScoreBox";
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  padding: 5px;
+  justify-content: center;
   align-items: center;
-  font-size: larger;
-  font-weight: bolder;
+}
+.score-line {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
 }
 
 .scoreinput {
-  /* align-items: center; */
-  /* justify-content: center; */
-  width: 60px;
+  width: 40px;
   height: 40px;
-  font-size: xx-large;
+  font-size: x-large;
   text-align: center;
+  border: none;
+  background-color: rgb(149, 182, 210);
+}
+.btn-container {
+  background-color: rgb(149, 182, 210);
+  height: 40px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  border-radius: 45px;
+}
+.scoreinput-btn {
+  height: 20px;
+  width: 20px;
+  border-radius: 40px;
+  color: white;
+  font-size: 30px;
+  border: none;
+  background-color: rgb(149, 182, 210);
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px 10px 5px 10px;
 }
 
 .buttoncontainer {
@@ -101,6 +148,7 @@ body {
   height: 20vh;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 25px;
 }
 
 .textField {
@@ -141,20 +189,16 @@ body {
   align-items: center;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
-  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001,
+    inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
   transition: box-shadow 0.6s cubic-bezier(0.79, 0.21, 0.06, 0.81);
   font-size: 16px;
   color: rgba(42, 52, 84, 1);
   text-decoration: none;
 }
 .betterButton:active {
-  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
-    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
-    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5), -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5), inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
 }
 
 .removeIcon {

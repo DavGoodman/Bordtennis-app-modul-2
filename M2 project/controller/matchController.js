@@ -5,7 +5,6 @@ function addMatchPlayer(name) {
   } else {
     matchPlayer.splice(0, 1, name);
   }
-  console.log(matchPlayer);
   matchView();
 }
 
