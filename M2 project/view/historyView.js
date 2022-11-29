@@ -69,12 +69,20 @@ function historyView() {
 
     :
 
-    html += /*html*/ `
+    Object.hasOwn(model.inputs.history.showEvent, 'matchId') ?
+
+      html += /*html*/ `
       <div>${convertTime(currentEvent.datePlayed)}</div>
       <div>Navn: ${getUserName(currentEvent.participants[0].playerId)}  Score: ${currentEvent.participants[0].matchScore}</div>
       <div>Navn: ${getUserName(currentEvent.participants[1].playerId)}  Score: ${currentEvent.participants[1].matchScore}</div>
       <button class="btn filled" onclick="model.inputs.history.showEvent = {}; historyView()">tilbake</button>
-    `;
+    `
+      :
+      console.log(getTournamentPlayers())
+  html += /*html*/ `
+      <div>hei</div>
+      <button class="btn filled" onclick="model.inputs.history.showEvent = {}; historyView()">tilbake</button>
+      `;
 
   app.innerHTML = html;
 }
@@ -143,6 +151,10 @@ function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
 
+function getTournamentPlayers() {
+  const players = model.inputs.history.showEvent.players.map(player => getUserName(player))
+  console.log(players)
+}
 
 //controller
 
