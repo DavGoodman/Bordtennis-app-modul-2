@@ -8,8 +8,10 @@ function tournamentView() {
   html += `
   
         <div class='tournament-container'>
-            <img class='logo' src="assets/table-tennis-paddle-ball-solid.svg" alt="tennis icon"/>
-            <input oninput="model.inputs.newTournament.tournamentName = this.value" type="text" placeholder="turneringsnavn">
+          <div style="display: flex; flex-direction: row; align-content: bottom; ">
+            <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
+          </div> 
+        <input oninput="model.inputs.newTournament.tournamentName = this.value" type="text" placeholder="turneringsnavn">
             <input list="players" name="player" type="text" placeholder="legg til spiller" onchange="addPlayer(this.value);">
             <div class="player-list" style="display: flex; flex-direction: column;">
                 ${players.join("")}

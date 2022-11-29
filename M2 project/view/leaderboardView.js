@@ -4,7 +4,9 @@ function leaderboardView() {
   let html = "";
   let inputs = model.inputs.leaderboard;
   html += /*HTML*/ `
-    <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
+  <div style="display: flex; flex-direction: row; align-content: bottom; ">
+    <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
+  </div> 
     <div class="leaderboard-categories">
         <span 
         ${inputs.category === "tournaments" ? `class="selected"` : ""}
@@ -84,21 +86,21 @@ function getStats() {
           ? 1
           : -1
         : a.lastWins < b.lastWins || a.lastLosses + a.lastWins === 0
-          ? 1
-          : -1
+        ? 1
+        : -1
     );
   } else {
     winners = users.sort((a, b) =>
       category == "tournaments"
         ? a.lastTourneyWins / (a.lastTourneyWins + a.lastTourneyLosses) <
-          b.lastTourneyWins / (b.lastTourneyWins + b.lastTourneyLosses) ||
+            b.lastTourneyWins / (b.lastTourneyWins + b.lastTourneyLosses) ||
           a.lastTourneyLosses + a.lastTourneyWins === 0
           ? 1
           : -1
         : a.lastWins / (a.lastWins + a.lastLosses) < b.lastWins / (b.lastWins + b.lastLosses) ||
           a.lastLosses + a.lastWins === 0
-          ? 1
-          : -1
+        ? 1
+        : -1
     );
   }
 
@@ -108,10 +110,11 @@ function getStats() {
       <tr>
         <th>${index + 1}</th>
         <th>${user.lastTourneyWins}/${user.lastTourneyLosses}</th>
-        <th>${user.lastTourneyWins + user.lastTourneyLosses === 0
-        ? "N/A"
-        : Math.round((user.lastTourneyWins / (user.lastTourneyWins + user.lastTourneyLosses)) * 100) + "%"
-      }
+        <th>${
+          user.lastTourneyWins + user.lastTourneyLosses === 0
+            ? "N/A"
+            : Math.round((user.lastTourneyWins / (user.lastTourneyWins + user.lastTourneyLosses)) * 100) + "%"
+        }
         </th>
         <th>${user.userName}</th>
       </tr>`
@@ -119,10 +122,11 @@ function getStats() {
         <tr>
           <th>${index + 1}</th>
           <th>${user.lastWins}/${user.lastLosses}</th>
-          <th>${user.lastWins + user.lastLosses === 0
-        ? "N/A"
-        : Math.round((user.lastWins / (user.lastWins + user.lastLosses)) * 100) + "%"
-      }
+          <th>${
+            user.lastWins + user.lastLosses === 0
+              ? "N/A"
+              : Math.round((user.lastWins / (user.lastWins + user.lastLosses)) * 100) + "%"
+          }
           </th>
           <th>${user.userName}</th>
         </tr>`
@@ -151,7 +155,6 @@ function timedMatches() {
       }
     }
   }
-
 
   for (let tourney of tourneys) {
     for (let user of users) {

@@ -1,43 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  user-select: none;
-}
-
-body {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* align-items: center; */
-}
-
-.btn {
-  border: solid 4px black;
-  border-radius: 32px;
-  height: 64px;
-  width: 80vh;
-  max-width: 360px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: x-large;
-  font-weight: 100;
-  cursor: pointer;
-}
-
-.filled {
-  background-color: black;
-  color: white;
-}
-
-.helper {
-  background-color: aqua;
-  border: 2px solid red;
-}
 .full-container {
-  /* background-color: deepskyblue; */
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -53,9 +14,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-.player-option {
-  width: 80vw;
-}
 
 .listcontainer {
   width: 90vw;
@@ -64,8 +22,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #e1e1e1; */
-  /* border: 2px solid black; */
 }
 
 .matchcontainer {
@@ -75,8 +31,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #e1e1e1; */
-  /* border: 2px solid black; */
 }
 
 .game {

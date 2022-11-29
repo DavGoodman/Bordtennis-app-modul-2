@@ -5,6 +5,10 @@ function ongoingTournamentView() {
   let app = document.getElementById("app");
   let html = "";
   html += /*html*/ `
+  <div style="display: flex; flex-direction: row; align-content: bottom; ">
+    <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
+  </div> 
+
   <h3 class="rnd-title">
     ${model.data.ongoingTournament.tournamentName}
   </h3>
@@ -45,8 +49,6 @@ function newBasicTournament() {
     currentParticipants = model.data.ongoingTournament.currentRoundParticipants;
   }
 
-
-
   if (roundArray.length < matchNum) {
     for (let i = 0; i < currentParticipants.length; i = i + 2) {
       let matchArray = [];
@@ -75,20 +77,22 @@ function newBasicTournament() {
       </div>  
       `;
     }
-    matchHtml += /*HTML*/`</div>
+    matchHtml += /*HTML*/ `</div>
     <br>`; //  stopp på ramme.
   }
 
   waiting = model.data.ongoingTournament.waitingParticipants;
-  let waitList = waiting.map( person =>
-    `<div style="padding: 5px;">${person}</div>`
-  )
-  console.log(waiting)
+  let waitList = waiting.map((person) => `<div style="padding: 5px;">${person}</div>`);
+  console.log(waiting);
 
   matchHtml += `
-  ${waiting[0] ? `<div style="margin-top: 20px;" >Venteliste:</div>
+  ${
+    waiting[0]
+      ? `<div style="margin-top: 20px;" >Venteliste:</div>
   <div style="background: gray; border: 2px solid black;">
     ${waitList.join("")}
-  </div>` : ""}`
+  </div>`
+      : ""
+  }`;
   return matchHtml;
 }

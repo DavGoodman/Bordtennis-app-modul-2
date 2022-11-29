@@ -2,26 +2,27 @@
 
 //logInView();
 function logInView(err, errMsg) {
-
   let app = document.getElementById("app");
 
   view = model.app.view;
   console.log(view);
 
-  let html = `<video src="../M2 project/assets/loginBackround.mp4" autoplay muted loop class="login-vid"></video>`;
+  let html = "";
   html += /*HTML*/ `
-  <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
+  <div class="logo-container">
+    <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
+  </div>  
     
     <div class="login--inputs">${
       view === "login-menu"
-        ? ''
+        ? ""
         : view === "login"
         ? `
     
-    <div><input class="login-input" oninput="model.inputs.login.userName = this.value" placeholder="brukernavn" type="text"></div>
-    <div><input class="login-input" oninput="model.inputs.login.password = this.value" placeholder="passord" type="password"></div>`
+    <input class="login-input" oninput="model.inputs.login.userName = this.value" placeholder="brukernavn" type="text">
+    <input class="login-input" oninput="model.inputs.login.password = this.value" placeholder="passord" type="password">`
         : /*HTML*/ `
-    <div>
+    <div style="display: flex;">
       <input class="login-input" oninput="model.inputs.register.firstName = this.value" placeholder="fornavn" type="text">
       <input class="login-input" oninput="model.inputs.register.lastName = this.value" placeholder="etternavn" type="text">
     </div>
@@ -47,7 +48,7 @@ function logInView(err, errMsg) {
 
    
 
-    <button style="margin-top: 30px;" class="btn filled" ${
+    <button class="btn filled" ${
       view === "login-menu"
         ? `onclick="toLogin('login')"`
         : view === "login"
@@ -55,17 +56,13 @@ function logInView(err, errMsg) {
         : `onclick="register()"`
     }>
 
-        ${view === "register" ? "registrer" : "log in"}
+        ${view === "register" ? "registrer" : "LOGG INN"}
      </button>
 
-    <button style="margin-top: 30px;" class="btn" ${view === "login-menu" 
-      ? `onclick="toLogin('register')"` 
-      : `onclick="toLogin('login-menu')"`}>
-          ${view === "login-menu" 
-      ? "registrer" : "avbryt"}
+    <button class="btn" ${view === "login-menu" ? `onclick="toLogin('register')"` : `onclick="toLogin('login-menu')"`}>
+          ${view === "login-menu" ? "NY BRUKER" : "avbryt"}
     </button>
     `;
 
   app.innerHTML = html;
 }
-

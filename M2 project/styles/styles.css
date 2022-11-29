@@ -1,20 +1,39 @@
 * {
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 #app {
+  position: relative;
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  justify-content: end;
+  margin-bottom: 50px;
   /* margin: 25px 0 0 0; */
 }
 
+i {
+  fill: #072d35;
+  color: white;
+}
+
 .logo {
-  width: 10rem;
+  /* background-color: #072d35; */
+  width: 100%;
   height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.logo-container {
+  position: absolute;
+  top: 30px;
 }
 
 body {
@@ -26,21 +45,40 @@ body {
   /* background-image: url("https://media.tenor.com/f-m-ej1KZA8AAAAd/buff-gus.gif"); */
   background-size: cover;
   background-repeat: no-repeat;
-  /* color: rgb(220, 220, 220); */
+  background-color: #fafaeb;
+}
+
+.log-out-btn {
+  position: absolute;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  top: 35px;
+  left: 15px;
+  font-size: 2rem;
+  background-color: #072d35;
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.459);
+  z-index: 1;
+  cursor: pointer;
 }
 
 .btn {
-  border: solid 4px black;
-  border-radius: 100px;
+  cursor: pointer;
+  color: white;
+  border-radius: 15px;
   height: 64px;
-  width: 80%;
+  width: 70%;
   max-width: 360px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #072d35;
+  font-size: 1.5rem;
+  border: 0px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.459);
+  margin-top: 30px;
 }
 
 .filled {
-  background-color: black;
-  color: white;
+  background-color: #ee7100;
 }
 
 .menu-container {
@@ -71,4 +109,34 @@ td {
 .date-sort-leaderboard > span {
   margin: 0 12px;
   cursor: pointer;
+}
+
+.login--inputs {
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  border: 0;
+  height: 30px;
+  width: 48%;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.479);
+}
+
+.match-player {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.match-btn {
+  height: 25px;
+  width: 25px;
 }

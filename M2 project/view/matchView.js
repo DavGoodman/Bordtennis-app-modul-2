@@ -1,3 +1,4 @@
+matchView();
 function matchView() {
   const invited = model.inputs.newMatch.invitedPlayer;
   let view = model.app.view;
@@ -10,62 +11,57 @@ function matchView() {
 
   html.innerHTML = "";
   html.innerHTML = /*HTML*/ `
-      <div class="full-container">
-        <div class="container" style="margin-top: 25px">
-            <img class="logo" src="assets/table-tennis-paddle-ball-solid.svg">
-        </div>
+      
+      <div class="logo-container">
+        <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
+      </div> 
         ${
           view === "match-started"
             ? `
-            <div class="matchcontainer">
-              <div class="gamescore">
-                <div class="score-line">
-                  <div>
-                    ${model.app.user}
-                  </div>
-                  <div class="btn-container">
-                    <button class="scoreinput-btn">-</button>
-                    <input type="number" min="0" max="10" placeholder="0" class="scoreinput" onchange="model.inputs.newMatch.score[0] = parseInt(this.value)">
-                    <button class="scoreinput-btn">+</button>
-                  </div>
-                </div>
-                <div class="score-line">
-                  <div>
-                    ${invited}
-                  </div>
-                  <div class="btn-container">
-                    <button class="scoreinput-btn">-</button>
-                    <input type="number" min="0" max="10" placeholder="0" class="scoreinput" onchange="model.inputs.newMatch.score[1] = parseInt(this.value)">
-                    <button class="scoreinput-btn">+</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
 
-            <div class="buttoncontainer">
+                  <div class="match-player">
+                    <div>
+                      ${model.app.user}
+                    </div>
+                    <button class="match-btn">-</button>
+                    <input style="width: 50px;" type="number" min="0" max="10" placeholder="0" class="scoreinput" onchange="model.inputs.newMatch.score[0] = parseInt(this.value)" />
+                    <button class="match-btn">+</button>
+                  </div>
+
+                  
+                  
+                  <div class="match-player" style="margin-top: 15px;">
+                    <div>
+                      ${invited}
+                    </div>
+                    <button class="match-btn">-</button>
+                    <input style="width: 50px;" type="number" min="0" max="10" placeholder="0" class="scoreinput" onchange="model.inputs.newMatch.score[0] = parseInt(this.value)">
+                    <button class="match-btn">+</button>
+                  </div>
+
                 <button class="btn filled" onclick="completeMatch()">fullfør</button>
                 <button class="btn" onclick="model.app.view = 'match-create'; matchView();">tilbake</button>
-            </div>`
+  `
             : `
-            <div class="container">
-              <div class="inputField">
-                <input class="textField" list="players" name="player" type="text" placeholder="legg til spiller" onchange="addMatchPlayer(this.value)">     
-                <datalist class="datalist" id="players">
-                    ${showUser()}
-                </datalist>
-              </div>
-            </div>
-            <div class="container">
-              <div class="listcontainer container">
-                <div class="versusText">${player.length === 0 ? "" : "vs"}</div>
+            
+         
+              <input list="players" name="player" type="text" placeholder="legg til spiller" onchange="addMatchPlayer(this.value)">     
+              <datalist class="datalist" id="players">
+                  ${showUser()}
+              </datalist>
+        
+            
+            
+                <div>${player.length === 0 ? "" : "vs"}</div>
                 ${player.join("")}
-              </div>
-            </div>
-            <div class="buttoncontainer">
+            
+            
+            
                 <button class="btn filled" onclick="newMatch()">start</button>
                 <button class="btn" onclick="model.inputs.newMatch.invitedPlayer = []; menuView();">tilbake</button>
-            </div>`
-        }</div>
+            `
+        }
       `;
 }
 
@@ -89,7 +85,7 @@ function showUser() {
       continue;
     }
     if (model.app.user != users[i].userName) {
-      playerList += `<option class="player-option" value="${users[i].userName}">${users[i].userName}</option>`;
+      playerList += `<option value="${users[i].userName}">${users[i].userName}</option>`;
     }
   }
   return playerList;
