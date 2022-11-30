@@ -77,7 +77,7 @@ body {
   font-size: 1.5rem;
   border: 0px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.459);
-  /* margin-top: auto; */
+  margin: 15px 0;
 }
 
 .filled {
