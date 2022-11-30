@@ -23,8 +23,8 @@ function getPlayersAndByes(n) {
       console.log("hei", base);
     }
   }
+
   console.log("out of loop");
-  return newBasicTournament();
 }
 
 function nextRound() {
@@ -76,6 +76,7 @@ function nextRound() {
     console.log(model.data.tournaments);
     return;
   }
+  model.inputs.ongoingTournament.score = []
   tRound(); // updates model.app.view to "round-n + 1"
   ongoingTournamentView();
 }
