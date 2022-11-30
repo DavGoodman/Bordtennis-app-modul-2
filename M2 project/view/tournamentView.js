@@ -1,27 +1,29 @@
+tournamentView()
 function tournamentView() {
   let app = document.getElementById("app");
   let html = "";
   let players = model.inputs.newTournament.participants.map(
     (user) =>
-      `<div style="color: black; display: flex; justify-content: space-between; padding: 1rem"><span>${user}</span><button onclick="deletePlayer('${user}');">X</button></div>`
+      `<div style="display: flex; justify-content: space-between; padding: 1rem"><span>${user}</span>
+      <button class="del-player-btn" onclick="deletePlayer('${user}');">x</button></div>`
   );
   html += `
   
-        <div class='tournament-container'>
-          <div style="display: flex; flex-direction: row; align-content: bottom; ">
-            <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
-          </div> 
+        
+        <div class="" style="position: relative;">
+          <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
+        </div>    
         <input oninput="model.inputs.newTournament.tournamentName = this.value" type="text" placeholder="turneringsnavn">
-            <input list="players" name="player" type="text" placeholder="legg til spiller" onchange="addPlayer(this.value);">
-            <div class="player-list" style="display: flex; flex-direction: column;">
-                ${players.join("")}
-            </div>
-            <datalist id="players">
-                ${listUsers()}
-            </datalist>
-            <button onclick="commitPlayers()" class="btn filled">lag turnering</button>
-            <button class="btn" onclick="menuView()">avbryt</button>
+        <input list="players" name="player" type="text" placeholder="legg til spiller" onchange="addPlayer(this.value);">
+        <div class="player-list" style="display: flex; flex-direction: column;">
+            ${players.join("")}
         </div>
+        <datalist id="players">
+            ${listUsers()}
+        </datalist>
+        <button onclick="commitPlayers()" class="btn filled">lag turnering</button>
+        <button class="btn" onclick="menuView()">avbryt</button>
+        
          `;
   app.innerHTML = html;
 }
