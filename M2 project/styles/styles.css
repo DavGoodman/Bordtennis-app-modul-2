@@ -5,15 +5,15 @@
 }
 
 #app {
-  position: relative;
+  /* position: relative; */
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  justify-content: end;
-  margin-bottom: 50px;
+  /* justify-content: end; */
+  /* margin-bottom: 50px; */
   font-family: "Inter", sans-serif;
 }
 
@@ -26,21 +26,31 @@ i {
   width: 100%;
   height: auto;
   display: flex;
-  align-items: flex-start;
-  justify-content: start;
+  /* align-items: flex-start; */
+  /* justify-content: start; */
+  border-radius: 2rem;
+  /* margin-top: 3rem; */
+}
+
+.logout-div {
+  height: 4rem;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .logo-container {
-  position: absolute;
-  top: 50px;
+  /* position: absolute; */
+  margin-top: 1rem;
 }
 
 body {
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #fafaeb;
@@ -48,17 +58,18 @@ body {
 
 .log-out-btn {
   position: absolute;
-  /* -webkit-transform: scaleX(-1);
-  transform: scaleX(-1); */
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
   top: 35px;
   left: 15px;
   /* font-size: 2rem; */
   background-color: #072d35;
-  padding: 8px;
-  border-radius: 5px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   z-index: 1;
   cursor: pointer;
   color: #fafaeb;
+  margin: 1rem;
 }
 
 .btn {
@@ -72,7 +83,7 @@ body {
   font-size: 1.5rem;
   border: 0px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.459);
-  margin-top: 30px;
+  /* margin-top: auto; */
 }
 
 .filled {
@@ -81,13 +92,28 @@ body {
 
 .menu-container {
   position: relative;
-  height: 90vh;
+  min-height: 45vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.button-container {
+  height: 22.5vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  /* justify-self: flex-end; */
+  /* margin-bottom: 2rem; */
 }
+/* 
+.menu-container:last-child {
+  margin-bottom: 1rem;
+} */
 
 .selected {
   color: #ee7100;
@@ -97,9 +123,18 @@ body {
 
 .selection {
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: auto;
   width: auto;
   margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.filter-icon {
+  height: 1rem;
+  width: auto;
+  fill: #072d35;
 }
 
 table {
@@ -119,6 +154,16 @@ td {
   background-color: #072d35;
   color: white;
   text-align: start;
+}
+
+.expand {
+  height: 26px;
+  width: 80%;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  padding: 0;
+  margin: 0;
 }
 
 .date-sort-leaderboard > span {
@@ -183,35 +228,50 @@ input {
 }
 
 .history-container {
-  height: auto;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  /* gap: 1rem; */
 }
 
 .history {
   display: block;
   max-height: 100%;
   overflow-y: scroll;
+  padding: 0 1rem;
 }
 
+.history > thead > tr > th {
+  text-align: center;
+  color: #fafaeb;
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+}
 
+.history > tbody > tr > td {
+  font-size: small;
+}
 
+.history > tbody > tr > td:last-child {
+  text-align: end;
+}
 
-
-.player-list{
+.player-list {
+  display: flex;
+  flex-direction: column;
   background-color: #072d35;
   color: white;
   height: 30%;
   width: 70%;
   border-radius: 15px;
+  margin-top: 10px;
   overflow-y: auto;
 }
 
-.del-player-btn{
+.del-player-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -223,4 +283,27 @@ input {
   color: black;
   font-weight: bold;
   text-align: center;
+}
+
+.waiting-list {
+  background-color: #072d35;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.459);
+}
+
+.waiting-header {
+  font-weight: bold;
+}
+
+.win-text {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: #e6ad77;
+  text-shadow: gold 4px 4px 8px;
+  font-size: 2.5rem;
+  margin: 0 5px;
 }
