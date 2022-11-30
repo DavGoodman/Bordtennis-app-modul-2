@@ -5,7 +5,7 @@ function menuView() {
   let html = "";
   html += `
   <div onclick="toLogin('login')">  
-    <i class="fa-solid fa-right-from-bracket log-out-btn"></i>
+    <i class="fa-solid fa-arrow-left log-out-btn"></i>
   </div>    
       <div class='menu-container'>
         <div style="display: flex; flex-direction: row; align-content: bottom; ">

@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: end;
   margin-bottom: 50px;
+  font-family: "Inter", sans-serif;
 }
 
 i {
@@ -47,17 +48,17 @@ body {
 
 .log-out-btn {
   position: absolute;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+  /* -webkit-transform: scaleX(-1);
+  transform: scaleX(-1); */
   top: 35px;
   left: 15px;
-  font-size: 2rem;
+  /* font-size: 2rem; */
   background-color: #072d35;
   padding: 8px;
   border-radius: 5px;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.459);
   z-index: 1;
   cursor: pointer;
+  color: #fafaeb;
 }
 
 .btn {
@@ -81,7 +82,7 @@ body {
 .menu-container {
   position: relative;
   height: 90vh;
-  /* width: 80vw; */
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -91,15 +92,18 @@ body {
 .selected {
   color: #ee7100;
   font-weight: bold;
-  text-shadow: 1px 1px 5px #ee6f007d;
+  /* text-shadow: 1px 1px 5px #ee6f007d; */
 }
 
-.leaderboard-categories {
-  font-size: 2rem;
+.selection {
+  display: flex;
+  height: auto;
+  width: auto;
+  margin-top: 1rem;
 }
 
 table {
-  border-radius: 10px;
+  border-radius: 1rem;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.505);
 }
 
@@ -110,10 +114,11 @@ td {
 table,
 th,
 td {
-  border: 1px solid black;
+  border: none;
   border-collapse: collapse;
   background-color: #072d35;
   color: white;
+  text-align: start;
 }
 
 .date-sort-leaderboard > span {
@@ -179,7 +184,7 @@ input {
 
 .history-container {
   height: auto;
-  width: 90vw;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -190,7 +195,7 @@ input {
 .history {
   display: block;
   max-height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 
