@@ -84,7 +84,7 @@ body {
   background-color: #ee7100;
 }
 
-.menu-container {
+.top-container {
   position: relative;
   min-height: 45vh;
   width: 100vw;
@@ -104,10 +104,6 @@ body {
   /* justify-self: flex-end; */
   /* margin-bottom: 2rem; */
 }
-/* 
-.menu-container:last-child {
-  margin-bottom: 1rem;
-} */
 
 .selected {
   color: #ee7100;
@@ -156,7 +152,8 @@ td {
   text-align: center;
   justify-content: center;
   /* background-color: #072d35; */
-  color: white;
+  color: #fafaeb;
+  font-size: x-large;
   padding: 0;
   margin: 0;
 }
@@ -259,7 +256,8 @@ input {
   flex-direction: column;
   background-color: #072d35;
   color: white;
-  height: 30%;
+  height: auto;
+  min-height: 30%;
   width: 70%;
   border-radius: 15px;
   margin-top: 10px;
