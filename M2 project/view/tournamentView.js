@@ -7,6 +7,7 @@ function tournamentView() {
       `<div style="display: flex; justify-content: space-between; padding: 1rem"><span>${user}</span>
       <button class="del-player-btn" onclick="deletePlayer('${user}');">x</button></div>`
   );
+
   html += `
   
         
