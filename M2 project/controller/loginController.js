@@ -69,6 +69,11 @@ function register(){
             return}
     }
 
+    if (username.length > 12){
+        errMsg = "Brukernavn max 12 karakter"
+        logInView(true, errMsg)
+        return}
+
     if (password !== confirmPassword){
         errMsg = "Passordene ikke det samme"
         logInView(true, errMsg)
