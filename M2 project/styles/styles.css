@@ -36,13 +36,13 @@ i {
   height: 4rem;
   width: 100vw;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .logo-container {
   /* position: absolute; */
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 
 body {
@@ -57,6 +57,8 @@ body {
 }
 
 .log-out-btn {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
   background-color: #072d35;
   padding: 0.5rem;
   border-radius: 0.5rem;

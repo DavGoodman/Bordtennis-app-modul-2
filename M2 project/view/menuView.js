@@ -11,8 +11,7 @@ function menuView() {
     <div style="width: 80%">
       <img class='logo' src="assets/Logo.svg" alt="tennis icon"/>
     </div>
-  </div>
-  <div class="button-container" style="height: 40vh">
+  </div><div class="button-container" style="height: 40vh">
     <button onclick="matchView();" class="btn filled">SPILL</button>
     <button onclick="tournamentView()" class="btn ">TURNERING</button>
     <button onclick="leaderboardView()" class="btn ">LEDERTAVLE</button>
