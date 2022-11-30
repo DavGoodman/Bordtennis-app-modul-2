@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: end;
   margin-bottom: 50px;
+  overflow-y: scroll;
 }
 
 i {
@@ -171,7 +172,7 @@ input {
   height: 25px;
   width: 25px;
   font-size: large;
-  border-radius: 30%;
+  border-radius: 50%;
   background-color: #ee7100;
   border: 2px solid white;
   color: black;
@@ -198,11 +199,14 @@ input {
 
 
 .player-list{
+  display: flex;
+  flex-direction: column;
   background-color: #072d35;
   color: white;
   height: 30%;
   width: 70%;
   border-radius: 15px;
+  margin-top: 10px;
   overflow-y: auto;
 }
 
@@ -218,4 +222,16 @@ input {
   color: black;
   font-weight: bold;
   text-align: center;
+}
+
+.waiting-list{
+  background-color: #072d35;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.459);
+}
+
+.waiting-header{
+  font-weight: bold;
 }

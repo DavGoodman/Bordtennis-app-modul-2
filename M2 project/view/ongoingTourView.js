@@ -6,7 +6,7 @@ function ongoingTournamentView() {
   let app = document.getElementById("app");
   let html = "";
 
-  if(round == 1) {getPlayersAndByes(participants.length)}
+  if(round == 1 && !model.inputs.ongoingTournament.score[0]) {getPlayersAndByes(participants.length)}
 
   if(!model.inputs.ongoingTournament.score[0]) newBasicTournament()
 
@@ -29,7 +29,7 @@ function ongoingTournamentView() {
     ${drawMatch()}
   </div>
   <br>
-  <button onclick="nextRound()">
+  <button class="btn filled" onclick="nextRound()">
     Neste Runde
   </button>
   `;
@@ -88,7 +88,6 @@ function newBasicTournament() {
 
 
 function drawMatch(){
-  console.log("drawing match...")
   let matchHtml = "";
   let waiting = model.data.ongoingTournament.waitingParticipants;
   let roundArray = model.inputs.ongoingTournament.score
@@ -131,8 +130,8 @@ function drawMatch(){
   matchHtml += `
   ${
     waiting[0]
-      ? `<div style="margin-top: 20px;" >Venteliste:</div>
-  <div style="background: gray; border: 2px solid black;">
+      ? `<div class="waiting-header" >Venteliste:</div>
+  <div class="waiting-list">
     ${waitList.join("")}
   </div>`
       : ""
