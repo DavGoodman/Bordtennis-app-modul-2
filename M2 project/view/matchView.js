@@ -42,9 +42,10 @@ function matchView() {
                       step="1" placeholder="0" class="scoreinput" oninput="model.inputs.newMatch.score[1] = parseInt(this.value)" />
                       <button onclick="plusOne(1); matchView();" class="match-btn">+</button>
                     </div>
-
-                <button class="btn filled" onclick="completeMatch()">fullfør</button>
-                <button class="btn" onclick="model.app.view = 'match-create'; matchView();">tilbake</button>
+                    <div class="button-container" style="height: 20vh">
+                    <button class="btn filled" onclick="completeMatch()">fullfør</button>
+                    <button class="btn" onclick="model.app.view = 'match-create'; matchView();">tilbake</button>
+                    </div>
                 `
             : /*HTML*/ `
                   <input list="players" name="player" type="text" placeholder="legg til spiller" onchange="addMatchPlayer(this.value)">     
@@ -56,10 +57,11 @@ function matchView() {
                   <div>${player.length === 0 ? "" : "vs "}</div>
                   <div>${player.join("")}</div>
                 </div>
-            
+                <div class="button-container" style="height: 20vh">
                 <button class="btn filled" onclick="newMatch()">start</button>
                 <button class="btn" onclick="model.inputs.newMatch.invitedPlayer = []; menuView();">tilbake</button>
-            `
+                </div>
+                `
         }
       `;
 }
