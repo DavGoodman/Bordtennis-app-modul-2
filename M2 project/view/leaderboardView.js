@@ -1,11 +1,10 @@
-leaderboardView();
+// leaderboardView();
 function leaderboardView() {
   let app = document.getElementById("app");
   let html = "";
   let inputs = model.inputs.leaderboard;
   html += /*HTML*/ `
-  <div class="top-container">
-    <div class="logout-div" onclick="toLogin('login')">  
+    <div class="logout-div" onclick="menuView()">  
     <i class="fa-solid fa-arrow-right-from-bracket log-out-btn"></i>
     </div>
     <div class="logo-container">
@@ -19,11 +18,11 @@ function leaderboardView() {
         <span 
         ${inputs.category === "tournaments" ? `class="selected"` : ""}
         onclick="ChangeCategory('tournaments')"
-        >Turneringer</span>
+        >turneringer</span>
         <span 
         ${inputs.category === "matches" ? `class="selected"` : ""}
         onclick="ChangeCategory('matches')"
-        >Kamper</span>
+        >kamper</span>
     </div>
     <div class="date-sort-leaderboard">
       <span ${inputs.showLast == 7 ? `class="selected"` : ""} onclick="sortDate(7)">siste uke</span>
@@ -41,10 +40,6 @@ function leaderboardView() {
     </div>
     
     ${getWins()}
-  </div>
-    <div class="button-container" style="height: 11.25vh">
-    <button class="btn" onclick="menuView()">tilbake</button>
-    </div>
     `;
   app.innerHTML = html;
 }
@@ -67,15 +62,24 @@ function getWins(winType) {
   let wins = getStats();
 
   html = `
-    <table style="width:90%; margin-top: 10px;">
-      <tr>
-        <th>Plass</th>
-        <th>Navn</th>
-        <th>V/T</th>
-        <th>%</th>
-      </tr>
-      ${wins.join("")}
+  <div class="leaderboard-table">
+    <table>
+    
+      <thead>
+        <tr>
+          <th>plass</th>
+          <th>navn</th>
+          <th>vinn/tap</th>
+          <th>vinner-%</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        ${wins.join("")}
+      </tbody>  
     </table>
+    
+  </div>
     `;
   return html;
 }
@@ -122,28 +126,28 @@ function getStats() {
     category == "tournaments"
       ? `
       <tr>
-        <th>${index + 1}</th>
-        <th>${user.userName}</th>
-        <th>${user.lastTourneyWins}/${user.lastTourneyLosses}</th>
-        <th>${
+        <td>${index + 1}</td>
+        <td>${user.userName}</td>
+        <td>${user.lastTourneyWins}/${user.lastTourneyLosses}</td>
+        <td>${
           user.lastTourneyWins + user.lastTourneyLosses === 0
             ? "N/A"
             : Math.round((user.lastTourneyWins / (user.lastTourneyWins + user.lastTourneyLosses)) * 100) + "%"
         }
-        </th>
+        </td>
         
       </tr>`
       : `
         <tr>
-          <th>${index + 1}</th>
-          <th>${user.userName}</th>
-          <th>${user.lastWins}/${user.lastLosses}</th>
-          <th>${
+          <td>${index + 1}</td>
+          <td>${user.userName}</td>
+          <td>${user.lastWins}/${user.lastLosses}</td>
+          <td>${
             user.lastWins + user.lastLosses === 0
               ? "N/A"
               : Math.round((user.lastWins / (user.lastWins + user.lastLosses)) * 100) + "%"
           }
-          </th>
+          </td>
         </tr>`
   );
 
