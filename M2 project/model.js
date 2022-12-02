@@ -148,7 +148,7 @@ const model = {
         userName: "get-student",
         firstName: "Get",
         lastName: "Studentsen",
-        password: "get123",
+        password: "get",
         wins: 12,
         losses: 5,
         tournamentWins: 90,
@@ -267,8 +267,8 @@ const model = {
         matchId: 10,
         datePlayed: "2022-04-03T15:20:03.390Z", //ISO 8601
         participants: [
-          { playerId: 1337, matchScore: 10 },
-          { playerId: 5, matchScore: 7 },
+          { playerId: 1337, matchScore: 8 },
+          { playerId: 5, matchScore: 10 },
         ],
       },
       {
@@ -276,15 +276,15 @@ const model = {
         datePlayed: "2022-04-03T15:21:03.390Z", //ISO 8601
         participants: [
           { playerId: 1337, matchScore: 10 },
-          { playerId: 4, matchScore: 7 },
+          { playerId: 4, matchScore: 2 },
         ],
       },
       {
         matchId: 12,
         datePlayed: "2022-04-03T15:12:03.390Z", //ISO 8601
         participants: [
-          { playerId: 1337, matchScore: 10 },
-          { playerId: 1, matchScore: 7 },
+          { playerId: 1337, matchScore: 9 },
+          { playerId: 1, matchScore: 10 },
         ],
       },
       {
@@ -300,7 +300,7 @@ const model = {
         datePlayed: "2022-03-02T15:22:03.390Z", //ISO 8601
         participants: [
           { playerId: 1, matchScore: 10 },
-          { playerId: 2, matchScore: 7 },
+          { playerId: 2, matchScore: 9 },
         ],
       },
       {
@@ -308,7 +308,87 @@ const model = {
         datePlayed: "2022-03-01T15:11:03.390Z", //ISO 8601
         participants: [
           { playerId: 2, matchScore: 10 },
-          { playerId: 1337, matchScore: 7 },
+          { playerId: 1337, matchScore: 3 },
+        ],
+      },
+      {
+        matchId: 16,
+        datePlayed: "2022-12-01T10:11:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 10 },
+          { playerId: 2, matchScore: 3 },
+        ],
+      },
+      {
+        matchId: 17,
+        datePlayed: "2022-12-01T16:44:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 8 },
+          { playerId: 4, matchScore: 10 },
+        ],
+      },
+      {
+        matchId: 18,
+        datePlayed: "2022-10-01T16:44:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 8 },
+          { playerId: 3, matchScore: 10 },
+        ],
+      },
+      {
+        matchId: 19,
+        datePlayed: "2022-11-01T12:44:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 8 },
+          { playerId: 1, matchScore: 10 },
+        ],
+      },
+      {
+        matchId: 20,
+        datePlayed: "2022-09-01T11:44:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 10 },
+          { playerId: 5, matchScore: 9 },
+        ],
+      },
+      {
+        matchId: 21,
+        datePlayed: "2022-08-04T17:44:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 8 },
+          { playerId: 4, matchScore: 10 },
+        ],
+      },
+      {
+        matchId: 22,
+        datePlayed: "2022-08-06T15:38:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 10 },
+          { playerId: 1, matchScore: 2 },
+        ],
+      },
+      {
+        matchId: 23,
+        datePlayed: "2022-07-07T16:44:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 8 },
+          { playerId: 2, matchScore: 10 },
+        ],
+      },
+      {
+        matchId: 24,
+        datePlayed: "2022-06-04T16:44:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 10 },
+          { playerId: 5, matchScore: 5 },
+        ],
+      },
+      {
+        matchId: 25,
+        datePlayed: "2022-05-01T16:00:03.390Z", //ISO 8601
+        participants: [
+          { playerId: 6, matchScore: 8 },
+          { playerId: 4, matchScore: 10 },
         ],
       },
     ],
@@ -363,21 +443,21 @@ const model = {
             round: 2,
             participants: [
               { playerId: 1337, matchScore: 10 },
-              { playerId: 1, matchScore: 7 },
+              { playerId: 1, matchScore: 9 },
             ],
           },
           {
             round: 2,
             participants: [
               { playerId: 7, matchScore: 10 },
-              { playerId: 3, matchScore: 7 },
+              { playerId: 3, matchScore: 4 },
             ],
           },
           {
             round: 3,
             participants: [
               { playerId: 1, matchScore: 10 },
-              { playerId: 5, matchScore: 7 },
+              { playerId: 5, matchScore: 8 },
             ],
           },
         ],

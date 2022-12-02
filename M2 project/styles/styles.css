@@ -197,6 +197,7 @@ input {
 }
 
 .scoreinput {
+  width: 70%;
   text-align: center;
   font-size: 1.2rem;
   background-color: white;
@@ -211,6 +212,7 @@ input {
 }
 
 .match-player {
+  /* width: 70%; */
   color: white;
   padding: 10px;
   border-radius: 10px;

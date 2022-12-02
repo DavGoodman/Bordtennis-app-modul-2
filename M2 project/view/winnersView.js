@@ -18,6 +18,5 @@ function winnerView(name) {
 
     <h2 class="win-text">
       Vinneren av ${model.data.ongoingTournament.tournamentName} er ${name}!
-    </h2>
-    <button onclick="menuView()" class="btn filled">Tilbake</button>`;
+    </h2>`;
 }
